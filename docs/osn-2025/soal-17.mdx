@@ -1,157 +1,154 @@
-# Soal 17 — Permainan Kartu Bebek
+# Soal 17 — Menyimpan Kotak Penyimpanan
 
 ## Soal
 
-Terdapat 8 kartu bernomor:
+Terdapat 10 kotak kardus dengan panjang sisi:
 
 ```txt
-1 sampai 8
+1, 1, 2, 2, 2, 3, 3, 4, 6, 8
 ```
 
-Aturan:
-- setiap langkah boleh menukar:
-  - sembarang dua kartu
-  - tidak harus bersebelahan
+Sebuah kotak:
+- dapat dimasukkan ke dalam kotak lain,
+- jika panjang sisi kotak di dalam
+  lebih kecil dari kotak luar.
+
+Pak Dengklek ingin:
+- setiap kotak jika dibuka
+  hanya terlihat maksimal satu kotak di dalamnya,
+- dan jumlah kotak yang terlihat dari luar
+  seminimum mungkin.
 
 Pertanyaannya:
 
-> Berapa minimum banyak pertukaran
-> untuk mengubah:
-
-```txt
-1 2 3 4 5 6 7 8
-```
-
-menjadi:
-
-```txt
-8 7 6 5 4 3 2 1
-```
+> Berapa banyak kotak kardus paling sedikit
+> yang mungkin terlihat dari luar?
 
 Tuliskan jawaban dalam bentuk ANGKA.
+
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Sekarang:
-- boleh swap sembarang posisi
-- tidak harus adjacent
-
-Strateginya:
-- setiap swap bisa memperbaiki dua posisi sekaligus.
-
----
-
-# Analisis Posisi
-
-Awal:
-
+Karena:
 ```txt
-1 2 3 4 5 6 7 8
+kotak dengan ukuran sama
+tidak bisa saling masuk
 ```
 
-Target:
-
+maka kita perlu menyusun:
 ```txt
-8 7 6 5 4 3 2 1
+rantai kotak
 ```
 
-Pasangan yang salah:
-
+dengan ukuran:
 ```txt
-1 ↔ 8
-2 ↔ 7
-3 ↔ 6
-4 ↔ 5
+strictly increasing
 ```
 
 ---
 
-# Langkah Optimal
-
----
-
-## Swap 1 dan 8
-
-Hasil:
+# Data Kotak
 
 ```txt
-8 2 3 4 5 6 7 1
+1, 1,
+2, 2, 2,
+3, 3,
+4,
+6,
+8
 ```
 
 ---
 
-## Swap 2 dan 7
+# Strategi Penyusunan
 
-Hasil:
+Kita susun sebanyak mungkin
+ke dalam rantai-rantai.
+
+---
+
+## Rantai 1
 
 ```txt
-8 7 3 4 5 6 2 1
+1 → 2 → 3 → 4 → 6 → 8
 ```
 
 ---
 
-## Swap 3 dan 6
-
-Hasil:
+## Rantai 2
 
 ```txt
-8 7 6 4 5 3 2 1
+1 → 2 → 3
 ```
 
 ---
 
-## Swap 4 dan 5
-
-Hasil:
+## Rantai 3
 
 ```txt
-8 7 6 5 4 3 2 1
+2
 ```
-
-Selesai.
 
 ---
 
-# Total Swap
+# Hasil
 
+Terdapat:
 ```txt
-4
+3 rantai
+```
+
+Artinya:
+- ada 3 kotak terluar
+  yang terlihat dari luar.
+
+---
+
+# Mengapa Tidak Bisa 2?
+
+Karena:
+```txt
+ukuran 2 muncul 3 kali
+```
+
+Sedangkan:
+- satu rantai hanya boleh memuat
+  maksimal satu kotak ukuran 2.
+
+Maka:
+```txt
+minimal harus ada 3 rantai.
 ```
 
 ---
 
 # Jawaban
 
-4
+3
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- permutation cycle
-- minimum swap
-- optimasi pertukaran
+- greedy
+- chain decomposition
+- sorting
 
 Konsep penting:
 
 Jika:
-- swap bebas
-- tidak harus adjacent
+```txt
+ukuran harus strictly increasing
+```
 
 maka:
 ```txt
-minimum swap
+jumlah minimum rantai
 =
-jumlah siklus permutation
+frekuensi maksimum
+ukuran yang sama.
 ```
-
-Untuk array terbalik ukuran genap:
-```txt
-jumlah swap minimum = n/2
-```
-
-karena:
-- setiap swap memperbaiki 2 posisi sekaligus.

@@ -1,23 +1,23 @@
-# Soal 19 — Bilangan Misterius
+# Soal 19 — Menyimpan Kotak Penyimpanan
 
 ## Soal
 
-Terdapat sebuah bilangan bulat positif:
+Terdapat 70 kotak kardus dengan data berikut:
 
-```txt
-N
-```
-
-Diketahui:
-
-- jika dibagi 2 bersisa 1
-- jika dibagi 3 bersisa 1
-- jika dibagi 4 bersisa 1
-- jika dibagi 5 bersisa 1
+| Panjang Sisi | Banyak Kotak |
+| --- | --- |
+| 2 | 5 |
+| 3 | 12 |
+| 5 | 19 |
+| 8 | 4 |
+| 13 | 15 |
+| 21 | 7 |
+| 34 | 8 |
 
 Pertanyaannya:
 
-> Berapa bilangan positif terkecil yang memenuhi semua syarat tersebut?
+> Berapa banyak kotak kardus paling sedikit
+> yang mungkin dapat terlihat dari luar?
 
 Tuliskan jawaban dalam bentuk ANGKA.
 
@@ -25,123 +25,104 @@ Tuliskan jawaban dalam bentuk ANGKA.
 
 ## Cara Berpikir
 
-Karena semua sisa:
+Aturan:
+- kotak hanya bisa dimasukkan
+  ke kotak dengan ukuran lebih besar,
+- kotak dengan ukuran sama
+  tidak bisa saling masuk.
 
+Tujuan:
 ```txt
-1
+meminimalkan jumlah kotak
+yang terlihat dari luar
+```
+
+Artinya:
+- kita ingin membuat
+  sebanyak mungkin rantai kotak.
+
+---
+
+# Konsep Penting
+
+Jika:
+```txt
+ada k kotak
+dengan ukuran sama
 ```
 
 maka:
-
 ```txt
-N - 1
+minimal harus ada k rantai
 ```
 
-harus habis dibagi:
-- 2
-- 3
-- 4
-- 5
+karena:
+- kotak dengan ukuran sama
+  tidak bisa berada
+  pada rantai yang sama.
 
 ---
 
-# Cari KPK
+# Cari Frekuensi Terbesar
 
-Kita hitung:
+| Ukuran | Banyak |
+| --- | --- |
+| 2 | 5 |
+| 3 | 12 |
+| 5 | 19 |
+| 8 | 4 |
+| 13 | 15 |
+| 21 | 7 |
+| 34 | 8 |
+
+Frekuensi terbesar:
 
 ```txt
-KPK(2,3,4,5)
+19
 ```
 
----
-
-## Faktorisasi
-
+yaitu pada ukuran:
 ```txt
-2 = 2
-3 = 3
-4 = 2²
-5 = 5
-```
-
-Maka:
-
-```txt
-KPK = 2² × 3 × 5
-```
-
-Hitung:
-
-```txt
-4 × 3 × 5
-=
-60
+5
 ```
 
 ---
 
-# Cari N
+# Kesimpulan
 
-Karena:
-
+Minimal harus ada:
 ```txt
-N - 1 = 60
+19 rantai
 ```
 
-maka:
-
-```txt
-N = 61
-```
-
----
-
-# Verifikasi
-
-```txt
-61 mod 2 = 1
-61 mod 3 = 1
-61 mod 4 = 1
-61 mod 5 = 1
-```
-
-Semua benar.
+Artinya:
+- minimal ada 19 kotak
+  yang terlihat dari luar.
 
 ---
 
 # Jawaban
 
-61
+19
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- modulo
-- KPK
-- pola sisa pembagian
+- greedy
+- chain decomposition
+- analisis frekuensi
 
-Konsep penting:
-
-Jika:
+Konsep inti:
 
 ```txt
-N mod k = 1
+jumlah minimum rantai
+=
+frekuensi maksimum
 ```
 
-maka:
-
-```txt
-N - 1
-```
-
-habis dibagi:
-```txt
-k
-```
-
-Teknik cepat:
-1. ubah ke bentuk kelipatan
-2. cari KPK
-3. tambahkan 1
+karena:
+- elemen dengan ukuran sama
+  tidak dapat berada
+  pada rantai yang sama.

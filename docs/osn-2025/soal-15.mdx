@@ -1,134 +1,217 @@
-# Soal 15 — Permainan Kartu Bebek
+# Soal 15 — Perjalanan ke Timur
 
 ## Soal
 
-Terdapat 8 kartu bernomor:
+Bebek-bebek Pak Dengklek ingin pergi:
+- dari titik A
+- menuju titik H
 
+Mereka hanya boleh:
 ```txt
-1 sampai 8
+bergerak ke arah kanan
 ```
 
-Kartu disusun berjajar dari kiri ke kanan.
-
-Aturan permainan:
-- setiap langkah boleh menukar posisi:
-  - dua kartu yang bersebelahan
-
-Tujuan:
-mengubah susunan awal:
-
+Pada graph terdapat:
+- 3 jalur rahasia bergembok,
+- dan pada Soal 15,
+  bebek memiliki:
+  
 ```txt
-1 2 3 4 5 6 7 8
+3 kunci sakti
 ```
 
-menjadi:
+Karena:
+- ada tepat 3 gembok,
+- dan tersedia 3 kunci,
 
+maka:
 ```txt
-8 7 6 5 4 3 2 1
+seluruh jalur dapat digunakan.
 ```
 
 Pertanyaannya:
 
-> Berapa minimum banyak pertukaran yang diperlukan?
+> Berapa banyak kemungkinan rute berbeda
+> dari A ke H?
 
 Tuliskan jawaban dalam bentuk ANGKA.
+
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Karena:
-- hanya boleh swap bersebelahan
-
-maka minimum langkah sama dengan:
+Karena semua jalur terbuka,
+kita hitung jumlah rute menggunakan:
 
 ```txt
-jumlah inversi
+Dynamic Programming pada DAG
 ```
 
 ---
 
-# Apa Itu Inversi?
+# Dari A ke B
 
-Pasangan:
-
+Ada:
 ```txt
-(i,j)
+2 jalur
 ```
 
-dengan:
-```txt
-i < j
-```
+Maka:
 
-tetapi:
 ```txt
-A[i] > A[j]
+B = 2
 ```
 
 ---
 
-# Kasus Soal
+# Dari B ke C
 
-Susunan akhir:
-
+Ada:
 ```txt
-8 7 6 5 4 3 2 1
+1 jalur
 ```
 
-adalah kebalikan total.
+Maka:
 
-Artinya:
-- setiap pasangan menjadi inversi.
+```txt
+C = 2
+```
 
 ---
 
-# Hitung Jumlah Inversi
+# Dari B ke D
 
-Untuk:
+Ada:
 ```txt
-N = 8
+2 jalur
 ```
 
-Jumlah inversi maksimum:
-
-:contentReference[oaicite:0]{index=0}
-
-Substitusi:
+Maka:
 
 ```txt
-8 × 7 / 2
+D = 2 × 2
 =
-28
+4
+```
+
+---
+
+# Dari B ke E
+
+Ada:
+```txt
+1 jalur
+```
+
+Maka:
+
+```txt
+E = 2
+```
+
+---
+
+# Menuju F
+
+Sekarang:
+- jalur D → F terbuka
+- jalur E → F ada 2
+
+Maka:
+
+Dari D:
+```txt
+4 × 1 = 4
+```
+
+Dari E:
+```txt
+2 × 2 = 4
+```
+
+Total:
+
+```txt
+F = 8
+```
+
+---
+
+# Menuju G
+
+Jalur menuju G:
+- C → G : 1 jalur
+- D → G : 2 jalur
+- F → G : 1 jalur
+
+Hitung:
+
+Dari C:
+```txt
+2 × 1 = 2
+```
+
+Dari D:
+```txt
+4 × 2 = 8
+```
+
+Dari F:
+```txt
+8 × 1 = 8
+```
+
+Total:
+
+```txt
+G = 18
+```
+
+---
+
+# Dari G ke H
+
+Ada:
+```txt
+2 jalur
+```
+
+Maka:
+
+```txt
+H = 18 × 2
+=
+36
 ```
 
 ---
 
 # Jawaban
 
-28
+36
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- sorting
-- inversion counting
-- bubble sort analysis
+- graph DAG
+- counting paths
+- dynamic programming
 
 Konsep penting:
 
-```txt
-Minimum adjacent swap
-=
-jumlah inversi
-```
-
-Untuk array terbalik penuh:
+Pada DAG:
 
 ```txt
-jumlah inversi maksimum
+jumlah cara ke node
 =
-n(n-1)/2
+jumlah seluruh cara
+dari predecessor.
 ```
+
+Karena:
+- semua jalur sekarang terbuka,
+- jumlah rute bertambah signifikan.

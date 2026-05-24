@@ -1,150 +1,293 @@
-# Soal 12 — Jalan Tol Bebek
+# Soal 12 — Mesin BCS
 
 ## Soal
 
-Pak Dengklek ingin bepergian dari kota:
-
+Pak Dengklek memiliki:
 ```txt
-A → H
+N = 9 koin
 ```
 
-Terdapat jalan dua arah dengan angka:
-- menunjukkan biaya perjalanan
+Setelah seluruh penekanan tombol selesai,
+kertas hasil cetakan berisi:
 
-Tujuan:
-- mencari biaya minimum dari A ke H
+```txt
+543628971
+```
 
 Pertanyaannya:
 
-> Berapakah total biaya minimum yang diperlukan?
+> Bagaimanakah urutan penekanan tombol
+> yang dilakukan oleh Pak Dengklek?
+>
+> Urutan harus diakhiri dengan tombol:
+>
+> ```txt
+> S
+> ```
 
-Tuliskan jawaban dalam bentuk ANGKA.
+Tuliskan jawaban dalam bentuk STRING tanpa tanda petik.
+
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Soal ini adalah:
+Mesin BCS bekerja seperti:
 
 ```txt
-Shortest Path
+STACK (LIFO)
 ```
 
-Kita mencari:
-- jalur termurah
-- dari titik awal ke tujuan
+Artinya:
+- koin terakhir masuk
+- keluar terlebih dahulu.
+
+Tombol:
+- `B` → memasukkan koin baru
+- `C` → mencetak dan mengeluarkan koin paling atas
+- `S` → selesai
 
 ---
 
-# Strategi
+# Target Cetakan
 
-Coba beberapa jalur yang mungkin,
-lalu pilih total biaya terkecil.
+```txt
+543628971
+```
+
+Kita susun tombolnya sedikit demi sedikit.
 
 ---
 
-# Jalur Kandidat
+# Cetak 5
 
-Dari gambar graf:
-
----
-
-## Jalur 1
+Agar 5 berada di atas stack,
+kita harus memasukkan:
 
 ```txt
-A → B → E → H
+1 2 3 4 5
 ```
 
-Total biaya:
+Tombol:
 
 ```txt
-4 + 7 + 8
-=
-19
+BBBBB
 ```
 
----
-
-## Jalur 2
+Lalu cetak:
 
 ```txt
-A → C → F → H
+C
 ```
 
-Total:
-
+Hasil:
 ```txt
-6 + 5 + 10
-=
-21
-```
-
----
-
-## Jalur 3
-
-```txt
-A → B → D → G → H
-```
-
-Total:
-
-```txt
-4 + 3 + 6 + 5
-=
-18
+5
 ```
 
 ---
 
-## Jalur 4
+# Cetak 4
+
+4 sekarang berada di atas.
+
+Tekan:
 
 ```txt
-A → C → D → G → H
+C
 ```
 
-Total:
-
+Hasil:
 ```txt
-6 + 2 + 6 + 5
-=
-19
+54
 ```
 
 ---
 
-# Cari Minimum
+# Cetak 3
 
-Biaya terkecil:
+3 sekarang berada di atas.
+
+Tekan:
 
 ```txt
-18
+C
+```
+
+Hasil:
+```txt
+543
+```
+
+---
+
+# Cetak 6
+
+Masukkan koin 6:
+
+```txt
+B
+```
+
+Lalu cetak:
+
+```txt
+C
+```
+
+Hasil:
+```txt
+5436
+```
+
+---
+
+# Cetak 2
+
+2 sekarang berada di atas.
+
+Tekan:
+
+```txt
+C
+```
+
+Hasil:
+```txt
+54362
+```
+
+---
+
+# Cetak 8
+
+Masukkan:
+```txt
+7 lalu 8
+```
+
+Tombol:
+
+```txt
+BB
+```
+
+Cetak:
+
+```txt
+C
+```
+
+Hasil:
+```txt
+543628
+```
+
+---
+
+# Cetak 9
+
+Masukkan:
+```txt
+9
+```
+
+Tombol:
+
+```txt
+B
+```
+
+Cetak:
+
+```txt
+C
+```
+
+Hasil:
+```txt
+5436289
+```
+
+---
+
+# Cetak 7
+
+Tekan:
+
+```txt
+C
+```
+
+Hasil:
+```txt
+54362897
+```
+
+---
+
+# Cetak 1
+
+Tekan:
+
+```txt
+C
+```
+
+Hasil:
+```txt
+543628971
+```
+
+---
+
+# Stop
+
+Tekan:
+
+```txt
+S
+```
+
+---
+
+# Gabungkan Semua Tombol
+
+```txt
+BBBBBCCBCCBBCBCCCS
 ```
 
 ---
 
 # Jawaban
 
-18
+```txt
+BBBBBCCBCCBBCBCCCS
+```
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- graph traversal
-- shortest path
-- optimasi jalur
+- stack simulation
+- push/pop
+- stack permutation
 
 Konsep penting:
 
-Untuk graf berbobot positif,
-algoritma yang umum dipakai:
-
 ```txt
-Dijkstra
+B = push
+C = pop
 ```
 
-Teknik cepat pilihan ganda:
-- coba beberapa jalur kandidat
-- eliminasi jalur mahal lebih awal.
+Karena stack bersifat:
+
+```txt
+Last In First Out
+```
+
+maka:
+- elemen terakhir masuk
+- keluar terlebih dahulu.

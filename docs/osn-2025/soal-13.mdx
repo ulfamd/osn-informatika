@@ -1,149 +1,269 @@
-# Soal 13 — Jalan Tol Bebek
+# Soal 13 — Mesin BCS
 
 ## Soal
 
-Pak Dengklek ingin pergi dari kota:
-
+Pak Dengklek memiliki:
 ```txt
-A → H
+N = 6 koin
 ```
 
-Setiap jalan memiliki:
-- arah tertentu
-- biaya tertentu
+Dari 5 kemungkinan hasil cetakan berikut:
+
+A.
+```txt
+453216
+```
+
+B.
+```txt
+321654
+```
+
+C.
+```txt
+243651
+```
+
+D.
+```txt
+534621
+```
+
+E.
+```txt
+123456
+```
 
 Pertanyaannya:
 
-> Jika Pak Dengklek wajib melewati kota D,
-> berapakah biaya minimum perjalanan dari A ke H?
+> Manakah yang sebenarnya
+> tidak mungkin dihasilkan oleh Mesin BCS?
 
-Tuliskan jawaban dalam bentuk ANGKA.
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Karena:
+Mesin BCS bekerja seperti:
+
 ```txt
-harus melewati D
+STACK (LIFO)
 ```
 
-maka kita pecah menjadi:
+Artinya:
+- elemen terakhir masuk
+- keluar terlebih dahulu.
 
-1. biaya minimum:
-```txt
-A → D
-```
-
-2. biaya minimum:
-```txt
-D → H
-```
-
-Lalu dijumlahkan.
-
----
-
-# Langkah 1 — Cari Jalur Minimum A ke D
-
-Beberapa kemungkinan:
-
----
-
-## Jalur A → B → D
+Kita cek satu per satu apakah urutan tersebut valid sebagai:
 
 ```txt
-4 + 3
-=
-7
+stack permutation
 ```
 
 ---
 
-## Jalur A → C → D
+# A. 453216
 
+Simulasi:
+
+Masukkan:
 ```txt
-6 + 2
-=
-8
+1 2 3 4 5
 ```
 
-Minimum:
-
+Cetak:
 ```txt
-7
+5 4
 ```
 
----
-
-# Langkah 2 — Cari Jalur Minimum D ke H
-
-Kemungkinan:
-
----
-
-## D → G → H
-
+Masukkan:
 ```txt
-6 + 5
-=
-11
+6
 ```
 
----
-
-## D → E → H
-
+Cetak:
 ```txt
-9 + 8
-=
-17
+6 2 1
 ```
 
-Minimum:
-
+Urutan ini:
 ```txt
-11
+mungkin
 ```
 
 ---
 
-# Langkah 3 — Total
+# B. 321654
 
+Masukkan:
 ```txt
-7 + 11
-=
-18
+1 2 3
+```
+
+Cetak:
+```txt
+3 2 1
+```
+
+Masukkan:
+```txt
+4 5 6
+```
+
+Cetak:
+```txt
+6 5 4
+```
+
+Urutan ini:
+```txt
+mungkin
+```
+
+---
+
+# C. 243651
+
+Masukkan:
+```txt
+1 2
+```
+
+Cetak:
+```txt
+2
+```
+
+Masukkan:
+```txt
+3 4
+```
+
+Cetak:
+```txt
+4 3
+```
+
+Masukkan:
+```txt
+5 6
+```
+
+Cetak:
+```txt
+6 5
+```
+
+Tetapi target:
+```txt
+243651
+```
+
+Perhatikan:
+- setelah 3 keluar,
+- 5 berada di bawah 6.
+
+Agar:
+```txt
+5 keluar sebelum 1
+```
+masih mungkin.
+
+Lanjut:
+- akhirnya bisa dibentuk.
+
+Urutan ini:
+```txt
+mungkin
+```
+
+---
+
+# D. 534621
+
+Cetak:
+```txt
+5
+```
+berarti harus memasukkan:
+```txt
+1 2 3 4 5
+```
+
+Stack tersisa:
+```txt
+1 2 3 4
+```
+
+Cetak berikutnya:
+```txt
+3
+```
+
+Masalah:
+```txt
+4 berada di atas 3
+```
+
+Maka:
+```txt
+3 tidak bisa keluar sebelum 4
+```
+
+Karena stack bersifat:
+```txt
+LIFO
+```
+
+Jadi urutan ini:
+```txt
+tidak mungkin
+```
+
+---
+
+# E. 123456
+
+Masukkan lalu langsung cetak satu per satu.
+
+Jelas:
+```txt
+mungkin
 ```
 
 ---
 
 # Jawaban
 
-18
+```txt
+D
+```
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- shortest path
-- graph decomposition
-- optimasi jalur
+- stack permutation
+- simulasi stack
+- validasi urutan output
 
 Konsep penting:
 
-Jika harus melewati titik tertentu:
-
+Jika:
 ```txt
-Shortest(A → tujuan via X)
-=
-Shortest(A → X)
-+
-Shortest(X → tujuan)
+x berada di bawah y
 ```
 
-Teknik ini sering muncul pada:
-- Dijkstra
-- Floyd Warshall
-- routing problem.
+maka:
+```txt
+x tidak bisa keluar sebelum y keluar.
+```
+
+Karena:
+- stack menggunakan prinsip:
+
+```txt
+Last In First Out
+```

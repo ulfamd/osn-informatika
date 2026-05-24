@@ -1,166 +1,271 @@
-# Soal 11 — Rangkaian Mantra
+# Soal 11 — Mesin BCS
 
 ## Soal
 
-Terdapat 5 kartu:
+Pak Dengklek memiliki sebuah mesin bernama:
 
 ```txt
-[v, w, x, y, z]
+Mesin BCS
 ```
 
-Awalnya berisi:
+Mesin memiliki 3 tombol:
 
+- `B` (Buka)
+- `C` (Cetak)
+- `S` (Stop)
+
+Aturan mesin:
+
+---
+
+## Tombol B
+
+Ketika ditekan:
+- bagian atas tabung terbuka,
+- lalu dimasukkan koin dengan nomor terkecil
+  yang belum pernah dimasukkan sebelumnya.
+
+---
+
+## Tombol C
+
+Ketika ditekan:
+- mesin mencetak nomor koin paling atas,
+- lalu mengeluarkan koin tersebut.
+
+Jika tabung kosong:
 ```txt
-[1, 2, 3, 4, 5]
+error
 ```
 
 ---
 
-## Mantra A
+## Tombol S
 
-```txt
-[v,w,x,y,z]
-→
-[x,w,v,y,z]
-```
+Ketika ditekan:
+- tabung harus kosong,
+- lalu mesin selesai.
 
 ---
 
-## Mantra B
+Diketahui:
+- terdapat `N = 4` koin,
+- urutan tombol:
 
 ```txt
-[v,w,x,y,z]
-→
-[y,v,w,z,x]
-```
-
----
-
-## Mantra C
-
-```txt
-[v,w,x,y,z]
-→
-[w,x,y,z,v]
+BBCBBCCCS
 ```
 
 Pertanyaannya:
 
-> Berapa nilai minimum X sehingga:
+> Berapakah hasil cetakan pada kertas?
 
-```txt
-F(C,X)
-```
+Tuliskan jawaban tanpa spasi.
 
-menghasilkan kembali urutan awal?
-
-Tuliskan jawaban dalam bentuk ANGKA.
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Kita cari:
-- berapa kali mantra C
-- harus dilakukan
-- agar kembali ke urutan awal
+Mesin bekerja seperti:
+
+```txt
+STACK
+```
+
+atau:
+```txt
+LIFO
+```
+
+(last in first out)
 
 ---
 
-# Analisis Mantra C
+# Simulasi Langkah demi Langkah
 
-Mantra C:
-
+Awalnya:
 ```txt
-[v,w,x,y,z]
-→
-[w,x,y,z,v]
-```
-
-Artinya:
-- seluruh kartu digeser ke kiri 1 langkah
-
-Ini adalah:
-
-```txt
-rotasi kiri
+stack kosong
 ```
 
 ---
 
-# Simulasi
+## Tombol 1 — B
 
-Awal:
+Masukkan koin:
+```txt
+1
+```
+
+Stack:
 
 ```txt
-[1,2,3,4,5]
+[1]
 ```
 
 ---
 
-## C sekali
+## Tombol 2 — B
+
+Masukkan:
+```txt
+2
+```
+
+Stack:
 
 ```txt
-[2,3,4,5,1]
+[1,2]
 ```
 
 ---
 
-## C dua kali
+## Tombol 3 — C
+
+Cetak paling atas:
 
 ```txt
-[3,4,5,1,2]
+2
+```
+
+Stack:
+
+```txt
+[1]
+```
+
+Hasil:
+```txt
+2
 ```
 
 ---
 
-## C tiga kali
+## Tombol 4 — B
+
+Masukkan:
+```txt
+3
+```
+
+Stack:
 
 ```txt
-[4,5,1,2,3]
+[1,3]
 ```
 
 ---
 
-## C empat kali
+## Tombol 5 — B
+
+Masukkan:
+```txt
+4
+```
+
+Stack:
 
 ```txt
-[5,1,2,3,4]
+[1,3,4]
 ```
 
 ---
 
-## C lima kali
+## Tombol 6 — C
 
+Cetak:
 ```txt
-[1,2,3,4,5]
+4
 ```
 
-Kembali ke awal.
+Stack:
+
+```txt
+[1,3]
+```
+
+Hasil:
+```txt
+24
+```
+
+---
+
+## Tombol 7 — C
+
+Cetak:
+```txt
+3
+```
+
+Stack:
+
+```txt
+[1]
+```
+
+Hasil:
+```txt
+243
+```
+
+---
+
+## Tombol 8 — C
+
+Cetak:
+```txt
+1
+```
+
+Stack:
+
+```txt
+[]
+```
+
+Hasil:
+```txt
+2431
+```
+
+---
+
+## Tombol 9 — S
+
+Stack kosong:
+```txt
+valid
+```
+
+Selesai.
 
 ---
 
 # Jawaban
 
-5
+```txt
+2431
+```
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- rotasi array
-- permutasi siklik
-- cycle length
+- stack
+- simulasi algoritma
+- LIFO structure
 
 Konsep penting:
 
-Rotasi kiri:
+Stack bekerja dengan aturan:
+
 ```txt
-panjang siklus = jumlah elemen
+Last In First Out
 ```
 
-Karena:
-- ada 5 kartu
-- maka setelah 5 rotasi,
-  posisi kembali semula.
+Koin terakhir masuk:
+- keluar lebih dulu.

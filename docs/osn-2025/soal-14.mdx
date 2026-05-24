@@ -1,154 +1,197 @@
-# Soal 14 — Jalan Tol Bebek
+# Soal 14 — Perjalanan ke Timur
 
 ## Soal
 
-Pak Dengklek ingin pergi dari kota:
+Bebek-bebek Pak Dengklek ingin pergi:
+- dari titik A
+- menuju titik H
 
+Mereka hanya boleh:
 ```txt
-A → H
+bergerak ke arah kanan
 ```
 
-Setiap jalan:
-- memiliki biaya
-- boleh dilewati berkali-kali
+Pada graph terdapat:
+- beberapa jalur biasa,
+- dan 3 jalur rahasia bergembok.
+
+Untuk Soal 14:
+```txt
+bebek tidak memiliki kunci sakti
+```
+
+Artinya:
+- seluruh jalur bergembok tidak bisa digunakan.
 
 Pertanyaannya:
 
-> Berapa banyak jalur berbeda dari A ke H
-> yang memiliki total biaya tepat:
-
-```txt
-18
-```
+> Berapa banyak kemungkinan rute berbeda
+> dari A ke H?
 
 Tuliskan jawaban dalam bentuk ANGKA.
+
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Kita cari:
-- semua jalur dari A ke H
-- dengan total biaya = 18
-
----
-
-# Jalur Kandidat
-
-Dari graf pada soal sebelumnya.
-
----
-
-## Jalur 1
-
+Karena:
 ```txt
-A → B → D → G → H
+tidak punya kunci
 ```
 
-Biaya:
+maka jalur berikut tidak boleh dipakai:
+
+- E → D
+- D → F
+- salah satu D → G
+
+---
+
+# Hitung Banyak Jalur
+
+Kita hitung jumlah cara mencapai tiap titik.
+
+---
+
+# Dari A ke B
+
+Pada gambar:
+- ada 2 jalur dari A ke B.
+
+Maka:
 
 ```txt
-4 + 3 + 6 + 5
+B = 2
+```
+
+---
+
+# Dari B ke C
+
+Hanya:
+```txt
+1 jalur
+```
+
+Maka:
+
+```txt
+C = 2
+```
+
+---
+
+# Dari B ke D
+
+Ada:
+```txt
+2 jalur
+```
+
+Maka:
+
+```txt
+D = 2 × 2 = 4
+```
+
+---
+
+# Dari B ke E
+
+Ada:
+```txt
+1 jalur
+```
+
+Maka:
+
+```txt
+E = 2
+```
+
+---
+
+# Dari E ke F
+
+Karena:
+```txt
+D → F terkunci
+```
+
+maka hanya:
+```txt
+E → F
+```
+
+Ada:
+```txt
+2 jalur
+```
+
+Maka:
+
+```txt
+F = 2 × 2 = 4
+```
+
+---
+
+# Menuju G
+
+Dari gambar:
+- C → G : 1 jalur
+- D → G : tinggal 1 jalur terbuka
+- F → G : 1 jalur
+
+Maka:
+
+```txt
+G = 2 + 4 + 4
 =
-18
+10
 ```
-
-Valid.
 
 ---
 
-## Jalur 2
+# Dari G ke H
 
+Ada:
 ```txt
-A → C → D → G → H
+2 jalur
 ```
 
-Biaya:
+Maka:
 
 ```txt
-6 + 2 + 6 + 5
+H = 10 × 2
 =
-19
-```
-
-Tidak valid.
-
----
-
-## Jalur 3
-
-```txt
-A → B → E → H
-```
-
-Biaya:
-
-```txt
-4 + 7 + 8
-=
-19
-```
-
-Tidak valid.
-
----
-
-## Jalur 4
-
-```txt
-A → C → F → H
-```
-
-Biaya:
-
-```txt
-6 + 5 + 10
-=
-21
-```
-
-Tidak valid.
-
----
-
-# Cek Kombinasi Lain
-
-Dari struktur graf:
-- tidak ada kombinasi lain
-- yang menghasilkan tepat 18
-
----
-
-# Total Jalur Valid
-
-```txt
-1
+20
 ```
 
 ---
 
 # Jawaban
 
-1
+20
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- graph traversal
-- path enumeration
-- weighted path counting
+- graph DAG
+- counting paths
+- dynamic programming pada graph
 
 Konsep penting:
 
+Pada graph tanpa siklus:
+
 ```txt
-Shortest path ≠ jumlah path
+jumlah cara ke suatu titik
+=
+jumlah seluruh cara
+dari titik-titik sebelumnya.
 ```
-
-Kadang:
-- hanya ada satu jalur optimal
-- kadang banyak jalur dengan biaya sama.
-
-Untuk soal kecil:
-- brute force manual masih memungkinkan.

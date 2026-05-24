@@ -1,151 +1,130 @@
-# Soal 10 — Rangkaian Mantra
+# Soal 10 — Dua dari Tujuh Telur Bebek
 
 ## Soal
 
-Terdapat 5 kartu:
+Pak Dengklek memiliki tujuh buah telur bebek yang diberi label:
 
 ```txt
-[v, w, x, y, z]
+1 sampai 7
 ```
 
-Awalnya berisi:
+Diketahui:
+- tepat dua telur adalah telur emas,
+- tetapi semua telur terlihat sama.
 
+Pak Dengklek memiliki mesin pendeteksi telur emas.
+
+Cara kerja mesin:
+1. Pak Dengklek memasukkan beberapa telur.
+2. Mesin mengembalikan semua telur.
+3. Mesin hanya memberikan salah satu jawaban:
+   - `"TIDAK ADA TELUR EMAS"`
+   - `"TELUR EMAS TERDETEKSI"`
+
+Jika mesin mengatakan:
 ```txt
-[1, 2, 3, 4, 5]
+TELUR EMAS TERDETEKSI
 ```
 
----
+artinya:
+- minimal ada satu telur emas di dalam kumpulan tersebut.
 
-## Mantra A
-
-```txt
-[v,w,x,y,z]
-→
-[x,w,v,y,z]
-```
-
----
-
-## Mantra B
-
-```txt
-[v,w,x,y,z]
-→
-[y,v,w,z,x]
-```
-
----
-
-## Mantra C
-
-```txt
-[v,w,x,y,z]
-→
-[w,x,y,z,v]
-```
+Pak Dengklek ingin:
+- menemukan tepat dua telur emas
+- dengan jumlah penggunaan mesin seminimum mungkin
+- untuk kasus terburuk.
 
 Pertanyaannya:
 
-> Berapa nilai minimum X sehingga:
-
-```txt
-F(B,X)
-```
-
-menghasilkan kembali urutan awal?
+> Berapakah nilai minimum K sehingga
+> Pak Dengklek selalu dapat menentukan
+> kedua telur emas dengan paling banyak K pengecekan?
 
 Tuliskan jawaban dalam bentuk ANGKA.
+
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Kita cari:
-- berapa kali mantra B
-- harus dilakukan
-- agar kembali ke posisi awal
+---
 
-Ini adalah:
+# Langkah 1 — Banyak Kemungkinan
+
+Karena:
+- ada 7 telur
+- pilih 2 telur emas
+
+Jumlah kemungkinan:
+
+:contentReference[oaicite:1]{index=1}
+
+Hitung:
 
 ```txt
-siklus permutasi
+21 kemungkinan
 ```
 
 ---
 
-# Analisis Mantra B
+# Langkah 2 — Informasi dari Mesin
 
-Mantra B:
+Setiap pengecekan:
+- hanya menghasilkan 2 kemungkinan jawaban
 
+yaitu:
 ```txt
-[v,w,x,y,z]
-→
-[y,v,w,z,x]
+YA / TIDAK
 ```
 
-Mari lihat perpindahan posisi:
-
-| Posisi Lama | Pindah ke |
-| --- | --- |
-| v | posisi 2 |
-| w | posisi 3 |
-| x | posisi 5 |
-| y | posisi 1 |
-| z | posisi 4 |
-
----
-
-# Simulasi
-
-Awal:
-
+Artinya:
+- satu pengecekan maksimal memberi:
 ```txt
-[1,2,3,4,5]
+1 bit informasi
 ```
 
 ---
 
-## B sekali
+# Langkah 3 — Cari Minimum Pengecekan
 
+Kita perlu membedakan:
 ```txt
-[4,1,2,5,3]
+21 kemungkinan
+```
+
+Dengan pertanyaan biner.
+
+Cari:
+```txt
+2^K ≥ 21
 ```
 
 ---
 
-## B dua kali
-
-Terapkan lagi:
+# Hitung
 
 ```txt
-[5,4,1,3,2]
+2^4 = 16
 ```
+
+masih kurang.
+
+```txt
+2^5 = 32
+```
+
+cukup.
 
 ---
 
-## B tiga kali
+# Jadi
+
+Minimum:
 
 ```txt
-[3,5,4,2,1]
+K = 5
 ```
-
----
-
-## B empat kali
-
-```txt
-[2,3,5,1,4]
-```
-
----
-
-## B lima kali
-
-```txt
-[1,2,3,4,5]
-```
-
-Kembali ke awal.
 
 ---
 
@@ -158,23 +137,27 @@ Kembali ke awal.
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- permutasi
-- siklus transformasi
-- simulasi array
+- information theory
+- binary decision tree
+- lower bound
 
 Konsep penting:
 
-Sebuah permutasi:
+Jika:
+- ada N kemungkinan,
+- dan tiap pertanyaan hanya punya 2 jawaban,
+
+maka minimum pertanyaan:
+
+:contentReference[oaicite:2]{index=2}
+
+Pada soal ini:
+
 ```txt
-akan kembali ke bentuk awal
-setelah sejumlah langkah tertentu
+N = 21
 ```
 
-Jumlah langkah minimum disebut:
-
+maka:
 ```txt
-order permutasi
+ceil(log₂21) = 5
 ```
-
-Pada mantra B:
-- seluruh elemen membentuk satu siklus panjang 5.

@@ -1,150 +1,123 @@
-# Soal 18 — Bilangan Misterius
+# Soal 18 — Menyimpan Kotak Penyimpanan
 
 ## Soal
 
-Terdapat sebuah bilangan rahasia:
+BENAR atau SALAH:
+
+> Apabila seluruh kotak kardus di gudang
+> memiliki panjang sisi yang berbeda-beda,
+> maka banyaknya kotak kardus paling sedikit
+> yang mungkin terlihat dari luar
+> adalah satu kotak saja.
+
+Tuliskan jawaban dalam bentuk:
 
 ```txt
-N
+BENAR
 ```
 
-Diketahui:
+atau
 
-- jika dibagi 2 bersisa 1
-- jika dibagi 3 bersisa 2
-- jika dibagi 4 bersisa 3
-- jika dibagi 5 bersisa 4
+```txt
+SALAH
+```
 
-Pertanyaannya:
-
-> Berapa bilangan positif terkecil yang memenuhi semua syarat tersebut?
-
-Tuliskan jawaban dalam bentuk ANGKA.
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Perhatikan polanya:
-
-```txt
-dibagi 2 sisa 1
-dibagi 3 sisa 2
-dibagi 4 sisa 3
-dibagi 5 sisa 4
-```
-
-Semua sisa:
-
-```txt
-pembagi - 1
-```
-
-Artinya:
-
-```txt
-N + 1
-```
-
-habis dibagi:
-- 2
-- 3
-- 4
-- 5
-
----
-
-# Cari KPK
-
-Kita cari:
-
-```txt
-KPK(2,3,4,5)
-```
-
----
-
-## Faktorisasi
-
-```txt
-2 = 2
-3 = 3
-4 = 2²
-5 = 5
-```
-
-KPK:
-
-```txt
-2² × 3 × 5
-=
-60
-```
-
----
-
-# Hubungan dengan N
+Aturan:
+- sebuah kotak dapat dimasukkan
+  ke dalam kotak lain
+- jika ukuran sisi kotak di dalam
+  lebih kecil.
 
 Karena:
-
 ```txt
-N + 1 = 60
+seluruh ukuran berbeda
 ```
 
-maka:
+maka kita bisa mengurutkan:
 
 ```txt
-N = 59
+kecil → besar
 ```
 
 ---
 
-# Verifikasi
+# Contoh
+
+Misalnya ukuran:
 
 ```txt
-59 mod 2 = 1
-59 mod 3 = 2
-59 mod 4 = 3
-59 mod 5 = 4
+1, 2, 3, 4, 5
 ```
 
-Semua benar.
+Maka bisa dibuat:
+
+```txt
+1 masuk 2
+2 masuk 3
+3 masuk 4
+4 masuk 5
+```
+
+Sehingga:
+- dari luar hanya terlihat:
+
+```txt
+5
+```
+
+yaitu:
+```txt
+1 kotak saja
+```
+
+---
+
+# Kesimpulan
+
+Pernyataan tersebut:
+
+```txt
+BENAR
+```
 
 ---
 
 # Jawaban
 
-59
+```txt
+BENAR
+```
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- modulo
-- pola matematika
-- KPK
+- greedy
+- nesting
+- chain construction
 
 Konsep penting:
 
 Jika:
-
 ```txt
-N mod k = k-1
+semua ukuran berbeda
 ```
 
-maka:
+maka seluruh kotak dapat dibuat:
 
 ```txt
-N + 1
+satu rantai penuh
 ```
 
-habis dibagi:
+sehingga:
 ```txt
-k
+hanya satu kotak
+yang terlihat dari luar.
 ```
-
-Teknik cepat:
-1. ubah ke bentuk kelipatan
-2. cari KPK
-3. kurangi 1

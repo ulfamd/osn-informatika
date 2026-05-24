@@ -1,146 +1,196 @@
-# Soal 16 — Permainan Kartu Bebek
+# Soal 16 — Perjalanan ke Timur
 
 ## Soal
 
-Terdapat 8 kartu bernomor:
+Bebek-bebek Pak Dengklek ingin pergi:
+- dari titik A
+- menuju titik H
 
+Mereka hanya boleh:
 ```txt
-1 sampai 8
+bergerak ke arah kanan
 ```
 
-Kartu disusun berjajar.
+Pada graph terdapat:
+- 3 jalur rahasia bergembok:
+  - E → D
+  - D → F
+  - salah satu jalur D → G
 
-Aturan:
-- setiap langkah boleh menukar:
-  - dua kartu yang bersebelahan
+Untuk Soal 16:
+```txt
+bebek hanya memiliki 1 kunci sakti
+```
+
+Artinya:
+- hanya satu jalur rahasia yang boleh dibuka.
 
 Pertanyaannya:
 
-> Berapa minimum banyak pertukaran
-> untuk mengubah:
-
-```txt
-1 2 3 4 5 6 7 8
-```
-
-menjadi:
-
-```txt
-2 1 4 3 6 5 8 7
-```
+> Berapa banyak kemungkinan rute berbeda
+> dari A ke H?
 
 Tuliskan jawaban dalam bentuk ANGKA.
+
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Karena:
-- hanya boleh swap bersebelahan
+Kita hitung:
+- semua rute tanpa membuka jalur rahasia,
+- lalu tambahkan rute yang menggunakan tepat satu jalur rahasia.
 
-maka minimum langkah:
-
+Dari Soal 14:
 ```txt
-=
-jumlah inversi
+tanpa kunci = 20 rute
 ```
 
 ---
 
-# Analisis Susunan Akhir
+# Kasus 1 — Membuka E → D
 
-Target:
+Tambahan jalur:
 
+Dari A ke E:
 ```txt
-2 1 4 3 6 5 8 7
+2 cara
 ```
 
-Perhatikan:
-- tiap pasangan tertukar
-
+E → D:
 ```txt
-2 1
-4 3
-6 5
-8 7
+1 jalur rahasia
 ```
 
----
+Dari D ke H:
+- hanya jalur terbuka yang boleh dipakai,
+- karena kunci sudah habis.
 
-# Hitung Inversi
-
----
-
-## Pasangan 2 1
-
-Ada:
+D → G:
 ```txt
-1 inversi
+1 jalur terbuka
 ```
 
----
-
-## Pasangan 4 3
-
-Ada:
+G → H:
 ```txt
-1 inversi
+2 jalur
 ```
 
----
-
-## Pasangan 6 5
-
-Ada:
-```txt
-1 inversi
-```
-
----
-
-## Pasangan 8 7
-
-Ada:
-```txt
-1 inversi
-```
-
----
-
-# Total
+Total tambahan:
 
 ```txt
-1 + 1 + 1 + 1
+2 × 1 × 1 × 2
 =
 4
+```
+
+---
+
+# Kasus 2 — Membuka D → F
+
+Menuju D:
+```txt
+4 cara
+```
+
+D → F:
+```txt
+1 jalur rahasia
+```
+
+F → G:
+```txt
+1 jalur
+```
+
+G → H:
+```txt
+2 jalur
+```
+
+Tambahan:
+
+```txt
+4 × 1 × 1 × 2
+=
+8
+```
+
+---
+
+# Kasus 3 — Membuka Jalur Rahasia D → G
+
+Menuju D:
+```txt
+4 cara
+```
+
+Jalur rahasia:
+```txt
+1
+```
+
+G → H:
+```txt
+2 jalur
+```
+
+Tambahan:
+
+```txt
+4 × 1 × 2
+=
+8
+```
+
+---
+
+# Total Semua Rute
+
+Rute dasar:
+```txt
+20
+```
+
+Tambahan:
+```txt
+4 + 8 + 8
+=
+20
+```
+
+Maka total:
+
+```txt
+20 + 20
+=
+40
 ```
 
 ---
 
 # Jawaban
 
-4
+40
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- inversion counting
-- adjacent swap
-- sorting analysis
+- graph DAG
+- counting paths
+- kasus kombinatorial
 
-Konsep penting:
+Strategi penting:
 
 ```txt
-Satu swap adjacent
-hanya bisa memperbaiki
-1 inversi.
+Pisahkan berdasarkan kasus
+jalur rahasia yang dibuka.
 ```
 
-Maka:
-```txt
-minimum swap
-=
-jumlah inversi
-```
+Karena:
+- hanya satu kunci,
+- maka hanya satu edge khusus
+yang boleh digunakan.
