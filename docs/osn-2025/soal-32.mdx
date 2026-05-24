@@ -1,46 +1,172 @@
-# Soal 32 — Jalur Pendakian
+# Soal 32 — Dua String
 
 ## Soal
 
-Terdapat peta jalur pendakian berupa graph.
+Diberikan fungsi berikut:
 
-Setiap titik:
-- menyatakan pos pendakian
+```cpp
+int DUA(string S, string T) {
+    int N = S.length();
+    int M = T.length();
 
-Setiap garis:
-- menyatakan jalur dua arah
+    int P = 0;
 
-Pendaki ingin berjalan:
-- dari Pos A
-- kembali lagi ke Pos A
-- dan setiap jalur hanya boleh dilewati tepat satu kali
+    for (int i = 0; i <= N - M; i++) {
 
-Pertanyaannya:
+        int Q = 1;
 
-> Apakah perjalanan tersebut mungkin dilakukan?
+        for (int j = 0; j < M; j++) {
+            if (S[i + j] != T[M - 1 - j]) {
+                Q = 0;
+            }
+        }
 
-Tuliskan jawaban dalam bentuk:
+        P += Q;
+    }
 
-```txt
-YA
+    return P;
+}
 ```
 
-atau
+Berapakah hasil dari:
 
-```txt
-TIDAK
+```cpp
+DUA("ABCBAABCCBAABC", "CBA")
 ```
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Soal ini adalah tentang:
+Fungsi ini membandingkan:
 
 ```txt
-Euler Circuit
+substring S
+```
+
+dengan:
+
+```txt
+reverse(T)
 ```
 
 ---
 
-# Syarat
+# Langkah 1 — Cari Reverse(T)
+
+Diketahui:
+
+```txt
+T = "CBA"
+```
+
+Maka:
+
+```txt
+reverse(T) = "ABC"
+```
+
+---
+
+# Langkah 2 — Cari "ABC" di S
+
+String:
+
+```txt
+S = "ABCBAABCCBAABC"
+```
+
+Cari seluruh substring:
+
+```txt
+"ABC"
+```
+
+---
+
+# Cek Satu per Satu
+
+```txt
+ABCBAABCCBAABC
+^^^
+```
+
+Ketemu 1.
+
+---
+
+Lanjut:
+
+```txt
+ABCBAABCCBAABC
+          ^^^
+```
+
+Ketemu lagi.
+
+---
+
+# Total Kemunculan
+
+```txt
+2
+```
+
+---
+
+# Mengapa?
+
+Pada kode:
+
+```cpp
+if (S[i + j] != T[M - 1 - j])
+```
+
+artinya:
+- karakter pada substring `S`
+- dibandingkan dengan
+  karakter `T` dari belakang.
+
+Jadi sebenarnya:
+```txt
+mencari reverse(T)
+```
+
+---
+
+# Jawaban
+
+2
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- string matching
+- reverse string
+- simulasi nested loop
+
+Konsep penting:
+
+Kode:
+
+```cpp
+T[M - 1 - j]
+```
+
+berarti:
+```txt
+akses karakter T
+dari belakang ke depan.
+```
+
+Sehingga fungsi:
+```txt
+menghitung banyak kemunculan
+reverse(T) di S.
+```

@@ -1,61 +1,136 @@
-# Soal 35 — Pohon Keluarga Bebek
+# Soal 35 — Rahasia Petak 5x5
 
 ## Soal
 
-Terdapat sebuah graph terhubung dengan:
-- 12 titik
-- tidak memiliki siklus
+Diberikan fungsi berikut:
 
-Pertanyaannya:
+```cpp
+int RAHASIA(vector<int> A) {
+    int N = A.size();
+    int sum = 0;
 
-> Berapa banyak sisi yang dimiliki graph tersebut?
+    for (int i = 0; i < N; i++) {
+
+        int ctr = 0;
+
+        for (int j = 0; j < N; j++) {
+
+            if (A[j] > A[i]) {
+                ctr += 1;
+            } else if (A[j] < A[i]) {
+                ctr -= 1;
+            }
+
+        }
+
+        if (ctr == 0) {
+            sum += A[i];
+        }
+
+    }
+
+    return sum;
+}
+```
+
+Berapakah hasil dari:
+
+```cpp
+RAHASIA({16, 5, 20, 1, 11})
+```
 
 Tuliskan jawaban dalam bentuk ANGKA.
-
----
-
-## Cara Berpikir
-
-Graph:
-- terhubung
-- tidak memiliki siklus
-
-disebut:
-
-```txt
-Tree (Pohon)
-```
-
----
-
-# Rumus Penting Tree
-
-Jika sebuah tree memiliki:
-
-```txt
-n titik
-```
-
-maka jumlah sisi:
 
 :contentReference[oaicite:0]{index=0}
 
 ---
 
-# Substitusi
+## Cara Cepat
 
-Diketahui:
+Perhatikan variabel:
 
-```txt
-n = 12
+```cpp
+ctr
 ```
 
-Maka:
+- jika ada elemen lebih besar:
+  ```txt
+  +1
+  ```
+
+- jika ada elemen lebih kecil:
+  ```txt
+  -1
+  ```
+
+Agar:
 
 ```txt
-12 - 1
+ctr == 0
+```
+
+maka:
+```txt
+jumlah elemen lebih besar
 =
+jumlah elemen lebih kecil
+```
+
+---
+
+# Artinya Apa?
+
+Elemen tersebut adalah:
+
+```txt
+median
+```
+
+karena:
+- posisinya tepat di tengah
+  setelah array diurutkan.
+
+---
+
+# Urutkan Array
+
+Array:
+
+```txt
+{16, 5, 20, 1, 11}
+```
+
+Urutkan:
+
+```txt
+1, 5, 11, 16, 20
+```
+
+Elemen tengah:
+
+```txt
 11
+```
+
+---
+
+# Maka
+
+Hanya:
+
+```txt
+11
+```
+
+yang memenuhi:
+```txt
+ctr == 0
+```
+
+Sehingga:
+
+```txt
+sum = 11
 ```
 
 ---
@@ -69,18 +144,24 @@ Maka:
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- graph theory
-- tree
-- sifat dasar graph
+- observasi kode
+- median
+- counting comparison
 
 Konsep penting:
 
-Tree selalu memenuhi:
-
+Jika:
 ```txt
-jumlah sisi = jumlah titik - 1
+jumlah elemen lebih besar
+=
+jumlah elemen lebih kecil
 ```
 
-selama:
-- graph terhubung
-- tidak memiliki siklus.
+maka elemen tersebut adalah:
+
+```txt
+median array
+```
+
+Untuk jumlah elemen ganjil:
+- median hanya satu.

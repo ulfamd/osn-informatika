@@ -1,132 +1,181 @@
-# Soal 33 — Jalur Pendakian
+# Soal 33 — Dua String
 
 ## Soal
 
-Terdapat sebuah graph tak berarah.
+Diberikan fungsi berikut:
 
-Pendaki ingin:
-- memulai perjalanan dari suatu titik
-- mengakhiri di titik lain
-- melewati setiap jalur tepat satu kali
+```cpp
+int DUA(string S, string T) {
+    int N = S.length();
+    int M = T.length();
+
+    int P = 0;
+
+    for (int i = 0; i <= N - M; i++) {
+
+        int Q = 1;
+
+        for (int j = 0; j < M; j++) {
+            if (S[i + j] != T[M - 1 - j]) {
+                Q = 0;
+            }
+        }
+
+        P += Q;
+    }
+
+    return P;
+}
+```
+
+Akan dipanggil:
+
+```cpp
+DUA("BBABAABBAAABBABBAAABBBAAABBABBA", T)
+```
+
+dengan:
+- panjang string `T` minimal 3.
 
 Pertanyaannya:
 
-> Agar perjalanan seperti itu mungkin dilakukan,
-> berapa banyak titik yang boleh memiliki derajat ganjil?
+> Dari seluruh kemungkinan string `T`,
+> berapakah hasil kembalian terbesar
+> yang mungkin dihasilkan?
 
-### Pilihan
+Tuliskan jawaban dalam bentuk ANGKA.
 
-A.
-```txt
-0
-```
-
-B.
-```txt
-1
-```
-
-C.
-```txt
-2
-```
-
-D.
-```txt
-3
-```
-
-E.
-```txt
-4
-```
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Soal ini tentang:
+Fungsi:
 
 ```txt
-Euler Path
+DUA(S,T)
+```
+
+menghitung:
+```txt
+berapa kali reverse(T)
+muncul di S
+```
+
+Karena:
+```txt
+panjang T minimal 3
+```
+
+maka kita cukup mencari:
+```txt
+substring panjang ≥ 3
+yang paling sering muncul.
 ```
 
 ---
 
-# Teori Euler Path
+# Strategi Cepat
 
-Pada graph tak berarah:
-
----
-
-## Euler Circuit
-
-Jika:
-- mulai dan selesai di titik yang sama
-
-maka:
+Karena:
 ```txt
-semua derajat harus genap
+reverse(T)
 ```
 
-Jumlah titik ganjil:
+tetap merupakan string biasa,
+maka soal berubah menjadi:
+
 ```txt
-0
+Cari substring panjang minimal 3
+yang frekuensinya paling banyak.
 ```
 
 ---
 
-## Euler Path
+# String S
 
-Jika:
-- mulai dan selesai di titik berbeda
-
-maka:
 ```txt
-harus ada tepat 2 titik ganjil
+BBABAABBAAABBABBAAABBBAAABBABBA
 ```
-
-yaitu:
-- titik awal
-- titik akhir
 
 ---
 
-# Karena Soal:
+# Cek Substring Panjang 3
+
+---
+
+## "AAB"
+
+Muncul berkali-kali:
 
 ```txt
-mulai dan selesai boleh berbeda
+BBAB[AAB]BAAABBABBAAABBBAAABBABBA
 ```
 
-maka:
-- jumlah titik ganjil yang diperbolehkan:
+```txt
+BBABAABBA[AAB]BABBAAABBBAAABBABBA
+```
 
 ```txt
-2
+BBABAABBAAABBABBA[AAB]BBAAABBABBA
+```
+
+```txt
+BBABAABBAAABBABBAAABBBA[AAB]BABBA
+```
+
+Total:
+```txt
+4 kali
+```
+
+---
+
+## Cek Kandidat Lain
+
+Substring lain panjang ≥ 3:
+- tidak ada yang muncul lebih dari 4 kali.
+
+Maka:
+```txt
+maksimum = 4
 ```
 
 ---
 
 # Jawaban
 
-C
+4
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- graph theory
-- Euler path
-- derajat simpul
+- string matching
+- substring frequency
+- reverse indexing
 
 Konsep penting:
 
-| Jenis Jalur | Jumlah Titik Ganjil |
-| --- | --- |
-| Euler Circuit | 0 |
-| Euler Path | 2 |
+Kode:
 
-Jika:
-- lebih dari 2 titik ganjil,
-- maka Euler path tidak mungkin ada.
+```cpp
+T[M-1-j]
+```
+
+berarti:
+```txt
+fungsi sebenarnya mencari
+reverse(T)
+```
+
+Jadi:
+```txt
+maksimum hasil
+=
+frekuensi substring
+paling sering muncul
+(dengan panjang ≥ 3).
+```

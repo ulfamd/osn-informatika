@@ -1,104 +1,210 @@
-# Soal 24 — Peluang Dadu
+# Soal 24 — Bebek Gayung
 
 ## Soal
 
-Dua buah dadu bersisi 6 dilempar bersamaan.
+Pak Dengklek memiliki:
+- `N = 1000` bebek
+- dua gayung berukuran:
+  - `X = 9 liter`
+  - `Y = 21 liter`
+
+Bebek ke-`P`:
+- ingin mandi dengan tepat `P liter`.
+
+Pak Dengklek boleh:
+- menggunakan kedua gayung berkali-kali,
+- dan setiap pengambilan air langsung digunakan.
 
 Pertanyaannya:
 
-> Berapa peluang jumlah kedua dadu sama dengan:
+> Berapa banyak bebek
+> yang tidak bisa dimandikan?
 
-```txt
-9
-```
+Tuliskan jawaban dalam bentuk ANGKA.
 
-Tuliskan jawaban dalam bentuk pecahan paling sederhana.
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
----
-
-# Langkah 1 — Total Kemungkinan
-
-Setiap dadu:
-- memiliki 6 kemungkinan
-
-Karena ada 2 dadu:
-
-:contentReference[oaicite:0]{index=0}
-
-Jumlah seluruh kemungkinan:
-
-```txt
-36
-```
-
----
-
-# Langkah 2 — Cari Jumlah 9
-
-Pasangan yang menghasilkan 9:
-
-| Dadu 1 | Dadu 2 |
-| --- | --- |
-| 3 | 6 |
-| 4 | 5 |
-| 5 | 4 |
-| 6 | 3 |
-
-Jumlah:
-
-```txt
-4
-```
-
----
-
-# Langkah 3 — Hitung Peluang
-
-Peluang:
+Jumlah air yang bisa dibuat berbentuk:
 
 :contentReference[oaicite:1]{index=1}
 
-Sederhanakan:
+dengan:
+- `a ≥ 0`
+- `b ≥ 0`
+
+---
+
+# Langkah 1 — Cari FPB
+
+Hitung:
 
 :contentReference[oaicite:2]{index=2}
+
+Artinya:
+- semua jumlah yang bisa dibuat
+  harus kelipatan 3.
+
+Jadi:
+```txt
+semua bilangan bukan kelipatan 3
+pasti tidak bisa dibuat.
+```
+
+---
+
+# Langkah 2 — Banyak Bilangan Bukan Kelipatan 3
+
+Dari:
+```txt
+1 sampai 1000
+```
+
+Jumlah kelipatan 3:
+
+:contentReference[oaicite:3]{index=3}
+
+Maka:
+- bukan kelipatan 3:
+
+```txt
+1000 - 333
+=
+667
+```
+
+---
+
+# Langkah 3 — Apakah Semua Kelipatan 3 Bisa Dibuat?
+
+Tidak.
+
+Karena:
+```txt
+9a + 21b
+=
+3(3a + 7b)
+```
+
+Kita perlu cek:
+```txt
+3a + 7b
+```
+
+Bilangan kecil tertentu
+masih tidak bisa dibuat.
+
+---
+
+# Gunakan Teorema Frobenius
+
+Karena:
+```txt
+gcd(3,7)=1
+```
+
+bilangan terbesar yang tidak bisa dibuat:
+
+:contentReference[oaicite:4]{index=4}
+
+Artinya:
+- semua bilangan di atas 11
+  dapat dibuat dari:
+```txt
+3a+7b
+```
+
+Kalikan 3:
+
+Bilangan terbesar kelipatan 3
+yang tidak bisa dibuat:
+
+```txt
+33
+```
+
+---
+
+# Kelipatan 3 yang Tidak Bisa Dibuat
+
+Cek:
+
+```txt
+3   ✗
+6   ✗
+9   ✓
+12  ✗
+15  ✗
+18  ✓
+21  ✓
+24  ✓
+27  ✓
+30  ✓
+33  ✗
+```
+
+Yang tidak bisa:
+
+```txt
+3, 6, 12, 15, 33
+```
+
+Jumlah:
+```txt
+5
+```
+
+---
+
+# Total Bebek Tidak Bisa Dimandikan
+
+- bukan kelipatan 3:
+```txt
+667
+```
+
+- kelipatan 3 tetapi tetap tidak bisa:
+```txt
+5
+```
+
+Total:
+
+```txt
+667 + 5
+=
+672
+```
 
 ---
 
 # Jawaban
 
-```txt
-1/9
-```
+672
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- probabilitas dasar
-- counting
-- enumerasi kasus
+- gcd
+- linear combination
+- Frobenius Coin Problem
 
 Konsep penting:
 
+Bilangan yang dapat dibuat harus berbentuk:
+
+:contentReference[oaicite:5]{index=5}
+
+Jika:
 ```txt
-Peluang
-=
-jumlah kejadian yang diinginkan
-/
-jumlah seluruh kemungkinan
+gcd(x,y)=d
 ```
 
-Untuk dua dadu:
-```txt
-total kemungkinan = 36
-```
-
-karena:
-```txt
-6 × 6
-```
+maka:
+- hanya kelipatan `d`
+  yang mungkin dibuat.

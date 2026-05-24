@@ -1,132 +1,243 @@
-# Soal 27 — Peluang Kartu
+````md id="osn2025-soal27"
+# Soal 27 — Modulo Tiga
 
 ## Soal
 
-Dari satu set kartu remi standar:
-- total 52 kartu
-- tanpa joker
+Diberikan fungsi berikut:
 
-Diambil dua kartu secara acak tanpa pengembalian.
+```cpp
+int TIGA(int N) {
+    if (N <= 1) {
+        return 1;
+    } else if (N % 3 == 0) {
+        return TIGA(N - 1) + TIGA(N - 3);
+    } else if (N % 3 == 1) {
+        return TIGA(N - 2);
+    } else {
+        return TIGA(N - 3);
+    }
+}
+```
 
 Pertanyaannya:
 
-> Berapa peluang kedua kartu yang terambil
-> memiliki jenis/simbol yang sama?
+> Dari pemanggilan:
+>
+> ```txt
+> TIGA(1), TIGA(2), ..., TIGA(2025)
+> ```
+>
+> berapa banyak yang menghasilkan:
+>
+> ```txt
+> 1
+> ```
 
-Tuliskan jawaban dalam bentuk pecahan paling sederhana.
+Tuliskan jawaban dalam bentuk ANGKA.
+
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Jenis kartu:
-- sekop
-- hati
-- wajik
-- keriting
+Kita cari pola nilai:
 
-Masing-masing:
 ```txt
-13 kartu
+TIGA(N)
 ```
 
 ---
 
-# Langkah 1 — Total Cara Mengambil 2 Kartu
+# Basis
 
-Total kartu:
+Jika:
+
 ```txt
-52
+N <= 1
 ```
 
-Jumlah cara memilih 2 kartu:
-
-:contentReference[oaicite:0]{index=0}
-
-Hitung:
+maka:
 
 ```txt
-52 × 51 / 2
+TIGA(N) = 1
+```
+
+---
+
+# Analisis Berdasarkan Modulo 3
+
+---
+
+## Kasus 1
+
+Jika:
+
+```txt
+N % 3 = 1
+```
+
+maka:
+
+```txt
+TIGA(N)
 =
-1326
+TIGA(N-2)
+```
+
+Nilai akan terus mundur
+hingga mencapai:
+
+```txt
+1 atau negatif
+```
+
+Maka:
+```txt
+selalu bernilai 1
 ```
 
 ---
 
-# Langkah 2 — Hitung Pasangan dengan Simbol Sama
+## Kasus 2
 
-Untuk satu simbol:
+Jika:
+
 ```txt
-13 kartu
+N % 3 = 2
 ```
 
-Cara memilih 2 kartu:
+maka:
+
+```txt
+TIGA(N)
+=
+TIGA(N-3)
+```
+
+Nilai terus berkurang 3,
+dan akhirnya mencapai:
+
+```txt
+2 → -1
+```
+
+Maka:
+```txt
+selalu bernilai 1
+```
+
+---
+
+## Kasus 3
+
+Jika:
+
+```txt
+N % 3 = 0
+```
+
+maka:
+
+```txt
+TIGA(N)
+=
+TIGA(N-1) + TIGA(N-3)
+```
+
+Karena:
+- kedua bagian positif,
+- nilainya minimal:
+
+```txt
+2
+```
+
+Jadi:
+```txt
+tidak pernah bernilai 1
+```
+
+---
+
+# Kesimpulan
+
+```txt
+TIGA(N) = 1
+```
+
+terjadi untuk:
+
+```txt
+N tidak habis dibagi 3
+```
+
+---
+
+# Hitung Banyaknya
+
+Dari:
+```txt
+1 sampai 2025
+```
+
+Jumlah bilangan habis dibagi 3:
 
 :contentReference[oaicite:1]{index=1}
 
-Hitung:
+Total bilangan:
 
 ```txt
-13 × 12 / 2
+2025
+```
+
+Maka yang TIDAK habis dibagi 3:
+
+```txt
+2025 - 675
 =
-78
+1350
 ```
-
-Karena ada:
-```txt
-4 simbol
-```
-
-Total pasangan valid:
-
-```txt
-4 × 78
-=
-312
-```
-
----
-
-# Langkah 3 — Hitung Peluang
-
-Peluang:
-
-:contentReference[oaicite:2]{index=2}
-
-Sederhanakan:
-
-:contentReference[oaicite:3]{index=3}
 
 ---
 
 # Jawaban
 
-```txt
-4/17
-```
+1350
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- probabilitas
-- kombinasi
-- counting
+- rekursi
+- pola modulo
+- observasi matematis
 
 Konsep penting:
 
-Untuk peluang tanpa urutan:
+Untuk:
 ```txt
-gunakan kombinasi
+N % 3 ≠ 0
 ```
 
-Rumus:
-
+fungsi hanya:
 ```txt
-Peluang
-=
-kejadian valid
-/
-seluruh kemungkinan
+mengurangi N
 ```
+
+hingga basis,
+tanpa penjumlahan.
+
+Sedangkan:
+```txt
+N % 3 = 0
+```
+
+menghasilkan:
+```txt
+penjumlahan dua nilai
+```
+
+sehingga hasilnya lebih besar dari 1.
+````

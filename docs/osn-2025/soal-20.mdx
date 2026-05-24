@@ -1,114 +1,150 @@
-# Soal 20 — Susunan Huruf
+# Soal 20 — Kartu Huruf Ajaib
 
 ## Soal
 
-Berapa banyak susunan berbeda dari huruf-huruf pada kata:
+Pada awalnya:
+- kartu pertama berisi `A`
+- kartu kedua berisi `B`
+- ...
+- kartu ke-26 berisi `Z`
+
+Pak Dengklek menjentikkan jari sebanyak:
 
 ```txt
-INFORMATIKA
+33 kali
 ```
 
-Tuliskan jawaban dalam bentuk ANGKA.
+Perubahan huruf mengikuti tabel pada soal.
 
----
+Pertanyaannya:
 
-## Cara Berpikir
+> Apa isi kartu ajaib ke-10 pada akhirnya?
 
-Kita hitung:
-- jumlah seluruh huruf
-- lalu bagi dengan pengulangan huruf yang sama
-
----
-
-# Langkah 1 — Hitung Banyak Huruf
-
-Kata:
-
-```txt
-INFORMATIKA
-```
-
-Jumlah huruf:
-
-```txt
-11
-```
-
----
-
-# Langkah 2 — Hitung Huruf yang Berulang
-
-Perhatikan frekuensi:
-
-| Huruf | Banyak |
-| --- | --- |
-| I | 2 |
-| A | 2 |
-| lainnya | 1 |
-
----
-
-# Rumus Permutasi dengan Pengulangan
-
-Jumlah susunan:
+Tuliskan jawaban dalam bentuk HURUF KAPITAL.
 
 :contentReference[oaicite:0]{index=0}
 
 ---
 
-# Hitung
+## Cara Berpikir
 
-## 11 Faktorial
+Kartu ke-10 awalnya berisi:
 
 ```txt
-11!
-=
-39916800
+J
 ```
 
----
+Dari tabel perubahan:
 
-## Penyebut
+| Sebelum | Sesudah |
+| --- | --- |
+| J | E |
+| E | H |
+| H | F |
+| F | I |
+| I | E |
+
+Terlihat terbentuk siklus:
 
 ```txt
-2! × 2!
-=
+E → H → F → I → E
+```
+
+Panjang siklus:
+
+```txt
 4
 ```
 
 ---
 
-## Hasil
+# Langkah Perubahan
+
+Awal:
+```txt
+J
+```
+
+Setelah 1 kali:
+```txt
+E
+```
+
+Berikutnya mengikuti siklus 4.
+
+Karena total:
+```txt
+33 kali
+```
+
+maka setelah perubahan pertama,
+tersisa:
 
 ```txt
-39916800 / 4
-=
-9979200
+32 langkah
+```
+
+Hitung:
+
+:contentReference[oaicite:1]{index=1}
+
+Hasil:
+
+```txt
+0
+```
+
+Artinya:
+- kembali ke posisi awal siklus.
+
+---
+
+# Posisi Siklus
+
+Siklus dimulai dari:
+
+```txt
+E
+```
+
+Karena sisa:
+```txt
+0
+```
+
+maka hasil akhirnya:
+
+```txt
+E
 ```
 
 ---
 
 # Jawaban
 
-9979200
+```txt
+E
+```
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- kombinatorika
-- permutasi
-- pengulangan huruf
+- simulasi transformasi
+- cycle detection
+- modulo
 
 Konsep penting:
 
-Jika ada huruf berulang:
-
+Jika transformasi membentuk:
 ```txt
-n! / (a! b! c! ...)
+siklus panjang k
 ```
 
-karena:
-- pertukaran huruf yang sama
-- tidak menghasilkan susunan baru.
+maka:
+
+:contentReference[oaicite:2]{index=2}
+
+digunakan untuk menentukan
+posisi akhir dengan cepat.

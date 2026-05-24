@@ -1,117 +1,160 @@
-# Soal 38 — Binary Search
+# Soal 38 — Merah Putih Nusantara
 
 ## Soal
 
-Terdapat array terurut:
+Diberikan fungsi berikut:
 
-```txt
-[2, 5, 8, 12, 16, 23, 38, 56]
+```cpp
+int MERAH(int A, int B) {
+    if (B == 0) {
+        return A;
+    } else {
+        return MERAH(B, A % B);
+    }
+}
+
+int PUTIH(int A, int B, int C) {
+    if (C == 0) {
+        return 0;
+    } else if (MERAH(A, C) == B) {
+        return 1 + PUTIH(A, B, C - 1);
+    } else {
+        return PUTIH(A, B, C - 1);
+    }
+}
+
+int NUSANTARA(int A, int B) {
+    return PUTIH(A, B, A);
+}
 ```
 
-Dilakukan binary search untuk mencari:
+Dari 5 pilihan berikut,
+manakah yang hasil kembaliannya paling besar?
 
 ```txt
-23
+A. MERAH(24, 4)
+B. MERAH(24, 9)
+C. MERAH(24, 17)
+D. MERAH(24, 18)
+E. MERAH(24, 34)
 ```
 
-Pertanyaannya:
-
-> Berapa banyak elemen yang diperiksa
-> sampai angka 23 ditemukan?
-
-Tuliskan jawaban dalam bentuk ANGKA.
+:contentReference[oaicite:0]{index=0}
 
 ---
 
-## Cara Berpikir
+## Cara Cepat
 
-Binary Search:
-- selalu memeriksa elemen tengah
+Fungsi:
 
----
-
-# Langkah 1
-
-Array:
-
-```txt
-[2, 5, 8, 12, 16, 23, 38, 56]
+```cpp
+MERAH(A,B)
 ```
 
-Jumlah elemen:
+adalah algoritma:
+
 ```txt
-8
+Euclidean Algorithm
 ```
 
-Tengah:
+untuk mencari:
 
 ```txt
-index (0+7)/2 = 3
-```
-
-Elemen:
-```txt
-12
-```
-
-Karena:
-```txt
-23 > 12
-```
-
-maka cari ke kanan.
-
-Jumlah diperiksa:
-```txt
-1
+FPB / GCD
 ```
 
 ---
 
-# Langkah 2
+# Hitung Satu per Satu
 
-Subarray:
+---
+
+## A. MERAH(24,4)
+
+:contentReference[oaicite:1]{index=1}
+
+---
+
+## B. MERAH(24,9)
+
+:contentReference[oaicite:2]{index=2}
+
+---
+
+## C. MERAH(24,17)
+
+:contentReference[oaicite:3]{index=3}
+
+---
+
+## D. MERAH(24,18)
+
+:contentReference[oaicite:4]{index=4}
+
+---
+
+## E. MERAH(24,34)
+
+:contentReference[oaicite:5]{index=5}
+
+---
+
+# Bandingkan Semua
+
+| Pilihan | Nilai |
+|---|---|
+| A | 4 |
+| B | 3 |
+| C | 1 |
+| D | 6 |
+| E | 2 |
+
+Nilai terbesar:
 
 ```txt
-[16, 23, 38, 56]
+6
 ```
 
-Tengah:
+yaitu:
 
 ```txt
-23
-```
-
-Ketemu.
-
-Jumlah diperiksa:
-```txt
-2
+D
 ```
 
 ---
 
 # Jawaban
 
-2
+```txt
+D
+```
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- binary search
-- array terurut
-- simulasi algoritma
+- rekursi
+- Euclidean Algorithm
+- gcd/fpb
 
 Konsep penting:
 
-Binary Search:
+Algoritma:
+
+:contentReference[oaicite:6]{index=6}
+
+akan terus:
 ```txt
-membuang separuh data
-setiap langkah
+mengurangi masalah
 ```
 
-Kompleksitas:
+hingga:
+```txt
+b = 0
+```
 
-:contentReference[oaicite:0]{index=0}
+dan hasil akhirnya adalah:
+```txt
+FPB kedua bilangan.
+```

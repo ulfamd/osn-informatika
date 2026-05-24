@@ -1,101 +1,169 @@
-# Soal 40 — Binary Search
+# Soal 40 — Merah Putih Nusantara
 
 ## Soal
 
-Terdapat array terurut berisi:
+Diberikan fungsi berikut:
 
-```txt
-4096 elemen
+```cpp
+int MERAH(int A, int B) {
+    if (B == 0) {
+        return A;
+    } else {
+        return MERAH(B, A % B);
+    }
+}
+
+int PUTIH(int A, int B, int C) {
+    if (C == 0) {
+        return 0;
+    } else if (MERAH(A, C) == B) {
+        return 1 + PUTIH(A, B, C - 1);
+    } else {
+        return PUTIH(A, B, C - 1);
+    }
+}
+
+int NUSANTARA(int A, int B) {
+    return PUTIH(A, B, A);
+}
 ```
 
-Dilakukan binary search untuk mencari suatu elemen.
+Berapakah hasil dari:
 
-Pertanyaannya:
-
-> Setelah 5 kali pemeriksaan,
-> paling banyak masih tersisa berapa elemen
-> yang mungkin mengandung target?
+```cpp
+NUSANTARA(2025, 135)
+```
 
 Tuliskan jawaban dalam bentuk ANGKA.
-
----
-
-## Cara Berpikir
-
-Binary Search:
-- setiap pemeriksaan membagi jumlah data menjadi dua.
-
----
-
-# Langkah 1 — Jumlah Awal
-
-Jumlah elemen:
-
-```txt
-4096
-```
-
-Karena:
 
 :contentReference[oaicite:0]{index=0}
 
 ---
 
-# Langkah 2 — Setelah 1 Pemeriksaan
+## Cara Cepat
 
-Sisa maksimum:
+Fungsi:
+
+```cpp
+NUSANTARA(A,B)
+```
+
+menghitung banyak bilangan:
+
+:contentReference[oaicite:1]{index=1}
+
+---
+
+# Langkah 1 — Faktorkan Bilangan
+
+Faktorkan:
 
 ```txt
-4096 / 2
-=
-2048
+2025
+```
+
+:contentReference[oaicite:2]{index=2}
+
+Dan:
+
+```txt
+135
+```
+
+:contentReference[oaicite:3]{index=3}
+
+---
+
+# Langkah 2 — Gunakan Sifat GCD
+
+Jika:
+
+:contentReference[oaicite:4]{index=4}
+
+maka:
+
+:contentReference[oaicite:5]{index=5}
+
+Substitusi:
+
+:contentReference[oaicite:6]{index=6}
+
+Bagi 135:
+
+:contentReference[oaicite:7]{index=7}
+
+---
+
+# Langkah 3 — Cari Banyak k
+
+Karena:
+
+:contentReference[oaicite:8]{index=8}
+
+dan:
+
+:contentReference[oaicite:9]{index=9}
+
+maka:
+
+:contentReference[oaicite:10]{index=10}
+
+Jadi:
+- kita mencari banyak bilangan:
+```txt
+1 sampai 15
+```
+
+yang relatif prima dengan:
+```txt
+15
 ```
 
 ---
 
-# Langkah 3 — Setelah 5 Pemeriksaan
+# Langkah 4 — Hitung Euler Totient
 
-Setiap langkah dibagi 2:
-
-:contentReference[oaicite:1]{index=1}
-
-Karena:
-
-:contentReference[oaicite:2]{index=2}
-
-maka:
+Bilangan yang coprime dengan 15:
 
 ```txt
-4096 / 32
-=
-128
+1, 2, 4, 7, 8, 11, 13, 14
 ```
+
+Jumlah:
+
+```txt
+8
+```
+
+Atau gunakan:
+
+:contentReference[oaicite:11]{index=11}
 
 ---
 
 # Jawaban
 
-128
+8
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- binary search
-- logaritma
-- pembagian eksponensial
+- gcd
+- faktorisasi prima
+- Euler Totient
 
 Konsep penting:
 
-Setelah:
-```txt
-k langkah binary search
-```
+Banyak solusi:
 
-maksimum elemen tersisa:
+:contentReference[oaicite:12]{index=12}
 
-:contentReference[oaicite:3]{index=3}
+dapat diubah menjadi:
 
-Karena:
-- setiap langkah membuang separuh kemungkinan.
+:contentReference[oaicite:13]{index=13}
+
+dan jumlah solusinya adalah:
+
+:contentReference[oaicite:14]{index=14}

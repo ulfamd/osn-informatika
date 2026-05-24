@@ -1,100 +1,94 @@
-# Soal 37 — Pohon Keluarga Bebek
+# Soal 37 — Rahasia Petak 5x5
 
 ## Soal
 
-Terdapat sebuah tree dengan:
-- 20 titik
+Diberikan fungsi berikut:
 
-Diketahui:
-- tepat 5 titik merupakan daun
+```cpp
+int RAHASIA(vector<int> A) {
+    int N = A.size();
+    int sum = 0;
+
+    for (int i = 0; i < N; i++) {
+
+        int ctr = 0;
+
+        for (int j = 0; j < N; j++) {
+
+            if (A[j] > A[i]) {
+                ctr += 1;
+            } else if (A[j] < A[i]) {
+                ctr -= 1;
+            }
+
+        }
+
+        if (ctr == 0) {
+            sum += A[i];
+        }
+
+    }
+
+    return sum;
+}
+
+int PETAK(vector<vector<int>> B) {
+    int N = B.size();
+
+    vector<int> C;
+
+    for (int i = 0; i < N; i++) {
+        C.push_back(RAHASIA(B[i]));
+    }
+
+    return RAHASIA(C);
+}
+```
+
+Akan dipanggil:
+
+```cpp
+PETAK(
+ {a,b,c,d,e},
+ {f,g,h,i,j},
+ {k,l,m,n,o},
+ {p,q,r,s,t},
+ {u,v,w,x,y}
+)
+```
+
+dengan:
+- setiap huruf berisi bilangan berbeda
+- dari 1 sampai 25.
 
 Pertanyaannya:
 
-> Berapa minimum derajat maksimum
-> yang mungkin dimiliki suatu titik pada tree tersebut?
+> Berapakah hasil kembalian terbesar
+> yang mungkin dihasilkan?
 
 Tuliskan jawaban dalam bentuk ANGKA.
 
----
-
-## Cara Berpikir
-
----
-
-# Fakta Penting Tree
-
-Pada tree:
-- jumlah sisi:
-
 :contentReference[oaicite:0]{index=0}
 
-Dengan:
+---
+
+## Cara Cepat
+
+Dari soal sebelumnya:
+
 ```txt
-n = 20
+RAHASIA(A)
+=
+median(A)
 ```
 
 Maka:
 
 ```txt
-19 sisi
-```
-
----
-
-# Jumlah Total Derajat
-
-Gunakan:
-
-:contentReference[oaicite:1]{index=1}
-
-Maka:
-
-```txt
-2 × 19
+PETAK(B)
 =
-38
-```
-
----
-
-# Informasi Daun
-
-Daun:
-- derajat 1
-
-Jumlah daun:
-```txt
-5
-```
-
-Total kontribusi daun:
-
-```txt
-5 × 1
-=
-5
-```
-
----
-
-# Sisa Titik
-
-Total titik:
-```txt
-20
-```
-
-Berarti:
-```txt
-15 titik bukan daun
-```
-
-Sisa total derajat:
-
-```txt
-38 - 5
-=
-33
+median
+dari median tiap baris
 ```
 
 ---
@@ -103,96 +97,145 @@ Sisa total derajat:
 
 Kita ingin:
 ```txt
-derajat maksimum sekecil mungkin
+hasil sebesar mungkin
 ```
 
 Artinya:
-- derajat harus dibagi semerata mungkin.
+- median dari 5 median baris
+  harus sebesar mungkin.
 
 ---
 
-# Distribusi Minimum
+# Fakta Penting
 
-Pada 15 titik:
-- total derajat 33
-
-Jika semua minimal:
+Median suatu baris berisi 5 angka adalah:
 ```txt
-2
+angka ke-3 terbesar
 ```
 
-maka total:
+Agar median besar:
+- minimal harus ada 3 angka besar
+  di baris tersebut.
 
+---
+
+# Strategi Maksimum
+
+Kita ingin median akhir sebesar mungkin.
+
+Karena:
 ```txt
-15 × 2
-=
-30
+median dari 5 median
 ```
 
-Masih sisa:
+maka:
+- minimal 3 baris
+  harus memiliki median besar.
+
+---
+
+# Gunakan Angka Terbesar
+
+Ambil 15 angka terbesar:
+
 ```txt
-3
+11 sampai 25
 ```
 
-Agar maksimum sekecil mungkin:
-- sebarkan tambahan 3 itu.
-
-Maka derajat terbesar:
-
+Karena:
+- untuk membuat 3 median besar,
+- dibutuhkan minimal:
+  
 ```txt
-3
+3 × 3 = 9 angka besar
 ```
 
 ---
 
-# Apakah Mungkin?
+# Median Maksimum yang Bisa Dijamin
 
-Ya.
+Kita ingin:
+```txt
+minimal 3 baris
+memiliki median ≥ X
+```
 
-Contoh:
-- 12 titik derajat 2
-- 3 titik derajat 3
+Berarti:
+- tiap baris butuh minimal 3 angka ≥ X.
 
 Total:
-
 ```txt
-12×2 + 3×3
-=
-24 + 9
-=
-33
+9 angka ≥ X
 ```
 
-Valid.
+---
+
+# Cari X Terbesar
+
+Bilangan:
+```txt
+17 sampai 25
+```
+
+jumlahnya:
+```txt
+9 angka
+```
+
+Pas.
+
+Artinya:
+- kita bisa membuat
+  3 baris dengan median minimal:
+
+```txt
+17
+```
+
+Tetapi:
+```txt
+18 sampai 25
+```
+
+hanya:
+```txt
+8 angka
+```
+
+tidak cukup.
+
+---
+
+# Maka
+
+Median terbesar yang mungkin:
+
+```txt
+17
+```
 
 ---
 
 # Jawaban
 
-3
+17
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- graph theory
-- tree degree
-- optimasi distribusi
+- median
+- greedy arrangement
+- observasi nested median
 
 Konsep penting:
 
-Pada tree:
 ```txt
-jumlah derajat total tetap
+median dari median
 ```
 
-Untuk meminimalkan:
-```txt
-derajat maksimum
-```
-
-maka:
-```txt
-sebarkan derajat semerata mungkin.
-```
+dimaksimalkan dengan:
+- menyebarkan angka besar
+  agar minimal 3 grup
+  memiliki median besar.

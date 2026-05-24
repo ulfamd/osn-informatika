@@ -1,108 +1,142 @@
-# Soal 21 — Susunan Huruf
+# Soal 21 — Kartu Huruf Ajaib
 
 ## Soal
 
-Berapa banyak susunan berbeda dari huruf-huruf pada kata:
+Pada awalnya:
+- kartu pertama berisi `A`
+- kartu kedua berisi `B`
+- ...
+- kartu ke-26 berisi `Z`
+
+Pak Dengklek menjentikkan jari sebanyak:
 
 ```txt
-ALGORITMA
+3333 kali
 ```
+
+Perubahan huruf mengikuti tabel pada soal.
+
+Pertanyaannya:
+
+> Berapa banyak huruf berbeda
+> yang dapat terlihat pada seluruh kartu
+> setelah seluruh perubahan dilakukan?
 
 Tuliskan jawaban dalam bentuk ANGKA.
-
----
-
-## Cara Berpikir
-
-Kita gunakan:
-
-```txt
-Permutasi dengan pengulangan
-```
-
-Karena:
-- ada huruf yang muncul lebih dari sekali.
-
----
-
-# Langkah 1 — Hitung Jumlah Huruf
-
-Kata:
-
-```txt
-ALGORITMA
-```
-
-Jumlah huruf:
-
-```txt
-9
-```
-
----
-
-# Langkah 2 — Cari Huruf Berulang
-
-Frekuensi huruf:
-
-| Huruf | Banyak |
-| --- | --- |
-| A | 2 |
-| lainnya | 1 |
-
----
-
-# Rumus
-
-Jumlah susunan berbeda:
 
 :contentReference[oaicite:0]{index=0}
 
 ---
 
-# Hitung
+## Cara Berpikir
 
-## 9 Faktorial
+Transformasi huruf pada tabel membentuk:
 
 ```txt
-9!
-=
-362880
+rantai dan siklus
+```
+
+Karena jumlah perubahan sangat besar:
+```txt
+3333
+```
+
+maka kita tidak perlu mensimulasikan satu per satu.
+
+Kita cukup:
+- mencari siklus tiap huruf,
+- lalu melihat hasil akhirnya.
+
+---
+
+# Contoh Siklus
+
+Beberapa huruf membentuk siklus seperti:
+
+```txt
+E → H → F → I → E
+```
+
+Panjang siklus:
+```txt
+4
+```
+
+Ada juga siklus:
+
+```txt
+L ↔ N ↔ M
+```
+
+dan:
+
+```txt
+T → U → V → W → X → T
 ```
 
 ---
 
-## Bagi 2!
+# Gunakan Modulo
+
+Karena transformasi akhirnya berulang,
+kita cukup menghitung posisi akhir menggunakan:
+
+:contentReference[oaicite:1]{index=1}
+
+untuk setiap siklus dengan panjang:
+```txt
+k
+```
+
+---
+
+# Hasil Akhir Seluruh Huruf
+
+Setelah seluruh transformasi dilakukan,
+huruf-huruf yang muncul hanyalah:
 
 ```txt
-362880 / 2
-=
-181440
+B, C,
+E, F, H, I,
+L, M, N,
+T, U, V, W, X
+```
+
+Jumlah huruf berbeda:
+
+```txt
+14
 ```
 
 ---
 
 # Jawaban
 
-181440
+14
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- kombinatorika
-- permutasi
-- pengulangan huruf
+- simulasi transformasi
+- functional graph
+- cycle detection
+- modulo
 
 Konsep penting:
 
-Jika ada huruf yang sama:
-
+Jika transformasi:
 ```txt
-n! / (a! b! c! ...)
+berulang membentuk siklus
 ```
 
-karena:
-- pertukaran huruf identik
-- tidak menghasilkan susunan baru.
+maka:
+```txt
+simulasi besar
+```
+
+dapat dipercepat menggunakan:
+```txt
+modulo panjang siklus.
+```

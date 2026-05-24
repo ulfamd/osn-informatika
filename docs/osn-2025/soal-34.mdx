@@ -1,121 +1,247 @@
-# Soal 34 — Jalur Pendakian
+# Soal 34 — Dua String
 
 ## Soal
 
-Terdapat sebuah graph tak berarah dengan:
-- 8 titik
-- seluruh titik saling terhubung
+Diberikan fungsi berikut:
 
-Diketahui:
-- tepat 4 titik memiliki derajat ganjil
+```cpp
+int DUA(string S, string T) {
+    int N = S.length();
+    int M = T.length();
 
-Pertanyaannya:
+    int P = 0;
 
-> Apakah graph tersebut mungkin memiliki:
->
-> ```txt
-> Euler Path
-> ```
->
-> yaitu jalur yang melewati setiap sisi tepat satu kali?
+    for (int i = 0; i <= N - M; i++) {
 
-Tuliskan jawaban dalam bentuk:
+        int Q = 1;
 
-```txt
-YA
+        for (int j = 0; j < M; j++) {
+            if (S[i + j] != T[M - 1 - j]) {
+                Q = 0;
+            }
+        }
+
+        P += Q;
+    }
+
+    return P;
+}
 ```
 
-atau
+Jika:
 
 ```txt
-TIDAK
+S = "ACCAAACCA"
 ```
+
+berapakah banyak kemungkinan string `T`
+sehingga:
+
+```txt
+DUA(S,T) = 2
+```
+
+Perhatikan:
+- tidak ada syarat mengenai panjang `T`.
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Soal ini menggunakan teori:
+Fungsi:
 
 ```txt
-Euler Path
+DUA(S,T)
 ```
 
----
-
-# Syarat Euler Path
-
-Pada graph tak berarah:
-
----
-
-## Euler Circuit
-
-Jika:
-- mulai dan selesai di titik sama
-
-maka:
+menghitung:
 ```txt
-jumlah titik ganjil = 0
+berapa kali reverse(T)
+muncul di S
 ```
 
----
-
-## Euler Path
-
-Jika:
-- mulai dan selesai berbeda
-
-maka:
+Jadi:
 ```txt
-jumlah titik ganjil = 2
+DUA(S,T)=2
 ```
 
----
-
-# Kondisi Soal
-
-Diketahui:
+berarti:
 ```txt
-ada 4 titik ganjil
+reverse(T)
+muncul tepat 2 kali di S.
 ```
-
----
-
-# Analisis
 
 Karena:
+- operasi reverse bersifat satu-satu,
+- jumlah kemungkinan `T`
+  sama dengan:
+  
 ```txt
-4 > 2
+jumlah substring S
+yang muncul tepat 2 kali.
 ```
 
-maka:
-- Euler Path tidak mungkin ada.
+---
+
+# String S
+
+```txt
+ACCAAACCA
+```
+
+Panjang:
+```txt
+9
+```
+
+---
+
+# Cari Semua Substring
+yang muncul tepat 2 kali
+
+---
+
+# Panjang 1
+
+| Substring | Banyak |
+|---|---|
+| A | 5 |
+| C | 4 |
+
+Tidak ada.
+
+---
+
+# Panjang 2
+
+Substring:
+
+```txt
+AC
+CC
+CA
+AA
+AA
+AC
+CC
+CA
+```
+
+Frekuensi:
+
+| Substring | Banyak |
+|---|---|
+| AC | 2 |
+| CC | 2 |
+| CA | 2 |
+| AA | 2 |
+
+Total:
+```txt
+4
+```
+
+---
+
+# Panjang 3
+
+Substring:
+
+```txt
+ACC
+CCA
+CAA
+AAA
+AAC
+ACC
+CCA
+```
+
+Frekuensi:
+
+| Substring | Banyak |
+|---|---|
+| ACC | 2 |
+| CCA | 2 |
+
+Total tambahan:
+```txt
+2
+```
+
+---
+
+# Panjang 4
+
+Substring:
+
+```txt
+ACCA
+CCAA
+CAAA
+AAAC
+AACC
+ACCA
+```
+
+Frekuensi:
+
+| Substring | Banyak |
+|---|---|
+| ACCA | 2 |
+
+Total tambahan:
+```txt
+1
+```
+
+---
+
+# Panjang ≥ 5
+
+Tidak ada substring
+yang muncul tepat 2 kali.
+
+---
+
+# Total Semua
+
+```txt
+4 + 2 + 1
+=
+7
+```
 
 ---
 
 # Jawaban
 
-```txt
-TIDAK
-```
+7
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- graph theory
-- Euler path
-- analisis derajat simpul
+- substring frequency
+- brute force string analysis
+- reverse mapping
 
-Konsep inti:
+Konsep penting:
 
-| Kondisi | Jumlah Titik Ganjil |
-| --- | --- |
-| Euler Circuit | 0 |
-| Euler Path | 2 |
-| Tidak Mungkin Euler | >2 |
+Karena fungsi:
+```txt
+mencari reverse(T)
+```
 
-Teknik cepat:
-- cukup hitung jumlah simpul ganjil.
+maka:
+```txt
+jumlah kemungkinan T
+=
+jumlah substring
+yang muncul tepat 2 kali.
+```

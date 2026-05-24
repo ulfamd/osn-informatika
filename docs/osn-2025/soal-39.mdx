@@ -1,105 +1,155 @@
-# Soal 39 — Binary Search
+# Soal 39 — Merah Putih Nusantara
 
 ## Soal
 
-Terdapat array terurut berisi:
+Diberikan fungsi berikut:
 
-```txt
-1024 elemen
+```cpp
+int MERAH(int A, int B) {
+    if (B == 0) {
+        return A;
+    } else {
+        return MERAH(B, A % B);
+    }
+}
+
+int PUTIH(int A, int B, int C) {
+    if (C == 0) {
+        return 0;
+    } else if (MERAH(A, C) == B) {
+        return 1 + PUTIH(A, B, C - 1);
+    } else {
+        return PUTIH(A, B, C - 1);
+    }
+}
+
+int NUSANTARA(int A, int B) {
+    return PUTIH(A, B, A);
+}
 ```
 
-Dilakukan binary search untuk mencari suatu elemen.
+Berapakah hasil dari:
 
-Pertanyaannya:
-
-> Berapa maksimum banyak elemen
-> yang perlu diperiksa?
+```cpp
+NUSANTARA(12, 3)
+```
 
 Tuliskan jawaban dalam bentuk ANGKA.
-
----
-
-## Cara Berpikir
-
-Binary Search:
-- setiap langkah membagi data menjadi dua bagian
-
-Kompleksitas:
 
 :contentReference[oaicite:0]{index=0}
 
 ---
 
-# Langkah 1 — Hitung Logaritma
+## Cara Cepat
 
-Jumlah elemen:
+Fungsi:
 
-```txt
-1024
+```cpp
+MERAH(A,B)
 ```
 
-Karena:
+adalah:
+
+```txt
+FPB / GCD
+```
+
+---
+
+# Apa yang Dilakukan PUTIH?
+
+```cpp
+PUTIH(A,B,C)
+```
+
+menghitung:
+```txt
+berapa banyak bilangan
+1 sampai C
+```
+
+yang memenuhi:
 
 :contentReference[oaicite:1]{index=1}
 
-maka:
+---
+
+# Maka
+
+```cpp
+NUSANTARA(12,3)
+```
+
+berarti:
+
+```txt
+menghitung banyak x
+dari 1 sampai 12
+```
+
+yang memenuhi:
 
 :contentReference[oaicite:2]{index=2}
 
 ---
 
-# Langkah 2 — Maksimum Pemeriksaan
+# Cek Satu per Satu
 
-Pada binary search:
-- maksimum langkah:
+| x | gcd(12,x) |
+|---|---|
+| 1 | 1 |
+| 2 | 2 |
+| 3 | 3 ✓ |
+| 4 | 4 |
+| 5 | 1 |
+| 6 | 6 |
+| 7 | 1 |
+| 8 | 4 |
+| 9 | 3 ✓ |
+| 10 | 2 |
+| 11 | 1 |
+| 12 | 12 |
+
+Yang memenuhi:
 
 ```txt
-log₂(n) + 1
+3 dan 9
 ```
 
-atau:
-- kadang dihitung langsung sebagai jumlah level pencarian.
-
-Untuk:
-```txt
-1024 = 2^{10}
-```
-
-maksimum elemen diperiksa:
+Jumlah:
 
 ```txt
-11
+2
 ```
-
-karena:
-- setelah 10 pembagian,
-- masih perlu 1 pemeriksaan akhir.
 
 ---
 
 # Jawaban
 
-11
+2
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- binary search
-- logaritma
-- kompleksitas algoritma
+- gcd
+- rekursi
+- counting number theory
 
 Konsep penting:
 
-Jika:
-```txt
-n = 2^k
+```cpp
+NUSANTARA(A,B)
 ```
 
-maka:
-- binary search membutuhkan sekitar:
+menghitung:
 
 :contentReference[oaicite:3]{index=3}
 
-pemeriksaan pada kasus terburuk.
+yaitu:
+```txt
+banyak bilangan
+yang FPB-nya terhadap A
+sama dengan B.
+```

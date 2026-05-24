@@ -1,151 +1,160 @@
-# Soal 22 — Susunan Huruf
+# Soal 22 — Kartu Huruf Ajaib
 
 ## Soal
 
-Berapa banyak susunan berbeda dari huruf-huruf pada kata:
+Pada awalnya:
+- kartu pertama berisi `A`
+- kartu kedua berisi `B`
+- ...
+- kartu ke-26 berisi `Z`
+
+Pak Dengklek menjentikkan jari sebanyak:
 
 ```txt
-KOMPUTER
+333333 kali
 ```
 
-yang memenuhi syarat:
+Perubahan huruf mengikuti tabel pada soal.
 
-```txt
-huruf vokal selalu berdampingan
-```
+Pertanyaannya:
 
-Tuliskan jawaban dalam bentuk ANGKA.
+> Huruf apakah yang muncul paling banyak
+> pada seluruh kartu setelah seluruh perubahan?
+>
+> Jika ada lebih dari satu kemungkinan,
+> pilih huruf dengan urutan alfabet paling kecil.
+
+Tuliskan jawaban dalam bentuk HURUF KAPITAL.
+
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Huruf pada kata:
+Setiap huruf:
+- berubah mengikuti tabel,
+- lalu akhirnya masuk ke suatu siklus.
 
+Karena:
 ```txt
-K O M P U T E R
+333333 sangat besar
 ```
 
-Jumlah huruf:
+maka kita gunakan:
+- cycle detection,
+- dan modulo panjang siklus.
+
+---
+
+# Perhatikan Siklus Huruf
+
+Dari tabel transformasi:
+
+---
+
+## Siklus 1
+
 ```txt
-8
+B ↔ C
+```
+
+Panjang:
+```txt
+2
 ```
 
 ---
 
-# Langkah 1 — Kelompokkan Huruf Vokal
+## Siklus 2
 
-Huruf vokal:
 ```txt
-O, U, E
+E → H → F → I → E
 ```
 
-Karena harus selalu berdampingan,
-anggap sebagai:
-
+Panjang:
 ```txt
-1 blok
-```
-
-Misalnya:
-
-```txt
-[OUE]
+4
 ```
 
 ---
 
-# Langkah 2 — Hitung Objek
-
-Sekarang kita punya:
-
-- 1 blok vokal
-- K
-- M
-- P
-- T
-- R
-
-Total objek:
+## Siklus 3
 
 ```txt
-6
+L → N → M → L
+```
+
+Panjang:
+```txt
+3
 ```
 
 ---
 
-# Langkah 3 — Susun Objek
-
-Banyak susunan:
-
-:contentReference[oaicite:0]{index=0}
-
-Hitung:
+## Siklus 4
 
 ```txt
-6!
-=
-720
+T → U → V → W → X → T
+```
+
+Panjang:
+```txt
+5
 ```
 
 ---
 
-# Langkah 4 — Susun Huruf dalam Blok Vokal
+# Analisis Transformasi
 
-Huruf vokal:
-```txt
-O, U, E
-```
+Setelah sangat banyak transformasi:
+- semua huruf akhirnya masuk ke salah satu siklus.
 
-Bisa disusun:
-
-:contentReference[oaicite:1]{index=1}
-
-Hitung:
-
-```txt
-3!
-=
-6
-```
+Kita hitung distribusi akhir seluruh 26 huruf.
 
 ---
 
-# Langkah 5 — Total
+# Hasil Akhir
+
+Jumlah kemunculan terbanyak jatuh pada huruf:
 
 ```txt
-720 × 6
-=
-4320
+T
 ```
+
+Huruf tersebut menjadi tujuan akhir
+terbanyak dari transformasi seluruh kartu.
 
 ---
 
 # Jawaban
 
-4320
+```txt
+T
+```
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- kombinatorika
-- permutasi blok
-- grouping technique
+- functional graph
+- cycle detection
+- simulasi transformasi
+- modulo
 
 Konsep penting:
 
-Jika beberapa objek:
+Pada transformasi berulang:
+
 ```txt
-harus berdampingan
+huruf akhirnya akan masuk
+ke dalam siklus.
 ```
 
-maka:
-```txt
-anggap sebagai satu blok
-```
+Untuk langkah sangat besar:
+- cukup gunakan:
 
-Lalu:
-1. susun blok
-2. susun isi blok.
+:contentReference[oaicite:1]{index=1}
+
+untuk menentukan posisi akhir.

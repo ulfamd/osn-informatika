@@ -1,167 +1,128 @@
-# Soal 23 — Susunan Huruf
+# Soal 23 — Bebek Gayung
 
 ## Soal
 
-Berapa banyak susunan berbeda dari huruf-huruf pada kata:
+Pak Dengklek memiliki:
+- `N = 20` bebek
+- dua gayung berukuran:
+  - `X = 3 liter`
+  - `Y = 5 liter`
 
-```txt
-KOMPUTER
-```
+Bebek ke-`P`:
+- ingin mandi dengan tepat `P liter`.
 
-yang memenuhi syarat:
+Pak Dengklek boleh:
+- menggunakan gayung 3 liter berkali-kali,
+- menggunakan gayung 5 liter berkali-kali,
+- tetapi setiap pengambilan air harus langsung dipakai.
 
-```txt
-huruf vokal tidak boleh berdampingan
-```
+Pertanyaannya:
+
+> Berapa banyak bebek
+> yang tidak bisa dimandikan?
 
 Tuliskan jawaban dalam bentuk ANGKA.
+
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Huruf pada kata:
-
-```txt
-K O M P U T E R
-```
-
-Jumlah huruf:
-```txt
-8
-```
-
----
-
-# Langkah 1 — Pisahkan Konsonan dan Vokal
-
-## Huruf Vokal
-
-```txt
-O, U, E
-```
-
-Jumlah:
-```txt
-3
-```
-
----
-
-## Huruf Konsonan
-
-```txt
-K, M, P, T, R
-```
-
-Jumlah:
-```txt
-5
-```
-
----
-
-# Langkah 2 — Susun Konsonan
-
-Konsonan berbeda semua.
-
-Jumlah susunan:
-
-:contentReference[oaicite:0]{index=0}
-
-Hitung:
-
-```txt
-5!
-=
-120
-```
-
----
-
-# Langkah 3 — Cari Tempat Menaruh Vokal
-
-Jika konsonan sudah disusun:
-
-```txt
-_ K _ M _ P _ T _ R _
-```
-
-Terdapat:
-
-```txt
-6 tempat
-```
-
-untuk menaruh vokal agar:
-- tidak berdampingan.
-
----
-
-# Langkah 4 — Pilih Tempat untuk 3 Vokal
-
-Pilih 3 dari 6 tempat:
+Jumlah air yang bisa dibuat berbentuk:
 
 :contentReference[oaicite:1]{index=1}
 
-Hitung:
+dengan:
+- `a ≥ 0`
+- `b ≥ 0`
+
+Kita cek bilangan:
+```txt
+1 sampai 20
+```
+
+yang bisa dibentuk.
+
+---
+
+# Bilangan yang Bisa Dibentuk
+
+---
+
+## Menggunakan 3 liter
 
 ```txt
-20
+3, 6, 9, 12, 15, 18
 ```
 
 ---
 
-# Langkah 5 — Susun Vokal
-
-Huruf:
-```txt
-O,U,E
-```
-
-Jumlah susunan:
-
-:contentReference[oaicite:2]{index=2}
-
-Hitung:
+## Menggunakan 5 liter
 
 ```txt
-6
+5, 10, 15, 20
 ```
 
 ---
 
-# Langkah 6 — Total
+## Kombinasi 3 dan 5
 
 ```txt
-120 × 20 × 6
-=
-14400
+8  = 3 + 5
+11 = 6 + 5
+13 = 3 + 10
+14 = 9 + 5
+16 = 6 + 10
+17 = 12 + 5
+19 = 9 + 10
+```
+
+---
+
+# Bilangan yang Tidak Bisa Dibentuk
+
+Dari 1 sampai 20:
+
+```txt
+1, 2, 4, 7
+```
+
+Jumlah:
+
+```txt
+4
 ```
 
 ---
 
 # Jawaban
 
-14400
+4
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- kombinatorika
-- gap method
-- permutasi bersyarat
+- kombinasi linear
+- number theory
+- representasi bilangan
 
 Konsep penting:
 
-Jika objek:
+Bilangan yang bisa dibuat harus berbentuk:
+
+:contentReference[oaicite:2]{index=2}
+
+dengan:
+- `a,b ≥ 0`
+
+Karena:
 ```txt
-tidak boleh berdampingan
+gcd(3,5)=1
 ```
 
 maka:
-1. susun objek utama dulu
-2. gunakan celah/gap
-3. tempatkan objek lainnya di gap tersebut.
+- semua bilangan cukup besar
+  pasti bisa dibentuk.

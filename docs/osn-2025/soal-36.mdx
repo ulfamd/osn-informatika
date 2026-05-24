@@ -1,100 +1,242 @@
-# Soal 36 — Pohon Keluarga Bebek
+# Soal 36 — Rahasia Petak 5x5
 
 ## Soal
 
-Terdapat sebuah tree dengan:
-- 15 titik
+Diberikan fungsi berikut:
 
-Pertanyaannya:
+```cpp
+int RAHASIA(vector<int> A) {
+    int N = A.size();
+    int sum = 0;
 
-> Berapa jumlah derajat seluruh titik pada tree tersebut?
+    for (int i = 0; i < N; i++) {
+
+        int ctr = 0;
+
+        for (int j = 0; j < N; j++) {
+
+            if (A[j] > A[i]) {
+                ctr += 1;
+            } else if (A[j] < A[i]) {
+                ctr -= 1;
+            }
+
+        }
+
+        if (ctr == 0) {
+            sum += A[i];
+        }
+
+    }
+
+    return sum;
+}
+
+int PETAK(vector<vector<int>> B) {
+    int N = B.size();
+
+    vector<int> C;
+
+    for (int i = 0; i < N; i++) {
+        C.push_back(RAHASIA(B[i]));
+    }
+
+    return RAHASIA(C);
+}
+```
+
+Berapakah hasil dari:
+
+```cpp
+PETAK(
+ {16, 5, 20, 1, 11},
+ {2, 17, 13, 14, 19},
+ {15, 7, 21, 18, 9},
+ {25, 6, 4, 12, 22},
+ {23, 3, 24, 8, 10}
+)
+```
 
 Tuliskan jawaban dalam bentuk ANGKA.
 
----
-
-## Cara Berpikir
-
-Pada graph tak berarah berlaku:
-
-```txt
-jumlah seluruh derajat
-=
-2 × jumlah sisi
-```
-
-Ini disebut:
-
-```txt
-Handshaking Lemma
-```
-
----
-
-# Langkah 1 — Cari Jumlah Sisi Tree
-
-Untuk tree:
-
 :contentReference[oaicite:0]{index=0}
 
-Dengan:
+---
+
+## Cara Cepat
+
+Dari soal sebelumnya:
+
 ```txt
-n = 15
+RAHASIA(A)
 ```
 
-Maka:
+menghasilkan:
 
 ```txt
-15 - 1
-=
+median dari array A
+```
+
+karena:
+- elemen dipilih saat
+  jumlah elemen lebih besar
+  = jumlah elemen lebih kecil.
+
+---
+
+# Langkah 1 — Cari Median Tiap Baris
+
+---
+
+## Baris 1
+
+```txt
+16, 5, 20, 1, 11
+```
+
+Urut:
+
+```txt
+1, 5, 11, 16, 20
+```
+
+Median:
+
+```txt
+11
+```
+
+---
+
+## Baris 2
+
+```txt
+2, 17, 13, 14, 19
+```
+
+Urut:
+
+```txt
+2, 13, 14, 17, 19
+```
+
+Median:
+
+```txt
 14
 ```
 
 ---
 
-# Langkah 2 — Hitung Jumlah Derajat
+## Baris 3
 
-Gunakan rumus:
-
-:contentReference[oaicite:1]{index=1}
-
-Dengan:
 ```txt
-E = 14
+15, 7, 21, 18, 9
 ```
 
-Maka:
+Urut:
 
 ```txt
-2 × 14
-=
-28
+7, 9, 15, 18, 21
+```
+
+Median:
+
+```txt
+15
+```
+
+---
+
+## Baris 4
+
+```txt
+25, 6, 4, 12, 22
+```
+
+Urut:
+
+```txt
+4, 6, 12, 22, 25
+```
+
+Median:
+
+```txt
+12
+```
+
+---
+
+## Baris 5
+
+```txt
+23, 3, 24, 8, 10
+```
+
+Urut:
+
+```txt
+3, 8, 10, 23, 24
+```
+
+Median:
+
+```txt
+10
+```
+
+---
+
+# Langkah 2 — Bentuk Vector C
+
+```txt
+C = {11, 14, 15, 12, 10}
+```
+
+---
+
+# Langkah 3 — Cari Median C
+
+Urutkan:
+
+```txt
+10, 11, 12, 14, 15
+```
+
+Median:
+
+```txt
+12
 ```
 
 ---
 
 # Jawaban
 
-28
+12
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- graph theory
-- tree
-- handshaking lemma
+- observasi kode
+- median
+- nested function analysis
 
 Konsep penting:
 
-Pada graph tak berarah:
-
 ```txt
-jumlah seluruh derajat
+RAHASIA(A)
 =
-2 × jumlah sisi
+median(A)
 ```
 
-Karena:
-- setiap sisi menyumbang 2 derajat.
+Sehingga:
+
+```txt
+PETAK(B)
+=
+median dari median tiap baris.
+```
