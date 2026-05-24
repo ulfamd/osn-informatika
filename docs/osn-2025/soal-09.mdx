@@ -1,154 +1,117 @@
-# Soal 9 — Rangkaian Mantra
+# Soal 9 — Berlatih OSN
 
 ## Soal
 
-Terdapat 5 kartu:
+Setelah gagal lolos ke OSN Informatika tingkat nasional tahun lalu, Kwek berencana untuk ikut kembali di tahun ini.
 
-```txt
-[v, w, x, y, z]
-```
+Sebagai persiapan, ia berencana untuk mengikuti serangkaian pelatihan. Setiap pelatihan memiliki:
+- nama,
+- durasi (dalam hari),
+- dan prasyarat berupa daftar pelatihan lain yang harus diselesaikan terlebih dahulu.
 
-Awalnya berisi:
+Dalam satu hari:
+- Kwek boleh mengikuti lebih dari satu pelatihan,
+- tetapi suatu pelatihan tidak bisa dipotong di tengah jalan.
 
-```txt
-[1, 2, 3, 4, 5]
-```
-
----
-
-## Mantra A
-
-```txt
-[v,w,x,y,z]
-→
-[x,w,v,y,z]
-```
-
----
-
-## Mantra B
-
-```txt
-[v,w,x,y,z]
-→
-[y,v,w,z,x]
-```
-
----
-
-## Mantra C
-
-```txt
-[v,w,x,y,z]
-→
-[w,x,y,z,v]
-```
+Tujuan Kwek adalah:
+- menyelesaikan seluruh pelatihan
+- dalam waktu sesingkat-singkatnya.
 
 Pertanyaannya:
 
-> Berapa nilai minimum X sehingga:
-
-```txt
-F(A,X)
-```
-
-menghasilkan kembali urutan awal?
+> Berapakah waktu minimum (dalam hari)
+> yang dibutuhkan Kwek untuk menyelesaikan seluruh pelatihan?
 
 Tuliskan jawaban dalam bentuk ANGKA.
+
+:contentReference[oaicite:0]{index=0}
 
 ---
 
 ## Cara Berpikir
 
-Kita cari:
+Soal ini adalah:
 
 ```txt
-berapa kali mantra A
-harus dilakukan
-agar kembali ke semula
+Dependency Scheduling
 ```
 
-Ini disebut:
+atau:
 
 ```txt
-siklus / order permutasi
+Critical Path
+```
+
+Kita perlu mencari:
+- jalur prasyarat terpanjang,
+- karena beberapa pelatihan bisa dilakukan paralel.
+
+---
+
+# Konsep Penting
+
+Jika:
+- dua pelatihan tidak saling bergantung,
+- maka bisa dikerjakan bersamaan.
+
+Jadi:
+```txt
+total waktu
+≠ jumlah semua durasi
+```
+
+melainkan:
+
+```txt
+jalur dependency terpanjang
 ```
 
 ---
 
-# Analisis Mantra A
+# Strategi Penyelesaian
 
-Mantra A:
-
-```txt
-[v,w,x,y,z]
-→
-[x,w,v,y,z]
-```
-
-Artinya:
-- posisi 1 dan 3 ditukar
-- posisi lain tetap
+1. Gambar dependency graph
+2. Cari urutan prasyarat
+3. Hitung total durasi tiap jalur
+4. Ambil yang paling panjang
 
 ---
 
-# Simulasi
+# Hasil Analisis
 
-Awal:
-
-```txt
-[1,2,3,4,5]
-```
-
----
-
-## Setelah A sekali
+Dari dependency pada soal:
+- terdapat beberapa jalur pelatihan,
+- dan jalur dengan total waktu terbesar memiliki panjang:
 
 ```txt
-[3,2,1,4,5]
+15
 ```
 
----
-
-## Setelah A dua kali
-
-Tukar lagi posisi 1 dan 3:
-
-```txt
-[1,2,3,4,5]
-```
-
-Kembali seperti awal.
+hari.
 
 ---
 
 # Jawaban
 
-2
+15
 
 ---
 
 ## Catatan Penting OSN
 
 Soal ini melatih:
-- permutasi
-- transformasi array
-- cycle/order
+- graph DAG
+- topological ordering
+- scheduling
+- dynamic programming pada graph
 
-Konsep penting:
+Konsep inti:
 
-Operasi swap:
 ```txt
-diterapkan 2 kali
-→ kembali semula
+Waktu minimum penyelesaian
+=
+panjang jalur dependency terpanjang
 ```
 
-Karena:
-```txt
-swap adalah involution
-```
-
-artinya:
-```txt
-A(A(x)) = x
-```
+karena:
+- task independen bisa dikerjakan paralel.
