@@ -1,0 +1,154 @@
+# Soal 14 — Jalan Tol Bebek
+
+## Soal
+
+Pak Dengklek ingin pergi dari kota:
+
+```txt
+A → H
+```
+
+Setiap jalan:
+- memiliki biaya
+- boleh dilewati berkali-kali
+
+Pertanyaannya:
+
+> Berapa banyak jalur berbeda dari A ke H
+> yang memiliki total biaya tepat:
+
+```txt
+18
+```
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Kita cari:
+- semua jalur dari A ke H
+- dengan total biaya = 18
+
+---
+
+# Jalur Kandidat
+
+Dari graf pada soal sebelumnya.
+
+---
+
+## Jalur 1
+
+```txt
+A → B → D → G → H
+```
+
+Biaya:
+
+```txt
+4 + 3 + 6 + 5
+=
+18
+```
+
+Valid.
+
+---
+
+## Jalur 2
+
+```txt
+A → C → D → G → H
+```
+
+Biaya:
+
+```txt
+6 + 2 + 6 + 5
+=
+19
+```
+
+Tidak valid.
+
+---
+
+## Jalur 3
+
+```txt
+A → B → E → H
+```
+
+Biaya:
+
+```txt
+4 + 7 + 8
+=
+19
+```
+
+Tidak valid.
+
+---
+
+## Jalur 4
+
+```txt
+A → C → F → H
+```
+
+Biaya:
+
+```txt
+6 + 5 + 10
+=
+21
+```
+
+Tidak valid.
+
+---
+
+# Cek Kombinasi Lain
+
+Dari struktur graf:
+- tidak ada kombinasi lain
+- yang menghasilkan tepat 18
+
+---
+
+# Total Jalur Valid
+
+```txt
+1
+```
+
+---
+
+# Jawaban
+
+1
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- graph traversal
+- path enumeration
+- weighted path counting
+
+Konsep penting:
+
+```txt
+Shortest path ≠ jumlah path
+```
+
+Kadang:
+- hanya ada satu jalur optimal
+- kadang banyak jalur dengan biaya sama.
+
+Untuk soal kecil:
+- brute force manual masih memungkinkan.

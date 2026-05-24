@@ -1,0 +1,136 @@
+# Soal 26 — Peluang Kartu
+
+## Soal
+
+Dari satu set kartu remi standar:
+- total 52 kartu
+- tanpa joker
+
+Diambil satu kartu secara acak.
+
+Pertanyaannya:
+
+> Berapa peluang mendapatkan:
+>
+> ```txt
+> kartu hati atau kartu As
+> ```
+
+Tuliskan jawaban dalam bentuk pecahan paling sederhana.
+
+---
+
+## Cara Berpikir
+
+Kita gunakan:
+
+```txt
+Inclusion Exclusion Principle
+```
+
+Karena:
+- kartu hati
+- kartu As
+
+memiliki irisan.
+
+---
+
+# Langkah 1 — Hitung Kartu Hati
+
+Dalam remi:
+- ada 4 jenis simbol
+- masing-masing 13 kartu
+
+Maka kartu hati:
+
+```txt
+13
+```
+
+---
+
+# Langkah 2 — Hitung Kartu As
+
+Ada:
+```txt
+4 As
+```
+
+---
+
+# Langkah 3 — Cari Irisan
+
+Kartu yang:
+- hati
+- sekaligus As
+
+yaitu:
+
+```txt
+As hati
+```
+
+Jumlah:
+```txt
+1
+```
+
+---
+
+# Langkah 4 — Inclusion Exclusion
+
+Jumlah kejadian:
+
+```txt
+13 + 4 - 1
+=
+16
+```
+
+---
+
+# Langkah 5 — Hitung Peluang
+
+Total kartu:
+
+```txt
+52
+```
+
+Peluang:
+
+:contentReference[oaicite:0]{index=0}
+
+Sederhanakan:
+
+:contentReference[oaicite:1]{index=1}
+
+---
+
+# Jawaban
+
+```txt
+4/13
+```
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- probabilitas
+- himpunan
+- inclusion exclusion
+
+Konsep penting:
+
+```txt
+|A ∪ B|
+=
+|A| + |B| - |A ∩ B|
+```
+
+Karena:
+- irisan dihitung dua kali
+- maka harus dikurangi sekali.

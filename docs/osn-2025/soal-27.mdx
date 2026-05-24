@@ -1,0 +1,132 @@
+# Soal 27 — Peluang Kartu
+
+## Soal
+
+Dari satu set kartu remi standar:
+- total 52 kartu
+- tanpa joker
+
+Diambil dua kartu secara acak tanpa pengembalian.
+
+Pertanyaannya:
+
+> Berapa peluang kedua kartu yang terambil
+> memiliki jenis/simbol yang sama?
+
+Tuliskan jawaban dalam bentuk pecahan paling sederhana.
+
+---
+
+## Cara Berpikir
+
+Jenis kartu:
+- sekop
+- hati
+- wajik
+- keriting
+
+Masing-masing:
+```txt
+13 kartu
+```
+
+---
+
+# Langkah 1 — Total Cara Mengambil 2 Kartu
+
+Total kartu:
+```txt
+52
+```
+
+Jumlah cara memilih 2 kartu:
+
+:contentReference[oaicite:0]{index=0}
+
+Hitung:
+
+```txt
+52 × 51 / 2
+=
+1326
+```
+
+---
+
+# Langkah 2 — Hitung Pasangan dengan Simbol Sama
+
+Untuk satu simbol:
+```txt
+13 kartu
+```
+
+Cara memilih 2 kartu:
+
+:contentReference[oaicite:1]{index=1}
+
+Hitung:
+
+```txt
+13 × 12 / 2
+=
+78
+```
+
+Karena ada:
+```txt
+4 simbol
+```
+
+Total pasangan valid:
+
+```txt
+4 × 78
+=
+312
+```
+
+---
+
+# Langkah 3 — Hitung Peluang
+
+Peluang:
+
+:contentReference[oaicite:2]{index=2}
+
+Sederhanakan:
+
+:contentReference[oaicite:3]{index=3}
+
+---
+
+# Jawaban
+
+```txt
+4/17
+```
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- probabilitas
+- kombinasi
+- counting
+
+Konsep penting:
+
+Untuk peluang tanpa urutan:
+```txt
+gunakan kombinasi
+```
+
+Rumus:
+
+```txt
+Peluang
+=
+kejadian valid
+/
+seluruh kemungkinan
+```

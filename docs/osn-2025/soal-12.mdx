@@ -1,0 +1,150 @@
+# Soal 12 — Jalan Tol Bebek
+
+## Soal
+
+Pak Dengklek ingin bepergian dari kota:
+
+```txt
+A → H
+```
+
+Terdapat jalan dua arah dengan angka:
+- menunjukkan biaya perjalanan
+
+Tujuan:
+- mencari biaya minimum dari A ke H
+
+Pertanyaannya:
+
+> Berapakah total biaya minimum yang diperlukan?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Soal ini adalah:
+
+```txt
+Shortest Path
+```
+
+Kita mencari:
+- jalur termurah
+- dari titik awal ke tujuan
+
+---
+
+# Strategi
+
+Coba beberapa jalur yang mungkin,
+lalu pilih total biaya terkecil.
+
+---
+
+# Jalur Kandidat
+
+Dari gambar graf:
+
+---
+
+## Jalur 1
+
+```txt
+A → B → E → H
+```
+
+Total biaya:
+
+```txt
+4 + 7 + 8
+=
+19
+```
+
+---
+
+## Jalur 2
+
+```txt
+A → C → F → H
+```
+
+Total:
+
+```txt
+6 + 5 + 10
+=
+21
+```
+
+---
+
+## Jalur 3
+
+```txt
+A → B → D → G → H
+```
+
+Total:
+
+```txt
+4 + 3 + 6 + 5
+=
+18
+```
+
+---
+
+## Jalur 4
+
+```txt
+A → C → D → G → H
+```
+
+Total:
+
+```txt
+6 + 2 + 6 + 5
+=
+19
+```
+
+---
+
+# Cari Minimum
+
+Biaya terkecil:
+
+```txt
+18
+```
+
+---
+
+# Jawaban
+
+18
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- graph traversal
+- shortest path
+- optimasi jalur
+
+Konsep penting:
+
+Untuk graf berbobot positif,
+algoritma yang umum dipakai:
+
+```txt
+Dijkstra
+```
+
+Teknik cepat pilihan ganda:
+- coba beberapa jalur kandidat
+- eliminasi jalur mahal lebih awal.

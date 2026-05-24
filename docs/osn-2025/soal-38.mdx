@@ -1,0 +1,117 @@
+# Soal 38 — Binary Search
+
+## Soal
+
+Terdapat array terurut:
+
+```txt
+[2, 5, 8, 12, 16, 23, 38, 56]
+```
+
+Dilakukan binary search untuk mencari:
+
+```txt
+23
+```
+
+Pertanyaannya:
+
+> Berapa banyak elemen yang diperiksa
+> sampai angka 23 ditemukan?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Binary Search:
+- selalu memeriksa elemen tengah
+
+---
+
+# Langkah 1
+
+Array:
+
+```txt
+[2, 5, 8, 12, 16, 23, 38, 56]
+```
+
+Jumlah elemen:
+```txt
+8
+```
+
+Tengah:
+
+```txt
+index (0+7)/2 = 3
+```
+
+Elemen:
+```txt
+12
+```
+
+Karena:
+```txt
+23 > 12
+```
+
+maka cari ke kanan.
+
+Jumlah diperiksa:
+```txt
+1
+```
+
+---
+
+# Langkah 2
+
+Subarray:
+
+```txt
+[16, 23, 38, 56]
+```
+
+Tengah:
+
+```txt
+23
+```
+
+Ketemu.
+
+Jumlah diperiksa:
+```txt
+2
+```
+
+---
+
+# Jawaban
+
+2
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- binary search
+- array terurut
+- simulasi algoritma
+
+Konsep penting:
+
+Binary Search:
+```txt
+membuang separuh data
+setiap langkah
+```
+
+Kompleksitas:
+
+:contentReference[oaicite:0]{index=0}

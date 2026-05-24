@@ -1,0 +1,114 @@
+# Soal 20 — Susunan Huruf
+
+## Soal
+
+Berapa banyak susunan berbeda dari huruf-huruf pada kata:
+
+```txt
+INFORMATIKA
+```
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Kita hitung:
+- jumlah seluruh huruf
+- lalu bagi dengan pengulangan huruf yang sama
+
+---
+
+# Langkah 1 — Hitung Banyak Huruf
+
+Kata:
+
+```txt
+INFORMATIKA
+```
+
+Jumlah huruf:
+
+```txt
+11
+```
+
+---
+
+# Langkah 2 — Hitung Huruf yang Berulang
+
+Perhatikan frekuensi:
+
+| Huruf | Banyak |
+| --- | --- |
+| I | 2 |
+| A | 2 |
+| lainnya | 1 |
+
+---
+
+# Rumus Permutasi dengan Pengulangan
+
+Jumlah susunan:
+
+:contentReference[oaicite:0]{index=0}
+
+---
+
+# Hitung
+
+## 11 Faktorial
+
+```txt
+11!
+=
+39916800
+```
+
+---
+
+## Penyebut
+
+```txt
+2! × 2!
+=
+4
+```
+
+---
+
+## Hasil
+
+```txt
+39916800 / 4
+=
+9979200
+```
+
+---
+
+# Jawaban
+
+9979200
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- kombinatorika
+- permutasi
+- pengulangan huruf
+
+Konsep penting:
+
+Jika ada huruf berulang:
+
+```txt
+n! / (a! b! c! ...)
+```
+
+karena:
+- pertukaran huruf yang sama
+- tidak menghasilkan susunan baru.

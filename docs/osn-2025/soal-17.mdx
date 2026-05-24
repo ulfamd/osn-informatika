@@ -1,0 +1,157 @@
+# Soal 17 — Permainan Kartu Bebek
+
+## Soal
+
+Terdapat 8 kartu bernomor:
+
+```txt
+1 sampai 8
+```
+
+Aturan:
+- setiap langkah boleh menukar:
+  - sembarang dua kartu
+  - tidak harus bersebelahan
+
+Pertanyaannya:
+
+> Berapa minimum banyak pertukaran
+> untuk mengubah:
+
+```txt
+1 2 3 4 5 6 7 8
+```
+
+menjadi:
+
+```txt
+8 7 6 5 4 3 2 1
+```
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Sekarang:
+- boleh swap sembarang posisi
+- tidak harus adjacent
+
+Strateginya:
+- setiap swap bisa memperbaiki dua posisi sekaligus.
+
+---
+
+# Analisis Posisi
+
+Awal:
+
+```txt
+1 2 3 4 5 6 7 8
+```
+
+Target:
+
+```txt
+8 7 6 5 4 3 2 1
+```
+
+Pasangan yang salah:
+
+```txt
+1 ↔ 8
+2 ↔ 7
+3 ↔ 6
+4 ↔ 5
+```
+
+---
+
+# Langkah Optimal
+
+---
+
+## Swap 1 dan 8
+
+Hasil:
+
+```txt
+8 2 3 4 5 6 7 1
+```
+
+---
+
+## Swap 2 dan 7
+
+Hasil:
+
+```txt
+8 7 3 4 5 6 2 1
+```
+
+---
+
+## Swap 3 dan 6
+
+Hasil:
+
+```txt
+8 7 6 4 5 3 2 1
+```
+
+---
+
+## Swap 4 dan 5
+
+Hasil:
+
+```txt
+8 7 6 5 4 3 2 1
+```
+
+Selesai.
+
+---
+
+# Total Swap
+
+```txt
+4
+```
+
+---
+
+# Jawaban
+
+4
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- permutation cycle
+- minimum swap
+- optimasi pertukaran
+
+Konsep penting:
+
+Jika:
+- swap bebas
+- tidak harus adjacent
+
+maka:
+```txt
+minimum swap
+=
+jumlah siklus permutation
+```
+
+Untuk array terbalik ukuran genap:
+```txt
+jumlah swap minimum = n/2
+```
+
+karena:
+- setiap swap memperbaiki 2 posisi sekaligus.

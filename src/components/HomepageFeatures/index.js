@@ -4,32 +4,35 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Apa itu OSN?',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Pelajari pengertian OSN, khususnya OSN Informatika SMA, mulai dari
+        computational thinking, algoritma, struktur data, hingga tips dan
+        strategi belajar untuk persiapan olimpiade.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'OSN Informatika 2024',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Kumpulan pembahasan soal OSN Informatika SMA tahun 2024 lengkap dengan
+        penjelasan langkah demi langkah, analisis soal, konsep algoritma, dan
+        pembahasan yang mudah dipahami siswa maupun pembina.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'OSN Informatika 2025',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Dokumentasi pembahasan soal OSN Informatika SMA tahun 2025 beserta cara
+        berpikir, strategi penyelesaian, konsep penting, dan pembahasan detail
+        untuk membantu latihan dan persiapan kompetisi.
       </>
     ),
   },

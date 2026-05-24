@@ -1,0 +1,134 @@
+# Soal 15 — Permainan Kartu Bebek
+
+## Soal
+
+Terdapat 8 kartu bernomor:
+
+```txt
+1 sampai 8
+```
+
+Kartu disusun berjajar dari kiri ke kanan.
+
+Aturan permainan:
+- setiap langkah boleh menukar posisi:
+  - dua kartu yang bersebelahan
+
+Tujuan:
+mengubah susunan awal:
+
+```txt
+1 2 3 4 5 6 7 8
+```
+
+menjadi:
+
+```txt
+8 7 6 5 4 3 2 1
+```
+
+Pertanyaannya:
+
+> Berapa minimum banyak pertukaran yang diperlukan?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Karena:
+- hanya boleh swap bersebelahan
+
+maka minimum langkah sama dengan:
+
+```txt
+jumlah inversi
+```
+
+---
+
+# Apa Itu Inversi?
+
+Pasangan:
+
+```txt
+(i,j)
+```
+
+dengan:
+```txt
+i < j
+```
+
+tetapi:
+```txt
+A[i] > A[j]
+```
+
+---
+
+# Kasus Soal
+
+Susunan akhir:
+
+```txt
+8 7 6 5 4 3 2 1
+```
+
+adalah kebalikan total.
+
+Artinya:
+- setiap pasangan menjadi inversi.
+
+---
+
+# Hitung Jumlah Inversi
+
+Untuk:
+```txt
+N = 8
+```
+
+Jumlah inversi maksimum:
+
+:contentReference[oaicite:0]{index=0}
+
+Substitusi:
+
+```txt
+8 × 7 / 2
+=
+28
+```
+
+---
+
+# Jawaban
+
+28
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- sorting
+- inversion counting
+- bubble sort analysis
+
+Konsep penting:
+
+```txt
+Minimum adjacent swap
+=
+jumlah inversi
+```
+
+Untuk array terbalik penuh:
+
+```txt
+jumlah inversi maksimum
+=
+n(n-1)/2
+```

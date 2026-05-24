@@ -1,0 +1,99 @@
+# Soal 31 — Jadwal Pertandingan
+
+## Soal
+
+Terdapat:
+- 10 tim sepak bola
+
+Pertandingan dilakukan dengan sistem:
+- setiap pasangan tim bermain tepat 1 kali
+
+Pertanyaannya:
+
+> Jika dalam satu hari maksimal dimainkan:
+>
+> ```txt
+> 5 pertandingan
+> ```
+>
+> berapa minimum jumlah hari yang diperlukan
+> untuk menyelesaikan seluruh pertandingan?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+---
+
+# Langkah 1 — Hitung Total Pertandingan
+
+Jumlah pertandingan:
+
+:contentReference[oaicite:0]{index=0}
+
+Hitung:
+
+```txt
+10 × 9 / 2
+=
+45
+```
+
+---
+
+# Langkah 2 — Maksimal Pertandingan per Hari
+
+Dalam satu hari:
+```txt
+maksimal 5 pertandingan
+```
+
+Maka jumlah hari minimum:
+
+:contentReference[oaicite:1]{index=1}
+
+---
+
+# Hitung
+
+```txt
+45 / 5
+=
+9
+```
+
+---
+
+# Jawaban
+
+9
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- kombinatorika
+- scheduling
+- pembagian minimum
+
+Konsep penting:
+
+```txt
+Jumlah pertandingan round robin
+=
+C(n,2)
+```
+
+Lalu:
+```txt
+hari minimum
+=
+ceil(total / kapasitas per hari)
+```
+
+Pada kasus ini:
+- tepat habis dibagi,
+- jadi tidak perlu pembulatan ke atas tambahan.

@@ -1,0 +1,132 @@
+# Soal 33 — Jalur Pendakian
+
+## Soal
+
+Terdapat sebuah graph tak berarah.
+
+Pendaki ingin:
+- memulai perjalanan dari suatu titik
+- mengakhiri di titik lain
+- melewati setiap jalur tepat satu kali
+
+Pertanyaannya:
+
+> Agar perjalanan seperti itu mungkin dilakukan,
+> berapa banyak titik yang boleh memiliki derajat ganjil?
+
+### Pilihan
+
+A.
+```txt
+0
+```
+
+B.
+```txt
+1
+```
+
+C.
+```txt
+2
+```
+
+D.
+```txt
+3
+```
+
+E.
+```txt
+4
+```
+
+---
+
+## Cara Berpikir
+
+Soal ini tentang:
+
+```txt
+Euler Path
+```
+
+---
+
+# Teori Euler Path
+
+Pada graph tak berarah:
+
+---
+
+## Euler Circuit
+
+Jika:
+- mulai dan selesai di titik yang sama
+
+maka:
+```txt
+semua derajat harus genap
+```
+
+Jumlah titik ganjil:
+```txt
+0
+```
+
+---
+
+## Euler Path
+
+Jika:
+- mulai dan selesai di titik berbeda
+
+maka:
+```txt
+harus ada tepat 2 titik ganjil
+```
+
+yaitu:
+- titik awal
+- titik akhir
+
+---
+
+# Karena Soal:
+
+```txt
+mulai dan selesai boleh berbeda
+```
+
+maka:
+- jumlah titik ganjil yang diperbolehkan:
+
+```txt
+2
+```
+
+---
+
+# Jawaban
+
+C
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- graph theory
+- Euler path
+- derajat simpul
+
+Konsep penting:
+
+| Jenis Jalur | Jumlah Titik Ganjil |
+| --- | --- |
+| Euler Circuit | 0 |
+| Euler Path | 2 |
+
+Jika:
+- lebih dari 2 titik ganjil,
+- maka Euler path tidak mungkin ada.

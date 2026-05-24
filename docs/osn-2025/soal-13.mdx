@@ -1,0 +1,149 @@
+# Soal 13 — Jalan Tol Bebek
+
+## Soal
+
+Pak Dengklek ingin pergi dari kota:
+
+```txt
+A → H
+```
+
+Setiap jalan memiliki:
+- arah tertentu
+- biaya tertentu
+
+Pertanyaannya:
+
+> Jika Pak Dengklek wajib melewati kota D,
+> berapakah biaya minimum perjalanan dari A ke H?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Karena:
+```txt
+harus melewati D
+```
+
+maka kita pecah menjadi:
+
+1. biaya minimum:
+```txt
+A → D
+```
+
+2. biaya minimum:
+```txt
+D → H
+```
+
+Lalu dijumlahkan.
+
+---
+
+# Langkah 1 — Cari Jalur Minimum A ke D
+
+Beberapa kemungkinan:
+
+---
+
+## Jalur A → B → D
+
+```txt
+4 + 3
+=
+7
+```
+
+---
+
+## Jalur A → C → D
+
+```txt
+6 + 2
+=
+8
+```
+
+Minimum:
+
+```txt
+7
+```
+
+---
+
+# Langkah 2 — Cari Jalur Minimum D ke H
+
+Kemungkinan:
+
+---
+
+## D → G → H
+
+```txt
+6 + 5
+=
+11
+```
+
+---
+
+## D → E → H
+
+```txt
+9 + 8
+=
+17
+```
+
+Minimum:
+
+```txt
+11
+```
+
+---
+
+# Langkah 3 — Total
+
+```txt
+7 + 11
+=
+18
+```
+
+---
+
+# Jawaban
+
+18
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- shortest path
+- graph decomposition
+- optimasi jalur
+
+Konsep penting:
+
+Jika harus melewati titik tertentu:
+
+```txt
+Shortest(A → tujuan via X)
+=
+Shortest(A → X)
++
+Shortest(X → tujuan)
+```
+
+Teknik ini sering muncul pada:
+- Dijkstra
+- Floyd Warshall
+- routing problem.

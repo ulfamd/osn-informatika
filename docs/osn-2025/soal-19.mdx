@@ -1,0 +1,147 @@
+# Soal 19 — Bilangan Misterius
+
+## Soal
+
+Terdapat sebuah bilangan bulat positif:
+
+```txt
+N
+```
+
+Diketahui:
+
+- jika dibagi 2 bersisa 1
+- jika dibagi 3 bersisa 1
+- jika dibagi 4 bersisa 1
+- jika dibagi 5 bersisa 1
+
+Pertanyaannya:
+
+> Berapa bilangan positif terkecil yang memenuhi semua syarat tersebut?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Karena semua sisa:
+
+```txt
+1
+```
+
+maka:
+
+```txt
+N - 1
+```
+
+harus habis dibagi:
+- 2
+- 3
+- 4
+- 5
+
+---
+
+# Cari KPK
+
+Kita hitung:
+
+```txt
+KPK(2,3,4,5)
+```
+
+---
+
+## Faktorisasi
+
+```txt
+2 = 2
+3 = 3
+4 = 2²
+5 = 5
+```
+
+Maka:
+
+```txt
+KPK = 2² × 3 × 5
+```
+
+Hitung:
+
+```txt
+4 × 3 × 5
+=
+60
+```
+
+---
+
+# Cari N
+
+Karena:
+
+```txt
+N - 1 = 60
+```
+
+maka:
+
+```txt
+N = 61
+```
+
+---
+
+# Verifikasi
+
+```txt
+61 mod 2 = 1
+61 mod 3 = 1
+61 mod 4 = 1
+61 mod 5 = 1
+```
+
+Semua benar.
+
+---
+
+# Jawaban
+
+61
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- modulo
+- KPK
+- pola sisa pembagian
+
+Konsep penting:
+
+Jika:
+
+```txt
+N mod k = 1
+```
+
+maka:
+
+```txt
+N - 1
+```
+
+habis dibagi:
+```txt
+k
+```
+
+Teknik cepat:
+1. ubah ke bentuk kelipatan
+2. cari KPK
+3. tambahkan 1

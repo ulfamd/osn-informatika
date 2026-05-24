@@ -1,0 +1,121 @@
+# Soal 34 — Jalur Pendakian
+
+## Soal
+
+Terdapat sebuah graph tak berarah dengan:
+- 8 titik
+- seluruh titik saling terhubung
+
+Diketahui:
+- tepat 4 titik memiliki derajat ganjil
+
+Pertanyaannya:
+
+> Apakah graph tersebut mungkin memiliki:
+>
+> ```txt
+> Euler Path
+> ```
+>
+> yaitu jalur yang melewati setiap sisi tepat satu kali?
+
+Tuliskan jawaban dalam bentuk:
+
+```txt
+YA
+```
+
+atau
+
+```txt
+TIDAK
+```
+
+---
+
+## Cara Berpikir
+
+Soal ini menggunakan teori:
+
+```txt
+Euler Path
+```
+
+---
+
+# Syarat Euler Path
+
+Pada graph tak berarah:
+
+---
+
+## Euler Circuit
+
+Jika:
+- mulai dan selesai di titik sama
+
+maka:
+```txt
+jumlah titik ganjil = 0
+```
+
+---
+
+## Euler Path
+
+Jika:
+- mulai dan selesai berbeda
+
+maka:
+```txt
+jumlah titik ganjil = 2
+```
+
+---
+
+# Kondisi Soal
+
+Diketahui:
+```txt
+ada 4 titik ganjil
+```
+
+---
+
+# Analisis
+
+Karena:
+```txt
+4 > 2
+```
+
+maka:
+- Euler Path tidak mungkin ada.
+
+---
+
+# Jawaban
+
+```txt
+TIDAK
+```
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- graph theory
+- Euler path
+- analisis derajat simpul
+
+Konsep inti:
+
+| Kondisi | Jumlah Titik Ganjil |
+| --- | --- |
+| Euler Circuit | 0 |
+| Euler Path | 2 |
+| Tidak Mungkin Euler | >2 |
+
+Teknik cepat:
+- cukup hitung jumlah simpul ganjil.

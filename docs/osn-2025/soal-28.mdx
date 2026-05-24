@@ -1,0 +1,145 @@
+# Soal 28 — Peluang Kartu
+
+## Soal
+
+Dari satu set kartu remi standar:
+- total 52 kartu
+- tanpa joker
+
+Diambil 5 kartu secara acak.
+
+Pertanyaannya:
+
+> Berapa peluang semua kartu yang diambil
+> memiliki simbol yang sama?
+
+Tuliskan jawaban dalam bentuk pecahan paling sederhana.
+
+---
+
+## Cara Berpikir
+
+Simbol kartu:
+- sekop
+- hati
+- wajik
+- keriting
+
+Masing-masing memiliki:
+
+```txt
+13 kartu
+```
+
+---
+
+# Langkah 1 — Total Cara Mengambil 5 Kartu
+
+Dari:
+```txt
+52 kartu
+```
+
+pilih:
+```txt
+5 kartu
+```
+
+Jumlah total kemungkinan:
+
+:contentReference[oaicite:0]{index=0}
+
+Hitung:
+
+```txt
+2598960
+```
+
+---
+
+# Langkah 2 — Cara Agar Semua Simbol Sama
+
+Pilih dulu simbolnya:
+```txt
+4 pilihan
+```
+
+---
+
+## Setelah Memilih Simbol
+
+Tersedia:
+```txt
+13 kartu
+```
+
+Pilih:
+```txt
+5 kartu
+```
+
+Jumlah cara:
+
+:contentReference[oaicite:1]{index=1}
+
+Hitung:
+
+```txt
+1287
+```
+
+---
+
+# Langkah 3 — Total Kejadian Valid
+
+```txt
+4 × 1287
+=
+5148
+```
+
+---
+
+# Langkah 4 — Hitung Peluang
+
+Peluang:
+
+:contentReference[oaicite:2]{index=2}
+
+Sederhanakan:
+
+:contentReference[oaicite:3]{index=3}
+
+---
+
+# Jawaban
+
+```txt
+33/16660
+```
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- probabilitas
+- kombinasi
+- counting selection
+
+Konsep penting:
+
+Jika:
+```txt
+urutan tidak penting
+```
+
+gunakan:
+```txt
+kombinasi
+```
+
+Strategi:
+1. hitung total kemungkinan
+2. hitung kejadian valid
+3. bagi keduanya.

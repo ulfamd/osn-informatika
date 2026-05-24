@@ -1,0 +1,84 @@
+# Soal 30 — Jadwal Pertandingan
+
+## Soal
+
+Terdapat:
+- 8 tim sepak bola
+
+Setiap tim:
+- harus melawan setiap tim lain tepat 2 kali
+
+Pertanyaannya:
+
+> Berapa total pertandingan yang dimainkan?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+---
+
+# Langkah 1 — Hitung Banyak Pasangan Tim
+
+Karena:
+- setiap pasangan tim saling bertemu
+
+Jumlah pasangan:
+
+:contentReference[oaicite:0]{index=0}
+
+---
+
+# Hitung
+
+```txt
+8 × 7 / 2
+=
+28
+```
+
+---
+
+# Langkah 2 — Setiap Pasangan Bermain 2 Kali
+
+Maka total pertandingan:
+
+```txt
+28 × 2
+=
+56
+```
+
+---
+
+# Jawaban
+
+56
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- kombinatorika
+- graph lengkap
+- counting pasangan
+
+Konsep penting:
+
+Jika:
+- setiap pasangan bertanding k kali
+
+maka:
+
+```txt
+total pertandingan
+=
+C(n,2) × k
+```
+
+Dengan:
+- n = jumlah tim
+- k = jumlah pertemuan tiap pasangan.

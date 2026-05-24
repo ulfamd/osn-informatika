@@ -1,0 +1,198 @@
+# Soal 37 — Pohon Keluarga Bebek
+
+## Soal
+
+Terdapat sebuah tree dengan:
+- 20 titik
+
+Diketahui:
+- tepat 5 titik merupakan daun
+
+Pertanyaannya:
+
+> Berapa minimum derajat maksimum
+> yang mungkin dimiliki suatu titik pada tree tersebut?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+---
+
+# Fakta Penting Tree
+
+Pada tree:
+- jumlah sisi:
+
+:contentReference[oaicite:0]{index=0}
+
+Dengan:
+```txt
+n = 20
+```
+
+Maka:
+
+```txt
+19 sisi
+```
+
+---
+
+# Jumlah Total Derajat
+
+Gunakan:
+
+:contentReference[oaicite:1]{index=1}
+
+Maka:
+
+```txt
+2 × 19
+=
+38
+```
+
+---
+
+# Informasi Daun
+
+Daun:
+- derajat 1
+
+Jumlah daun:
+```txt
+5
+```
+
+Total kontribusi daun:
+
+```txt
+5 × 1
+=
+5
+```
+
+---
+
+# Sisa Titik
+
+Total titik:
+```txt
+20
+```
+
+Berarti:
+```txt
+15 titik bukan daun
+```
+
+Sisa total derajat:
+
+```txt
+38 - 5
+=
+33
+```
+
+---
+
+# Tujuan
+
+Kita ingin:
+```txt
+derajat maksimum sekecil mungkin
+```
+
+Artinya:
+- derajat harus dibagi semerata mungkin.
+
+---
+
+# Distribusi Minimum
+
+Pada 15 titik:
+- total derajat 33
+
+Jika semua minimal:
+```txt
+2
+```
+
+maka total:
+
+```txt
+15 × 2
+=
+30
+```
+
+Masih sisa:
+```txt
+3
+```
+
+Agar maksimum sekecil mungkin:
+- sebarkan tambahan 3 itu.
+
+Maka derajat terbesar:
+
+```txt
+3
+```
+
+---
+
+# Apakah Mungkin?
+
+Ya.
+
+Contoh:
+- 12 titik derajat 2
+- 3 titik derajat 3
+
+Total:
+
+```txt
+12×2 + 3×3
+=
+24 + 9
+=
+33
+```
+
+Valid.
+
+---
+
+# Jawaban
+
+3
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- graph theory
+- tree degree
+- optimasi distribusi
+
+Konsep penting:
+
+Pada tree:
+```txt
+jumlah derajat total tetap
+```
+
+Untuk meminimalkan:
+```txt
+derajat maksimum
+```
+
+maka:
+```txt
+sebarkan derajat semerata mungkin.
+```

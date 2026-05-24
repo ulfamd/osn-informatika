@@ -1,0 +1,105 @@
+# Soal 39 — Binary Search
+
+## Soal
+
+Terdapat array terurut berisi:
+
+```txt
+1024 elemen
+```
+
+Dilakukan binary search untuk mencari suatu elemen.
+
+Pertanyaannya:
+
+> Berapa maksimum banyak elemen
+> yang perlu diperiksa?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Binary Search:
+- setiap langkah membagi data menjadi dua bagian
+
+Kompleksitas:
+
+:contentReference[oaicite:0]{index=0}
+
+---
+
+# Langkah 1 — Hitung Logaritma
+
+Jumlah elemen:
+
+```txt
+1024
+```
+
+Karena:
+
+:contentReference[oaicite:1]{index=1}
+
+maka:
+
+:contentReference[oaicite:2]{index=2}
+
+---
+
+# Langkah 2 — Maksimum Pemeriksaan
+
+Pada binary search:
+- maksimum langkah:
+
+```txt
+log₂(n) + 1
+```
+
+atau:
+- kadang dihitung langsung sebagai jumlah level pencarian.
+
+Untuk:
+```txt
+1024 = 2^{10}
+```
+
+maksimum elemen diperiksa:
+
+```txt
+11
+```
+
+karena:
+- setelah 10 pembagian,
+- masih perlu 1 pemeriksaan akhir.
+
+---
+
+# Jawaban
+
+11
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- binary search
+- logaritma
+- kompleksitas algoritma
+
+Konsep penting:
+
+Jika:
+```txt
+n = 2^k
+```
+
+maka:
+- binary search membutuhkan sekitar:
+
+:contentReference[oaicite:3]{index=3}
+
+pemeriksaan pada kasus terburuk.

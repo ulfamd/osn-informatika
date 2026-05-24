@@ -1,0 +1,166 @@
+# Soal 11 — Rangkaian Mantra
+
+## Soal
+
+Terdapat 5 kartu:
+
+```txt
+[v, w, x, y, z]
+```
+
+Awalnya berisi:
+
+```txt
+[1, 2, 3, 4, 5]
+```
+
+---
+
+## Mantra A
+
+```txt
+[v,w,x,y,z]
+→
+[x,w,v,y,z]
+```
+
+---
+
+## Mantra B
+
+```txt
+[v,w,x,y,z]
+→
+[y,v,w,z,x]
+```
+
+---
+
+## Mantra C
+
+```txt
+[v,w,x,y,z]
+→
+[w,x,y,z,v]
+```
+
+Pertanyaannya:
+
+> Berapa nilai minimum X sehingga:
+
+```txt
+F(C,X)
+```
+
+menghasilkan kembali urutan awal?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Kita cari:
+- berapa kali mantra C
+- harus dilakukan
+- agar kembali ke urutan awal
+
+---
+
+# Analisis Mantra C
+
+Mantra C:
+
+```txt
+[v,w,x,y,z]
+→
+[w,x,y,z,v]
+```
+
+Artinya:
+- seluruh kartu digeser ke kiri 1 langkah
+
+Ini adalah:
+
+```txt
+rotasi kiri
+```
+
+---
+
+# Simulasi
+
+Awal:
+
+```txt
+[1,2,3,4,5]
+```
+
+---
+
+## C sekali
+
+```txt
+[2,3,4,5,1]
+```
+
+---
+
+## C dua kali
+
+```txt
+[3,4,5,1,2]
+```
+
+---
+
+## C tiga kali
+
+```txt
+[4,5,1,2,3]
+```
+
+---
+
+## C empat kali
+
+```txt
+[5,1,2,3,4]
+```
+
+---
+
+## C lima kali
+
+```txt
+[1,2,3,4,5]
+```
+
+Kembali ke awal.
+
+---
+
+# Jawaban
+
+5
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- rotasi array
+- permutasi siklik
+- cycle length
+
+Konsep penting:
+
+Rotasi kiri:
+```txt
+panjang siklus = jumlah elemen
+```
+
+Karena:
+- ada 5 kartu
+- maka setelah 5 rotasi,
+  posisi kembali semula.

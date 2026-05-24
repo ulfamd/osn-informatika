@@ -1,0 +1,108 @@
+# Soal 21 — Susunan Huruf
+
+## Soal
+
+Berapa banyak susunan berbeda dari huruf-huruf pada kata:
+
+```txt
+ALGORITMA
+```
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Kita gunakan:
+
+```txt
+Permutasi dengan pengulangan
+```
+
+Karena:
+- ada huruf yang muncul lebih dari sekali.
+
+---
+
+# Langkah 1 — Hitung Jumlah Huruf
+
+Kata:
+
+```txt
+ALGORITMA
+```
+
+Jumlah huruf:
+
+```txt
+9
+```
+
+---
+
+# Langkah 2 — Cari Huruf Berulang
+
+Frekuensi huruf:
+
+| Huruf | Banyak |
+| --- | --- |
+| A | 2 |
+| lainnya | 1 |
+
+---
+
+# Rumus
+
+Jumlah susunan berbeda:
+
+:contentReference[oaicite:0]{index=0}
+
+---
+
+# Hitung
+
+## 9 Faktorial
+
+```txt
+9!
+=
+362880
+```
+
+---
+
+## Bagi 2!
+
+```txt
+362880 / 2
+=
+181440
+```
+
+---
+
+# Jawaban
+
+181440
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- kombinatorika
+- permutasi
+- pengulangan huruf
+
+Konsep penting:
+
+Jika ada huruf yang sama:
+
+```txt
+n! / (a! b! c! ...)
+```
+
+karena:
+- pertukaran huruf identik
+- tidak menghasilkan susunan baru.

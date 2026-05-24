@@ -1,0 +1,101 @@
+# Soal 40 — Binary Search
+
+## Soal
+
+Terdapat array terurut berisi:
+
+```txt
+4096 elemen
+```
+
+Dilakukan binary search untuk mencari suatu elemen.
+
+Pertanyaannya:
+
+> Setelah 5 kali pemeriksaan,
+> paling banyak masih tersisa berapa elemen
+> yang mungkin mengandung target?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Binary Search:
+- setiap pemeriksaan membagi jumlah data menjadi dua.
+
+---
+
+# Langkah 1 — Jumlah Awal
+
+Jumlah elemen:
+
+```txt
+4096
+```
+
+Karena:
+
+:contentReference[oaicite:0]{index=0}
+
+---
+
+# Langkah 2 — Setelah 1 Pemeriksaan
+
+Sisa maksimum:
+
+```txt
+4096 / 2
+=
+2048
+```
+
+---
+
+# Langkah 3 — Setelah 5 Pemeriksaan
+
+Setiap langkah dibagi 2:
+
+:contentReference[oaicite:1]{index=1}
+
+Karena:
+
+:contentReference[oaicite:2]{index=2}
+
+maka:
+
+```txt
+4096 / 32
+=
+128
+```
+
+---
+
+# Jawaban
+
+128
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- binary search
+- logaritma
+- pembagian eksponensial
+
+Konsep penting:
+
+Setelah:
+```txt
+k langkah binary search
+```
+
+maksimum elemen tersisa:
+
+:contentReference[oaicite:3]{index=3}
+
+Karena:
+- setiap langkah membuang separuh kemungkinan.

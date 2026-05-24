@@ -1,0 +1,150 @@
+# Soal 18 — Bilangan Misterius
+
+## Soal
+
+Terdapat sebuah bilangan rahasia:
+
+```txt
+N
+```
+
+Diketahui:
+
+- jika dibagi 2 bersisa 1
+- jika dibagi 3 bersisa 2
+- jika dibagi 4 bersisa 3
+- jika dibagi 5 bersisa 4
+
+Pertanyaannya:
+
+> Berapa bilangan positif terkecil yang memenuhi semua syarat tersebut?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Perhatikan polanya:
+
+```txt
+dibagi 2 sisa 1
+dibagi 3 sisa 2
+dibagi 4 sisa 3
+dibagi 5 sisa 4
+```
+
+Semua sisa:
+
+```txt
+pembagi - 1
+```
+
+Artinya:
+
+```txt
+N + 1
+```
+
+habis dibagi:
+- 2
+- 3
+- 4
+- 5
+
+---
+
+# Cari KPK
+
+Kita cari:
+
+```txt
+KPK(2,3,4,5)
+```
+
+---
+
+## Faktorisasi
+
+```txt
+2 = 2
+3 = 3
+4 = 2²
+5 = 5
+```
+
+KPK:
+
+```txt
+2² × 3 × 5
+=
+60
+```
+
+---
+
+# Hubungan dengan N
+
+Karena:
+
+```txt
+N + 1 = 60
+```
+
+maka:
+
+```txt
+N = 59
+```
+
+---
+
+# Verifikasi
+
+```txt
+59 mod 2 = 1
+59 mod 3 = 2
+59 mod 4 = 3
+59 mod 5 = 4
+```
+
+Semua benar.
+
+---
+
+# Jawaban
+
+59
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- modulo
+- pola matematika
+- KPK
+
+Konsep penting:
+
+Jika:
+
+```txt
+N mod k = k-1
+```
+
+maka:
+
+```txt
+N + 1
+```
+
+habis dibagi:
+```txt
+k
+```
+
+Teknik cepat:
+1. ubah ke bentuk kelipatan
+2. cari KPK
+3. kurangi 1

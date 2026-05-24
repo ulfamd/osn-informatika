@@ -1,0 +1,146 @@
+# Soal 16 — Permainan Kartu Bebek
+
+## Soal
+
+Terdapat 8 kartu bernomor:
+
+```txt
+1 sampai 8
+```
+
+Kartu disusun berjajar.
+
+Aturan:
+- setiap langkah boleh menukar:
+  - dua kartu yang bersebelahan
+
+Pertanyaannya:
+
+> Berapa minimum banyak pertukaran
+> untuk mengubah:
+
+```txt
+1 2 3 4 5 6 7 8
+```
+
+menjadi:
+
+```txt
+2 1 4 3 6 5 8 7
+```
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Karena:
+- hanya boleh swap bersebelahan
+
+maka minimum langkah:
+
+```txt
+=
+jumlah inversi
+```
+
+---
+
+# Analisis Susunan Akhir
+
+Target:
+
+```txt
+2 1 4 3 6 5 8 7
+```
+
+Perhatikan:
+- tiap pasangan tertukar
+
+```txt
+2 1
+4 3
+6 5
+8 7
+```
+
+---
+
+# Hitung Inversi
+
+---
+
+## Pasangan 2 1
+
+Ada:
+```txt
+1 inversi
+```
+
+---
+
+## Pasangan 4 3
+
+Ada:
+```txt
+1 inversi
+```
+
+---
+
+## Pasangan 6 5
+
+Ada:
+```txt
+1 inversi
+```
+
+---
+
+## Pasangan 8 7
+
+Ada:
+```txt
+1 inversi
+```
+
+---
+
+# Total
+
+```txt
+1 + 1 + 1 + 1
+=
+4
+```
+
+---
+
+# Jawaban
+
+4
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- inversion counting
+- adjacent swap
+- sorting analysis
+
+Konsep penting:
+
+```txt
+Satu swap adjacent
+hanya bisa memperbaiki
+1 inversi.
+```
+
+Maka:
+```txt
+minimum swap
+=
+jumlah inversi
+```
