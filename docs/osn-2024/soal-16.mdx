@@ -1,0 +1,208 @@
+# Soal 16 — Pertemanan Ayam
+
+## Soal
+
+Pak Blangkon memiliki 15 ekor ayam:
+- A sampai O
+
+Diketahui hubungan pertemanan berikut:
+
+```txt
+P(A,B)
+P(C,M)
+P(E,G)
+P(A,M)
+
+P(D,J)
+P(O,N)
+P(B,O)
+P(K,L)
+
+P(D,I)
+P(B,N)
+P(L,D)
+P(H,F)
+```
+
+Aturan:
+- jika ayam X berteman dengan Y
+- dan Y berteman dengan Z
+
+maka:
+> mereka berada dalam lingkaran pertemanan yang sama.
+
+Pak Blangkon ingin mengajak beberapa ayam bermain dengan aturan:
+
+```txt
+Untuk setiap lingkaran pertemanan,
+tidak wajib ada perwakilan.
+```
+
+Tetapi:
+- minimal satu ayam harus diajak.
+
+Pertanyaannya:
+
+> Ada berapa banyak cara memilih ayam?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Dari soal sebelumnya,
+terdapat 4 lingkaran pertemanan:
+
+| Grup | Anggota | Jumlah |
+| --- | --- | --- |
+| 1 | A,B,C,M,N,O | 6 |
+| 2 | D,I,J,K,L | 5 |
+| 3 | E,G | 2 |
+| 4 | F,H | 2 |
+
+Karena:
+- tiap grup boleh dipilih atau tidak
+- tetapi jika memilih grup, boleh memilih ayam berapa saja dari grup tersebut
+- minimal satu ayam keseluruhan harus dipilih
+
+maka kita gunakan konsep:
+
+### Banyak subset non-kosong
+
+---
+
+## Langkah 1 — Hitung Kemungkinan Tiap Grup
+
+Jika sebuah grup memiliki:
+```txt
+n anggota
+```
+
+maka banyak cara memilih anggota grup:
+
+```txt
+2^n
+```
+
+karena:
+- tiap ayam bisa dipilih atau tidak dipilih
+
+---
+
+## Grup 1
+
+Jumlah anggota:
+```txt
+6
+```
+
+Kemungkinan:
+```txt
+2^6 = 64
+```
+
+---
+
+## Grup 2
+
+Jumlah anggota:
+```txt
+5
+```
+
+Kemungkinan:
+```txt
+2^5 = 32
+```
+
+---
+
+## Grup 3
+
+Jumlah anggota:
+```txt
+2
+```
+
+Kemungkinan:
+```txt
+2^2 = 4
+```
+
+---
+
+## Grup 4
+
+Jumlah anggota:
+```txt
+2
+```
+
+Kemungkinan:
+```txt
+2^2 = 4
+```
+
+---
+
+## Langkah 2 — Kalikan Semua
+
+```txt
+64 × 32 × 4 × 4
+```
+
+Hitung:
+
+```txt
+64 × 32 = 2048
+2048 × 4 = 8192
+8192 × 4 = 32768
+```
+
+---
+
+## Langkah 3 — Kurangi Kasus Kosong
+
+Karena:
+- minimal satu ayam harus dipilih
+
+maka:
+- kasus tidak memilih ayam sama sekali harus dibuang
+
+```txt
+32768 - 1 = 32767
+```
+
+---
+
+# Jawaban
+
+32767
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- counting
+- subset
+- combinatorics
+
+Konsep penting:
+
+```txt
+Jumlah subset dari n elemen = 2^n
+```
+
+Jika:
+- himpunan kosong tidak boleh
+
+maka:
+
+```txt
+2^n - 1
+```
+
+Karena pilihan tiap grup independen,
+maka semua kemungkinan dikalikan.

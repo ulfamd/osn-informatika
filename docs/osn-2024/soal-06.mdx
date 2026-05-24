@@ -1,0 +1,164 @@
+# Soal 6 — Menggambar Denah
+
+## Soal
+
+Pak Dengklek mengajari bebek-bebeknya untuk menggambar denah desa masa kecilnya.
+
+Di desa tersebut terdapat:
+- 6 rumah
+- 8 ruas jalan
+
+Hubungan antar rumah adalah sebagai berikut:
+
+- Rumah 1 terhubung dengan rumah 2, 3, dan 4
+- Rumah 2 terhubung dengan rumah 1, 3, dan 5
+- Rumah 3 terhubung dengan rumah 1, 2, dan 6
+- Rumah 4 terhubung dengan rumah 1 dan 6
+- Rumah 5 terhubung dengan rumah 2 dan 6
+- Rumah 6 terhubung dengan rumah 3, 4, dan 5
+
+Bebek-bebek Pak Dengklek menggambar denah tersebut menggunakan:
+- lingkaran sebagai rumah
+- garis sebagai jalan
+
+Namun mereka tidak menuliskan nomor rumahnya.
+
+Pertanyaannya:
+
+> BENAR atau SALAH:
+> Jika nomor rumah dilabeli secara tepat, maka gambar tersebut bisa jadi sudah sesuai dengan denah Pak Dengklek.
+
+Tuliskan jawaban dalam bentuk BENAR atau SALAH.
+
+---
+
+## Cara Berpikir
+
+Ini adalah soal tentang:
+
+### Graph Isomorphism
+
+Artinya:
+- apakah dua graf memiliki struktur yang sama
+- meskipun bentuk gambar atau posisi titik berbeda
+
+Cara tercepat:
+1. Hitung derajat tiap simpul
+2. Cocokkan pola koneksinya
+
+---
+
+## Langkah 1 — Hitung Derajat pada Denah Asli
+
+Derajat simpul = jumlah jalan yang terhubung.
+
+### Rumah 1
+Terhubung ke:
+- 2
+- 3
+- 4
+
+Derajat = 3
+
+---
+
+### Rumah 2
+Terhubung ke:
+- 1
+- 3
+- 5
+
+Derajat = 3
+
+---
+
+### Rumah 3
+Terhubung ke:
+- 1
+- 2
+- 6
+
+Derajat = 3
+
+---
+
+### Rumah 4
+Terhubung ke:
+- 1
+- 6
+
+Derajat = 2
+
+---
+
+### Rumah 5
+Terhubung ke:
+- 2
+- 6
+
+Derajat = 2
+
+---
+
+### Rumah 6
+Terhubung ke:
+- 3
+- 4
+- 5
+
+Derajat = 3
+
+---
+
+## Pola Derajat
+
+Terdapat:
+- 4 simpul berderajat 3
+- 2 simpul berderajat 2
+
+---
+
+## Langkah 2 — Periksa Gambar
+
+Pada gambar:
+- juga terdapat 4 simpul berderajat 3
+- dan 2 simpul berderajat 2
+
+Pola derajat cocok.
+
+---
+
+## Langkah 3 — Periksa Struktur Hubungan
+
+Selain jumlah derajat cocok:
+- hubungan antar simpul juga sesuai
+- simpul derajat 2 terhubung ke simpul yang tepat
+- pola koneksi membentuk struktur yang sama
+
+Artinya:
+- graf pada gambar dapat diberi label ulang
+- sehingga sama dengan graf asli Pak Dengklek
+
+---
+
+# Jawaban
+
+BENAR
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih konsep:
+- graph theory
+- representasi graf
+- graph isomorphism
+
+Teknik cepat yang sering dipakai:
+1. Bandingkan jumlah node
+2. Bandingkan jumlah edge
+3. Bandingkan pola derajat
+4. Cek hubungan simpul penting
+
+Jika semuanya cocok,
+biasanya kedua graf isomorfik.

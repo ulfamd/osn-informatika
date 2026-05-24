@@ -1,0 +1,89 @@
+# Soal 8 — Komite Audit
+
+## Soal
+
+Pak Dengklek sedang melatih 11 calon pemain sepak bola.
+
+Beberapa calon pemain memiliki hubungan pertemanan yang kuat.
+Hubungan tersebut digambarkan dengan garis pada diagram.
+
+Pak Dengklek ingin membentuk sebuah:
+
+### Komite Audit
+
+dengan syarat:
+
+> anggota komite audit tidak boleh memiliki hubungan langsung satu sama lain.
+
+Pertanyaannya:
+
+> Berapa paling banyak anggota komite audit yang mungkin?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Ini adalah soal tentang:
+
+### Independent Set pada Graph
+
+Artinya:
+- memilih sebanyak mungkin simpul
+- dengan syarat tidak ada dua simpul yang bertetangga langsung
+
+---
+
+## Strategi Cepat
+
+Kita ingin:
+- mengambil sebanyak mungkin node
+- tetapi node yang dipilih tidak boleh terhubung garis langsung
+
+Cara mudah:
+1. Pilih simpul yang saling berjauhan
+2. Hindari tetangga langsung
+3. Maksimalkan jumlah pilihan
+
+---
+
+## Analisis Grafik
+
+Dari diagram,
+kita dapat memilih simpul-simpul yang tidak saling bertetangga.
+
+Salah satu kombinasi maksimum menghasilkan:
+
+- 5 anggota
+
+Jika mencoba menambah satu anggota lagi,
+akan selalu muncul konflik hubungan langsung.
+
+Artinya:
+- ukuran maksimum independent set adalah 5
+
+---
+
+# Jawaban
+
+5
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih konsep:
+- graph theory
+- independent set
+- optimasi kombinasi
+
+Independent Set:
+- memilih node sebanyak mungkin
+- tanpa edge antar node terpilih
+
+Konsep ini digunakan pada:
+- penjadwalan
+- pemilihan tim independen
+- alokasi sumber daya
+- conflict avoidance

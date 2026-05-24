@@ -1,0 +1,201 @@
+# Soal 9 — Mengambil Daun
+
+## Soal
+
+Pak Dengklek dan Pak Ganesh memainkan permainan mengambil daun.
+
+Terdapat dua piring:
+- Piring A berisi 2 daun
+- Piring B berisi 3 daun
+
+Aturan permainan:
+- pemain bergiliran
+- setiap giliran boleh mengambil 1 atau lebih daun
+- tetapi hanya dari satu piring saja
+
+Pemenang adalah:
+> pemain yang mengambil daun terakhir.
+
+Dari pilihan berikut, manakah yang menjamin kemenangan Pak Dengklek?
+
+### Pilihan
+
+A. Pak Dengklek mengambil 1 daun dari piring A
+
+B. Pak Dengklek mengambil 2 daun dari piring A
+
+C. Pak Dengklek mengambil 2 daun dari piring B
+
+D. Pak Ganesh mengambil 1 daun dari piring A
+
+E. Pak Ganesh mengambil 1 daun dari piring B
+
+---
+
+## Cara Berpikir
+
+Ini adalah permainan klasik:
+
+### Nim Game
+
+Konsep penting:
+- posisi menang
+- posisi kalah
+
+Pada permainan Nim:
+
+```txt
+Jika XOR seluruh tumpukan = 0
+→ posisi kalah
+
+Jika XOR ≠ 0
+→ posisi menang
+```
+
+---
+
+## Kondisi Awal
+
+Jumlah daun:
+- A = 2
+- B = 3
+
+Hitung XOR:
+
+```txt
+2 XOR 3 = 1
+```
+
+Karena:
+```txt
+1 ≠ 0
+```
+
+Maka posisi awal adalah:
+- posisi menang untuk pemain pertama
+
+---
+
+## Analisis Pilihan
+
+---
+
+## Pilihan A
+
+Pak Dengklek mengambil 1 daun dari A.
+
+Sisa:
+- A = 1
+- B = 3
+
+XOR:
+
+```txt
+1 XOR 3 = 2
+```
+
+Bukan posisi kalah.
+
+Belum menjamin kemenangan.
+
+---
+
+## Pilihan B
+
+Pak Dengklek mengambil 2 daun dari A.
+
+Sisa:
+- A = 0
+- B = 3
+
+Pak Ganesh tinggal mengambil semua daun di B dan menang.
+
+Salah.
+
+---
+
+## Pilihan C
+
+Pak Dengklek mengambil 2 daun dari B.
+
+Sisa:
+- A = 2
+- B = 1
+
+XOR:
+
+```txt
+2 XOR 1 = 3
+```
+
+Bukan posisi kalah.
+
+Belum menjamin kemenangan.
+
+---
+
+## Pilihan D
+
+Pak Ganesh mengambil 1 daun dari A.
+
+Sisa:
+- A = 1
+- B = 3
+
+Giliran Pak Dengklek.
+
+XOR:
+
+```txt
+1 XOR 3 = 2
+```
+
+Masih posisi menang untuk pemain berikutnya,
+tetapi belum pasti menjamin.
+
+---
+
+## Pilihan E
+
+Pak Ganesh mengambil 1 daun dari B.
+
+Sisa:
+- A = 2
+- B = 2
+
+XOR:
+
+```txt
+2 XOR 2 = 0
+```
+
+Ini posisi kalah bagi pemain yang akan berjalan berikutnya.
+
+Karena sekarang giliran Pak Dengklek,
+maka Pak Dengklek berada di posisi menang.
+
+---
+
+# Jawaban
+
+E
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- game theory
+- nim game
+- XOR logic
+
+Aturan penting Nim:
+
+```txt
+XOR = 0  → posisi kalah
+XOR ≠ 0 → posisi menang
+```
+
+Strategi utama:
+- selalu ubah posisi lawan menjadi XOR = 0
+```

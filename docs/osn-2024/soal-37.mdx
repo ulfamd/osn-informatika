@@ -1,0 +1,241 @@
+# Soal 37 — Panas Dingin
+
+## Soal
+
+Perhatikan fungsi berikut:
+
+```cpp
+int panas(int X) {
+
+    if (X == 0) return 0;
+
+    else return (X % 10) + panas(X / 10);
+}
+```
+
+```cpp
+int dingin(int X, int Y) {
+
+    int air = 0;
+
+    while (panas(air) != X)
+        air = air + Y;
+
+    return air;
+}
+```
+
+Pertanyaannya:
+
+> Berapa banyak pasangan berbeda `(X, Y)` sehingga:
+
+```cpp
+dingin(X, Y) == 77
+```
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Agar:
+
+```cpp
+dingin(X,Y) == 77
+```
+
+maka:
+- 77 harus merupakan kelipatan pertama dari Y
+- yang jumlah digitnya = X
+
+---
+
+# Langkah 1 — Hitung panas(77)
+
+```txt
+7 + 7 = 14
+```
+
+Maka:
+
+```txt
+X = 14
+```
+
+---
+
+# Langkah 2 — Syarat untuk Y
+
+Karena:
+- program menambah `Y`
+- sampai mencapai 77
+
+maka:
+- 77 harus kelipatan Y
+
+Artinya:
+
+```txt
+Y harus faktor dari 77
+```
+
+---
+
+# Faktor 77
+
+```txt
+1, 7, 11, 77
+```
+
+---
+
+# Langkah 3 — Cek Mana yang Valid
+
+Kita harus memastikan:
+- sebelum mencapai 77
+- belum ada kelipatan lain dengan jumlah digit 14
+
+---
+
+## Kasus Y = 1
+
+Akan mencapai:
+
+```txt
+59
+```
+
+karena:
+```txt
+5 + 9 = 14
+```
+
+lebih dulu.
+
+Maka:
+```txt
+dingin(14,1) = 59
+```
+
+Bukan 77.
+
+Tidak valid.
+
+---
+
+## Kasus Y = 7
+
+Kelipatan 7:
+
+```txt
+7,14,21,28,35,42,49,56,63,70,77
+```
+
+Jumlah digit:
+
+```txt
+7
+5
+3
+10
+8
+6
+13
+11
+9
+7
+14
+```
+
+Baru 77 yang menghasilkan 14.
+
+Valid.
+
+---
+
+## Kasus Y = 11
+
+Kelipatan 11:
+
+```txt
+11,22,33,44,55,66,77
+```
+
+Jumlah digit:
+
+```txt
+2
+4
+6
+8
+10
+12
+14
+```
+
+Baru 77 menghasilkan 14.
+
+Valid.
+
+---
+
+## Kasus Y = 77
+
+Langsung:
+```txt
+77
+```
+
+Jumlah digit:
+```txt
+14
+```
+
+Valid.
+
+---
+
+# Total Pasangan
+
+Pasangan valid:
+
+```txt
+(14,7)
+(14,11)
+(14,77)
+```
+
+Jumlah:
+
+```txt
+3
+```
+
+---
+
+# Jawaban
+
+3
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- simulasi
+- faktor bilangan
+- digit sum
+- analisis loop
+
+Teknik penting:
+1. Tentukan target akhir
+2. Cari semua faktor
+3. Pastikan tidak ada solusi lebih awal
+
+Karena:
+```txt
+dingin()
+mengambil kelipatan pertama
+yang memenuhi syarat
+```

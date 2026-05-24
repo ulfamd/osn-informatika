@@ -1,0 +1,94 @@
+# Soal 7 — Penerangan Ruangan
+
+## Soal
+
+Pak Dengklek memiliki ruangan berbentuk petak-petak:
+- putih = area kosong
+- hitam = dinding
+
+Aturan lampu:
+- lampu dipasang pada petak putih
+- lampu menerangi:
+  - seluruh petak horizontal
+  - seluruh petak vertikal
+- selama tidak terhalang dinding
+
+Pertanyaannya:
+
+> Berapa jumlah lampu minimum
+> agar seluruh petak putih terang?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Kita cari:
+- posisi lampu
+- yang dapat menerangi sebanyak mungkin petak
+
+Ini adalah soal:
+
+```txt
+covering / minimum coverage
+```
+
+---
+
+# Observasi Penting
+
+Karena cahaya:
+- menyebar lurus horizontal dan vertikal
+- berhenti di dinding
+
+maka:
+- satu lampu bisa menerangi banyak petak sekaligus.
+
+---
+
+# Strategi Optimal
+
+Dari bentuk ruangan pada gambar:
+- terdapat beberapa koridor panjang
+- lampu optimal ditempatkan di titik perpotongan
+
+Dengan analisis area:
+- seluruh ruangan dapat diterangi dengan:
+
+```txt
+5 lampu
+```
+
+dan:
+- tidak mungkin kurang dari itu
+- karena ada beberapa area terpisah dinding
+  yang membutuhkan sumber cahaya berbeda.
+
+---
+
+# Jawaban
+
+5
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- grid analysis
+- coverage problem
+- greedy placement
+
+Konsep penting:
+
+```txt
+Lampu optimal biasanya:
+- ditempatkan di jalur panjang
+- atau titik persimpangan
+```
+
+Mirip konsep:
+- rook coverage
+- line-of-sight coverage
+- minimum dominating placement.

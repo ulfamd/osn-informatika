@@ -1,0 +1,196 @@
+# Soal 13 — Pertandingan Sepak Bola
+
+## Soal
+
+Terdapat 26 tim sepak bola:
+- A
+- B
+- C
+- ...
+- Z
+
+Aturan pertandingan:
+
+### Jika kedua tim:
+- sama-sama vokal
+- atau sama-sama konsonan
+
+maka:
+> tim dengan huruf alfabet lebih kecil menang.
+
+---
+
+### Jika satu tim vokal dan satu tim konsonan
+
+maka:
+> pertandingan berakhir seri.
+
+Huruf vokal:
+- A
+- E
+- I
+- O
+- U
+
+Jumlah:
+```txt
+5 vokal
+```
+
+Jumlah konsonan:
+```txt
+21 konsonan
+```
+
+Pertanyaannya:
+
+> Tim manakah yang memimpin klasemen?
+
+Tuliskan jawaban dalam bentuk HURUF KAPITAL.
+
+---
+
+## Cara Berpikir
+
+Kita hitung poin tiap tim.
+
+Aturan poin:
+- menang = 3 poin
+- seri = 1 poin
+
+---
+
+## Analisis Tim Vokal
+
+Vokal:
+```txt
+A E I O U
+```
+
+---
+
+## Tim A
+
+### Melawan vokal lain
+A lebih kecil dari:
+- E
+- I
+- O
+- U
+
+Maka A menang 4 kali.
+
+Poin:
+```txt
+4 × 3 = 12
+```
+
+---
+
+### Melawan semua konsonan
+
+Jumlah konsonan:
+```txt
+21
+```
+
+Semua seri.
+
+Poin:
+```txt
+21 × 1 = 21
+```
+
+---
+
+## Total poin A
+
+```txt
+12 + 21 = 33
+```
+
+---
+
+## Cek Apakah Ada yang Lebih Besar
+
+---
+
+## Tim E
+
+### Menang lawan:
+- I
+- O
+- U
+
+3 kemenangan:
+```txt
+3 × 3 = 9
+```
+
+### Kalah lawan:
+- A
+
+0 poin.
+
+### Seri lawan 21 konsonan:
+```txt
+21 poin
+```
+
+Total:
+```txt
+30
+```
+
+Lebih kecil dari A.
+
+---
+
+## Konsonan
+
+Misalnya B.
+
+B akan:
+- seri melawan semua vokal
+- kalah melawan konsonan lebih kecil
+- menang melawan konsonan lebih besar
+
+Totalnya tetap di bawah A.
+
+---
+
+## Kesimpulan
+
+Tim dengan poin tertinggi adalah:
+
+```txt
+A
+```
+
+---
+
+# Jawaban
+
+A
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- simulasi turnamen
+- counting
+- analisis pola
+
+Teknik cepat:
+1. Pisahkan kelompok
+2. Hitung:
+   - menang
+   - kalah
+   - seri
+3. Cari pola terbesar
+
+Kunci utama:
+- A adalah huruf terkecil
+- sehingga mendominasi grup vokal
+- dan tetap mendapat poin seri dari seluruh konsonan

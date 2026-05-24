@@ -1,0 +1,195 @@
+# Soal 33 — Ke Kiri dan Kanan
+
+## Soal
+
+Perhatikan fungsi berikut:
+
+```cpp
+bool dua_mata(vector<int> A, int kiri, int kanan) {
+
+    if (kiri == kanan) {
+        return (A[kiri] == 0);
+
+    } else {
+
+        int mid = (kiri + kanan) / 2;
+
+        if (A[mid] < 0) {
+            return dua_mata(A, kiri, mid - 1);
+
+        } else if (A[mid] > 0) {
+            return dua_mata(A, mid + 1, kanan);
+
+        } else {
+            return false;
+        }
+    }
+}
+```
+
+Diketahui:
+
+- untuk `N = 1000`
+  waktu maksimum = 20 detik
+
+- untuk `N = 2000`
+  waktu maksimum = 22 detik
+
+Pertanyaannya:
+
+> Kira-kira berapa detik waktu maksimum untuk:
+
+```txt
+N = 8000
+```
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Fungsi ini adalah:
+
+### Binary Search Rekursif
+
+Pada setiap langkah:
+- ukuran masalah dibagi dua
+
+Kompleksitas waktunya:
+
+```txt
+O(log N)
+```
+
+---
+
+## Observasi Data
+
+Ketika:
+```txt
+N = 1000
+```
+
+waktu:
+```txt
+20 detik
+```
+
+Ketika:
+```txt
+N = 2000
+```
+
+waktu:
+```txt
+22 detik
+```
+
+Artinya:
+- saat N menjadi 2 kali lebih besar
+- waktu hanya bertambah sedikit
+
+Ini ciri khas:
+
+```txt
+logaritma
+```
+
+---
+
+## Hitung Kenaikan
+
+Dari:
+```txt
+1000 → 2000
+```
+
+terjadi:
+```txt
+×2
+```
+
+waktu naik:
+```txt
+20 → 22
+```
+
+naik:
+```txt
++2 detik
+```
+
+---
+
+## Dari 2000 ke 8000
+
+```txt
+2000 → 4000 → 8000
+```
+
+Ada:
+```txt
+2 kali penggandaan
+```
+
+Setiap penggandaan:
+```txt
++2 detik
+```
+
+Maka tambahan waktu:
+
+```txt
+2 × 2 = 4 detik
+```
+
+---
+
+## Total Waktu
+
+Mulai dari:
+```txt
+22 detik
+```
+
+Tambah:
+```txt
+4 detik
+```
+
+Hasil:
+
+```txt
+26 detik
+```
+
+---
+
+# Jawaban
+
+26
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- kompleksitas algoritma
+- binary search
+- logaritma
+
+Konsep penting:
+
+```txt
+Binary Search → O(log N)
+```
+
+Artinya:
+- ukuran data naik sangat besar
+- waktu naik sangat lambat
+
+Karena setiap langkah:
+```txt
+masalah dibagi dua
+```

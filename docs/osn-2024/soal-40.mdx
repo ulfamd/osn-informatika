@@ -1,0 +1,192 @@
+# Soal 40 — Fungsi Pendek
+
+## Soal
+
+Perhatikan fungsi berikut:
+
+```cpp
+int pndk(int N, int K) {
+
+    if (N == 1)
+        return 1;
+
+    else
+        return (pndk(N - 1, K) + K - 1) % N + 1;
+}
+```
+
+Jika:
+```txt
+1 <= N <= 5000
+```
+
+Pertanyaannya:
+
+> Dari seluruh kemungkinan:
+
+```txt
+pndk(N,2)
+```
+
+nilai N manakah yang menghasilkan keluaran paling besar?
+
+Jika ada lebih dari satu kemungkinan,
+pilih nilai N yang paling kecil.
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Ini adalah:
+
+### Josephus Problem dengan K = 2
+
+Untuk kasus khusus:
+```txt
+K = 2
+```
+
+ada rumus cepat.
+
+---
+
+# Rumus Josephus K = 2
+
+Jika:
+
+```txt
+N = 2^m + L
+```
+
+dengan:
+- `2^m` = pangkat 2 terbesar yang ≤ N
+- `L` = sisa
+
+maka:
+
+```txt
+pndk(N,2) = 2L + 1
+```
+
+---
+
+## Target Soal
+
+Kita ingin:
+```txt
+hasil pndk(N,2)
+```
+
+sebesar mungkin.
+
+Karena:
+
+```txt
+pndk(N,2)=2L+1
+```
+
+maka:
+- nilai terbesar terjadi saat L terbesar.
+
+---
+
+# Cari Pangkat 2 Terdekat
+
+Karena:
+```txt
+N <= 5000
+```
+
+Pangkat 2 terbesar di bawah 5000:
+
+```txt
+4096
+```
+
+---
+
+# Maksimalkan L
+
+Agar L maksimum:
+
+```txt
+N = 5000
+```
+
+Maka:
+
+```txt
+L = 5000 - 4096
+```
+
+Hitung:
+
+```txt
+L = 904
+```
+
+---
+
+# Hitung Nilai Josephus
+
+```txt
+pndk(5000,2)
+=
+2(904)+1
+=
+1809
+```
+
+---
+
+## Apakah Ada yang Lebih Besar?
+
+Tidak.
+
+Karena:
+- semakin besar L,
+- semakin besar hasil.
+
+Dan:
+```txt
+5000
+```
+
+memberikan L terbesar pada rentang soal.
+
+---
+
+# Jawaban
+
+5000
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- Josephus problem
+- pola matematika
+- binary/pangkat dua
+
+Konsep penting untuk:
+```txt
+K = 2
+```
+
+adalah:
+
+```txt
+N = 2^m + L
+```
+
+maka:
+
+```txt
+hasil = 2L + 1
+```
+
+Nilai maksimum terjadi ketika:
+- jarak dari pangkat dua terbesar semakin besar.

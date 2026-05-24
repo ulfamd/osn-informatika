@@ -1,0 +1,160 @@
+# Soal 30 — Start dan Finish?
+
+## Soal
+
+Perhatikan fungsi berikut:
+
+```cpp
+int go(int N) {
+    int s = 0;
+    int f = 1;
+
+    for (int i = 2; i <= N; i++) {
+
+        if (N % i == 0) {
+
+            if (i - f > s) {
+                s = i - f;
+            }
+
+            f = i;
+        }
+    }
+
+    return s;
+}
+```
+
+Pertanyaannya:
+
+> Jika kita menghitung:
+>
+> ```txt
+> go(1), go(2), ..., go(100)
+> ```
+>
+> maka berapakah nilai terbesar yang muncul?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Dari soal sebelumnya:
+
+```txt
+go(N)
+=
+selisih terbesar antar faktor berurutan
+```
+
+---
+
+## Observasi Penting
+
+Bilangan prima memiliki faktor:
+
+```txt
+1 dan dirinya sendiri
+```
+
+Contoh:
+```txt
+13 → faktor: 1, 13
+```
+
+Selisih:
+```txt
+13 - 1 = 12
+```
+
+Maka:
+
+```txt
+go(prima) = prima - 1
+```
+
+---
+
+## Strategi Maksimum
+
+Agar:
+```txt
+go(N)
+```
+
+maksimum,
+kita ingin:
+- gap faktor sebesar mungkin
+
+Bilangan terbaik:
+- bilangan prima terbesar ≤ 100
+
+---
+
+## Bilangan Prima Terbesar ≤ 100
+
+```txt
+97
+```
+
+Faktor:
+```txt
+1 dan 97
+```
+
+Selisih:
+```txt
+97 - 1 = 96
+```
+
+Maka:
+
+```txt
+go(97) = 96
+```
+
+---
+
+## Apakah Ada yang Lebih Besar?
+
+Tidak mungkin.
+
+Karena:
+- jika bilangan bukan prima,
+- akan ada faktor tambahan di tengah,
+- sehingga gap maksimum menjadi lebih kecil.
+
+---
+
+# Jawaban
+
+96
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- observasi pola
+- faktor bilangan
+- optimasi matematis
+
+Konsep penting:
+
+Bilangan prima memiliki:
+```txt
+gap faktor terbesar
+```
+
+karena hanya memiliki:
+```txt
+1 dan N
+```
+
+Sehingga:
+
+```txt
+go(prima) = N - 1
+```

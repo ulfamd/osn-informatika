@@ -1,0 +1,135 @@
+# Soal 12 — Pertandingan Sepak Bola
+
+## Soal
+
+Terdapat 5 tim sepak bola:
+- C
+- E
+- R
+- I
+- A
+
+Diketahui hasil pertandingan berikut:
+
+| Pertandingan | Tim 1 | Tim 2 | Hasil |
+| --- | --- | --- | --- |
+| 1 | C | E | 3 - 2 |
+| 2 | E | R | 1 - 2 |
+| 3 | I | E | 0 - 0 |
+| 4 | I | C | 3 - 0 |
+| 5 | R | C | 0 - 1 |
+| 6 | R | I | 2 - 1 |
+| 7 | A | C | ... |
+| 8 | R | A | ... |
+| 9 | I | A | ... |
+| 10 | A | E | ... |
+
+Pertanyaannya:
+
+> Jika tim A ingin masih memiliki peluang menjadi pemimpin klasemen setelah pertandingan ke-10,
+> berapa paling sedikit pertandingan yang harus dimenangkan oleh tim A?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Pertama, hitung poin sementara sebelum tim A bermain.
+
+Aturan:
+- menang = 3 poin
+- seri = 1 poin
+- kalah = 0 poin
+
+---
+
+## Hitung Poin Sementara
+
+Dari soal sebelumnya:
+
+| Tim | Poin |
+| --- | --- |
+| C | 6 |
+| E | 1 |
+| R | 6 |
+| I | 4 |
+| A | 0 |
+
+Poin tertinggi sementara:
+```txt
+6 poin
+```
+
+---
+
+## Target Tim A
+
+A harus menjadi:
+- minimal sama dengan poin tertinggi
+- atau lebih tinggi
+
+Karena jika seri poin,
+alfabet paling kecil dipilih.
+
+Huruf:
+```txt
+A
+```
+
+adalah yang paling kecil.
+
+Jadi:
+- jika A mencapai 6 poin saja,
+- A sudah bisa memimpin klasemen.
+
+---
+
+## Berapa Kemenangan yang Dibutuhkan?
+
+1 kemenangan:
+```txt
+3 poin
+```
+
+2 kemenangan:
+```txt
+6 poin
+```
+
+Berarti:
+- cukup menang 2 kali
+
+A sudah mencapai:
+```txt
+6 poin
+```
+
+dan unggul alfabet.
+
+---
+
+# Jawaban
+
+2
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- simulasi poin
+- optimasi minimum
+- analisis klasemen
+
+Teknik cepat:
+1. Cari skor tertinggi saat ini
+2. Hitung target minimum
+3. Gunakan:
+   - menang = 3
+   - seri = 1
+
+Konsep seperti ini sering muncul pada:
+- greedy
+- ranking simulation
+- tournament analysis

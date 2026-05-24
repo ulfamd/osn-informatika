@@ -1,0 +1,95 @@
+# Soal 17 — Mencicipi Biskuit
+
+## Soal
+
+Pak Dengklek membuat:
+- 7 tipe biskuit berbeda
+
+Setiap tipe terdiri dari:
+```txt
+5 butir biskuit
+```
+
+Para bebek diundang untuk mencicipi biskuit.
+
+Aturan:
+- setiap bebek mengambil tepat 1 biskuit mana pun
+- Pak Dengklek ingin semua tipe biskuit pernah dicicipi
+
+Pertanyaannya:
+
+> Berapa minimal bebek yang perlu diundang agar semua tipe biskuit pernah dicicipi oleh setidaknya 1 ekor bebek?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Ini adalah soal:
+
+### Minimum Coverage
+
+Kita ingin:
+- semua tipe biskuit tercicipi
+- dengan jumlah bebek sesedikit mungkin
+
+---
+
+## Analisis
+
+Jumlah tipe biskuit:
+```txt
+7
+```
+
+Agar setiap tipe pernah dicicipi:
+- minimal harus ada 1 bebek untuk tiap tipe
+
+Karena:
+- satu bebek hanya mengambil satu biskuit
+
+maka:
+- satu bebek hanya bisa membantu mencicipi satu tipe
+
+---
+
+## Minimum Bebek
+
+Untuk mencicipi:
+```txt
+7 tipe
+```
+
+dibutuhkan:
+```txt
+7 bebek
+```
+
+---
+
+# Jawaban
+
+7
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- counting
+- minimum requirement
+- coverage problem
+
+Konsep penting:
+
+```txt
+Jika setiap kategori harus terwakili minimal 1 kali,
+maka jumlah minimum sama dengan jumlah kategori.
+```
+
+Konsep seperti ini sering muncul pada:
+- coverage
+- scheduling
+- resource allocation
+- set covering sederhana

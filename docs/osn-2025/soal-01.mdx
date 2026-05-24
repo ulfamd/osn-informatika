@@ -1,0 +1,92 @@
+# Soal 1 — Labirin Berarah
+
+## Soal
+
+Pak Dengklek ingin memberi tanda panah pada seluruh petak putih di sebuah labirin 7×7.
+
+Aturannya:
+- mulai dari petak kiri atas (`M`)
+- selesai di petak kanan bawah (`★`)
+- semua petak putih harus dikunjungi tepat satu kali
+- setiap petak putih memiliki satu tanda panah:
+  - atas
+  - kanan
+  - bawah
+  - kiri
+
+Pertanyaannya:
+
+> Pada petak bertanda tanya (`?`),
+> panah apa yang mungkin diletakkan?
+
+### Pilihan
+
+A. Atas (↑)
+
+B. Kanan (→)
+
+C. Bawah (↓)
+
+D. Kiri (←)
+
+E. Ada lebih dari satu kemungkinan tanda panah
+
+---
+
+## Cara Berpikir
+
+Soal ini sebenarnya tentang:
+
+```txt
+Hamiltonian Path
+```
+
+yaitu:
+- melewati semua petak tepat satu kali.
+
+---
+
+## Observasi Penting
+
+Pada petak `?`,
+arah panah ditentukan oleh:
+- jalur masuk
+- jalur keluar
+- posisi dinding
+
+Karena seluruh petak harus dikunjungi tepat sekali,
+maka:
+- tidak boleh ada jalan buntu
+- tidak boleh ada siklus kecil
+
+---
+
+## Analisis Lokal
+
+Dari bentuk labirin:
+- petak `?` memiliki beberapa kemungkinan jalur
+- tidak ada constraint yang memaksa satu arah tertentu saja
+
+Artinya:
+- terdapat lebih dari satu kemungkinan arah panah
+- tergantung bentuk jalur Hamilton yang dipilih
+
+---
+
+# Jawaban
+
+E
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- graph traversal
+- Hamiltonian path
+- analisis constraint lokal
+
+Teknik cepat:
+- cek apakah suatu posisi "dipaksa"
+- jika tidak dipaksa,
+  biasanya ada lebih dari satu kemungkinan arah.

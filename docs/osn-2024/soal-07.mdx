@@ -1,0 +1,135 @@
+# Soal 7 — Mesin Pengurutan Kelereng
+
+## Soal
+
+Pak Dengklek sedang memilih-milih kelereng.
+
+Setiap kelereng memiliki 4 sifat berbeda.
+Namun hanya beberapa kombinasi sifat tertentu saja yang dipilih oleh Pak Dengklek.
+
+Agar lebih mudah melakukan penyaringan kelereng,
+Pak Dengklek membuat sebuah diagram keputusan.
+
+Dari 5 diagram berikut:
+- A
+- B
+- C
+- D
+- E
+
+Pertanyaannya:
+
+> Diagram manakah yang dapat digunakan untuk memilih kelereng dengan benar?
+
+---
+
+## Cara Berpikir
+
+Ini adalah soal tentang:
+
+### Decision Tree
+
+atau pohon keputusan.
+
+Setiap percabangan pada diagram digunakan untuk:
+- mengecek suatu sifat
+- memfilter kelereng
+- menentukan apakah kelereng diterima atau ditolak
+
+Tujuan kita:
+- semua kelereng yang seharusnya dipilih harus lolos
+- semua kelereng yang tidak dipilih harus gagal
+
+---
+
+## Strategi Cepat
+
+Daripada memeriksa semua data secara detail,
+lebih cepat menggunakan:
+
+### Teknik Eliminasi
+
+Cari diagram yang langsung menghasilkan keputusan salah.
+
+---
+
+## Analisis Pilihan
+
+### Pilihan A
+
+Ada kelereng yang seharusnya dipilih,
+tetapi justru ditolak oleh diagram.
+
+Berarti:
+- aturan pada diagram tidak sesuai
+
+Kesimpulan:
+- Salah
+
+---
+
+### Pilihan B
+
+Terdapat kombinasi kelereng yang seharusnya tidak dipilih,
+tetapi lolos pada diagram.
+
+Kesimpulan:
+- Salah
+
+---
+
+### Pilihan C
+
+Seluruh proses filter sesuai:
+- kelereng yang benar diterima
+- kelereng yang salah ditolak
+
+Semua kondisi cocok dengan tabel.
+
+Kesimpulan:
+- Benar
+
+---
+
+### Pilihan D
+
+Masih ada klasifikasi yang tidak sesuai.
+
+Kesimpulan:
+- Salah
+
+---
+
+### Pilihan E
+
+Terdapat jalur keputusan yang menghasilkan output salah.
+
+Kesimpulan:
+- Salah
+
+---
+
+# Jawaban
+
+C
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih konsep:
+- decision tree
+- filtering
+- klasifikasi data
+- logika percabangan
+
+Teknik cepat:
+1. Cari aturan pembeda utama
+2. Eliminasi pilihan yang langsung salah
+3. Fokus pada diagram yang paling konsisten
+
+Konsep seperti ini banyak digunakan pada:
+- Artificial Intelligence
+- Machine Learning
+- Sistem Pakar
+- Data Classification

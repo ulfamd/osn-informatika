@@ -1,0 +1,172 @@
+# Soal 21 — Menggelindingkan Meja
+
+## Soal
+
+Terdapat:
+- meja hitam berbentuk segi-13
+- meja putih berbentuk segi-8
+
+Kedua meja memiliki panjang sisi sama.
+
+Awalnya:
+- meja putih berada di sebelah Utara meja hitam
+- tanda panah mengarah ke Utara
+
+Meja putih kemudian digelindingkan:
+- searah jarum jam
+- mengelilingi meja hitam
+- sebanyak 17 putaran penuh
+
+Pertanyaannya:
+
+> Setelah 17 putaran, ke arah manakah tanda panah pada meja putih menunjuk?
+
+Tuliskan jawaban dalam bentuk dua huruf kapital arah mata angin.
+
+---
+
+## Cara Berpikir
+
+Konsep sama seperti soal sebelumnya.
+
+Setiap perpindahan sisi menyebabkan rotasi sebesar:
+
+```txt
+360° / jumlah sisi meja putih
+```
+
+Karena meja putih adalah:
+```txt
+segi-8
+```
+
+maka tiap langkah memutar:
+
+```txt
+360° / 8 = 45°
+```
+
+---
+
+## Langkah 1 — Hitung Rotasi Satu Putaran
+
+Meja hitam:
+```txt
+segi-13
+```
+
+Artinya dalam satu putaran:
+- terjadi 13 perpindahan sisi
+
+Total rotasi satu putaran:
+
+```txt
+13 × 45°
+```
+
+Hitung:
+
+```txt
+13 × 45 = 585°
+```
+
+---
+
+## Langkah 2 — Sederhanakan
+
+```txt
+585° - 360° = 225°
+```
+
+Jadi:
+- 1 putaran menghasilkan rotasi 225°
+
+---
+
+## Langkah 3 — Hitung 17 Putaran
+
+```txt
+17 × 225°
+```
+
+Hitung:
+
+```txt
+17 × 225 = 3825°
+```
+
+---
+
+## Langkah 4 — Modulo 360°
+
+Cari sisa pembagian:
+
+```txt
+3825 mod 360
+```
+
+Karena:
+
+```txt
+360 × 10 = 3600
+```
+
+Maka:
+
+```txt
+3825 - 3600 = 225°
+```
+
+Arah akhir tetap:
+
+```txt
+225°
+```
+
+---
+
+## Konversi ke Mata Angin
+
+Arah:
+- 0° = Utara
+- 45° = Timur Laut
+- 90° = Timur
+- 135° = Tenggara
+- 180° = Selatan
+- 225° = Barat Daya
+
+Maka hasil akhirnya:
+
+```txt
+BD
+```
+
+---
+
+# Jawaban
+
+BD
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- modular arithmetic
+- rotasi
+- pola periodik
+
+Teknik cepat:
+
+```txt
+total rotasi =
+(jumlah sisi hitam)
+×
+(360 / sisi putih)
+×
+(jumlah putaran)
+```
+
+Lalu:
+1. ambil modulo 360°
+2. ubah ke arah mata angin

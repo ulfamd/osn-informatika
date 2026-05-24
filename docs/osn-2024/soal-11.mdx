@@ -1,0 +1,167 @@
+# Soal 11 — Pertandingan Sepak Bola
+
+## Soal
+
+Terdapat 4 tim sepak bola:
+- C
+- E
+- R
+- I
+
+Setiap kemenangan bernilai:
+- 3 poin
+
+Jika seri:
+- masing-masing mendapat 1 poin
+
+Hasil pertandingan:
+
+| Pertandingan | Tim 1 | Tim 2 | Skor |
+| --- | --- | --- | --- |
+| 1 | C | E | 3 - 2 |
+| 2 | E | R | 1 - 2 |
+| 3 | I | E | 0 - 0 |
+| 4 | I | C | 3 - 0 |
+| 5 | R | C | 0 - 1 |
+| 6 | R | I | 2 - 1 |
+
+Pertanyaannya:
+
+> Tim manakah yang memimpin klasemen?
+
+Tuliskan jawaban dalam bentuk HURUF KAPITAL.
+
+---
+
+## Cara Berpikir
+
+Kita cukup menghitung poin tiap tim.
+
+Aturan:
+- menang = 3 poin
+- seri = 1 poin
+- kalah = 0 poin
+
+---
+
+## Hitung Satu per Satu
+
+---
+
+## Pertandingan 1
+
+```txt
+C menang lawan E
+```
+
+Poin:
+- C +3
+- E +0
+
+---
+
+## Pertandingan 2
+
+```txt
+R menang lawan E
+```
+
+Poin:
+- R +3
+- E +0
+
+---
+
+## Pertandingan 3
+
+```txt
+I seri lawan E
+```
+
+Poin:
+- I +1
+- E +1
+
+---
+
+## Pertandingan 4
+
+```txt
+I menang lawan C
+```
+
+Poin:
+- I +3
+- C +0
+
+---
+
+## Pertandingan 5
+
+```txt
+C menang lawan R
+```
+
+Poin:
+- C +3
+- R +0
+
+---
+
+## Pertandingan 6
+
+```txt
+R menang lawan I
+```
+
+Poin:
+- R +3
+- I +0
+
+---
+
+## Total Poin
+
+| Tim | Poin |
+| --- | --- |
+| C | 6 |
+| E | 1 |
+| R | 6 |
+| I | 4 |
+
+---
+
+## Menentukan Pemimpin
+
+Terdapat dua tim dengan poin tertinggi:
+- C = 6
+- R = 6
+
+Aturan soal:
+> jika poin sama, pilih alfabet paling kecil
+
+Maka:
+```txt
+C lebih kecil daripada R
+```
+
+---
+
+# Jawaban
+
+C
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- simulasi
+- pencatatan skor
+- sorting/ranking
+
+Teknik cepat:
+1. Buat tabel poin
+2. Update setelah tiap pertandingan
+3. Cari nilai maksimum
+4. Jika seri, pilih alfabet terkecil

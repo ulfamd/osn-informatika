@@ -1,0 +1,185 @@
+# Soal 23 — Permainan Kursi di Kelas
+
+## Soal
+
+Terdapat 31 kursi di dalam kelas yang disusun melingkar dan diberi nomor:
+```txt
+1 sampai 31
+```
+
+Aturan permainan:
+
+1. Siswa masuk satu per satu
+2. Siswa menuju kursi sesuai tanggal lahirnya
+3. Jika kursi sudah terisi,
+   maka ia berjalan searah jarum jam hingga menemukan kursi kosong
+
+Diketahui:
+
+| Nama | Tanggal Lahir |
+| --- | --- |
+| Andi | 11 Mei |
+| Benny | 12 Februari |
+| Chacha | 14 September |
+| David | 11 Agustus |
+| Ela | 13 April |
+| Fatima | 12 Juli |
+
+Urutan masuk:
+1. Andi
+2. Benny
+3. Chacha
+4. David
+5. Ela
+6. Fatima
+
+Pertanyaannya:
+
+> Di kursi nomor berapakah Ela duduk?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Nomor kursi menggunakan:
+```txt
+tanggal lahir
+```
+
+Jadi:
+- Andi → kursi 11
+- Benny → kursi 12
+- Chacha → kursi 14
+- David → kursi 11
+- Ela → kursi 13
+- Fatima → kursi 12
+
+Jika kursi penuh:
+- maju searah jarum jam hingga kosong
+
+---
+
+## Simulasi Satu per Satu
+
+---
+
+## 1. Andi
+
+Tanggal:
+```txt
+11
+```
+
+Kursi 11 kosong.
+
+Andi duduk di:
+```txt
+11
+```
+
+---
+
+## 2. Benny
+
+Tanggal:
+```txt
+12
+```
+
+Kursi 12 kosong.
+
+Benny duduk di:
+```txt
+12
+```
+
+---
+
+## 3. Chacha
+
+Tanggal:
+```txt
+14
+```
+
+Kursi 14 kosong.
+
+Chacha duduk di:
+```txt
+14
+```
+
+---
+
+## 4. David
+
+Tanggal:
+```txt
+11
+```
+
+Kursi 11 sudah dipakai Andi.
+
+Maju:
+- 12 penuh
+- 13 kosong
+
+David duduk di:
+```txt
+13
+```
+
+---
+
+## 5. Ela
+
+Tanggal:
+```txt
+13
+```
+
+Kursi 13 sudah dipakai David.
+
+Maju:
+- 14 penuh
+- 15 kosong
+
+Ela duduk di:
+```txt
+15
+```
+
+---
+
+## 6. Fatima
+
+Tidak mempengaruhi posisi Ela.
+
+---
+
+# Jawaban
+
+15
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- simulasi
+- circular array
+- collision handling
+
+Konsep penting:
+
+```txt
+Jika slot penuh,
+maju hingga menemukan slot kosong.
+```
+
+Konsep seperti ini mirip:
+- linear probing pada hash table
+- collision resolution
+- circular buffer

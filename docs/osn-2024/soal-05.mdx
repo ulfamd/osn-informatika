@@ -1,0 +1,114 @@
+# Soal 5 — Parade Bebek
+
+## Soal
+
+Pak Dengklek ingin mengadakan parade bebek di kotanya.
+
+Kota tersebut memiliki beberapa:
+- persimpangan jalan (node)
+- jalan penghubung (edge)
+
+Aturan parade:
+- parade berjalan melalui jalan-jalan yang terhubung
+- setiap jalan hanya boleh dilewati maksimal satu kali
+- persimpangan boleh dikunjungi lebih dari sekali
+
+Pak Dengklek ingin:
+seluruh jalan pernah dilewati.
+
+Karena tidak semua jalan bisa dilewati dalam satu parade,
+Pak Dengklek dapat mengadakan parade beberapa hari.
+
+Pertanyaannya:
+
+> Berapa minimal hari yang diperlukan agar seluruh jalan pernah dilewati?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Ini adalah konsep:
+
+### Euler Trail / Derajat Simpul
+
+Aturan penting:
+
+- Jika semua simpul berderajat genap  
+  → cukup 1 lintasan
+
+- Jika ada simpul berderajat ganjil  
+  → jumlah lintasan minimum = jumlah simpul ganjil / 2
+
+---
+
+## Langkah 1 — Hitung Derajat Tiap Simpul
+
+Derajat = jumlah jalan yang terhubung ke simpul.
+
+Dari gambar:
+
+| Simpul | Derajat |
+| --- | --- |
+| A | 3 |
+| B | 3 |
+| C | 4 |
+| D | 3 |
+| E | 3 |
+| F | 2 |
+
+---
+
+## Langkah 2 — Cari Simpul Ganjil
+
+Simpul ganjil:
+- A
+- B
+- D
+- E
+
+Jumlah simpul ganjil = 4
+
+---
+
+## Langkah 3 — Gunakan Rumus
+
+Minimal lintasan/parade:
+
+```txt
+4 / 2 = 2
+```
+
+Artinya:
+- parade pertama menangani sebagian jalan
+- parade kedua menyelesaikan sisanya
+
+---
+
+# Jawaban
+
+2
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih konsep:
+- graph theory
+- Euler path
+- derajat simpul
+
+Rumus penting:
+
+```txt
+minimal lintasan = jumlah simpul ganjil / 2
+```
+
+Kenapa dibagi 2?
+
+Karena satu lintasan hanya bisa memiliki:
+- 1 titik awal ganjil
+- 1 titik akhir ganjil
+
+Jadi satu lintasan "menghabiskan" dua simpul ganjil.

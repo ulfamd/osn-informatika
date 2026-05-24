@@ -1,0 +1,232 @@
+# Soal 6 — Pencarian Koin
+
+## Soal
+
+Terdapat 255 bebek yang berbaris dari Barat ke Timur.
+
+Nomor bebek:
+```txt
+1 sampai 255
+```
+
+Salah satu bebek memegang koin.
+
+Pak Dengklek menggunakan strategi:
+- selalu bertanya pada bebek di tengah
+- jika salah:
+  - dijawab "Barat" atau "Timur"
+
+Urutan jawaban:
+
+```txt
+Barat
+Barat
+Timur
+Barat
+Timur
+```
+
+dan pada pertanyaan ke-6:
+```txt
+koin ditemukan
+```
+
+Pertanyaannya:
+
+> Bebek nomor berapakah yang memegang koin?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Ini adalah:
+
+```txt
+Binary Search
+```
+
+Karena:
+- selalu memilih posisi tengah.
+
+---
+
+# Langkah 1
+
+Awal:
+```txt
+1 sampai 255
+```
+
+Tengah:
+
+```txt
+128
+```
+
+Jawaban:
+```txt
+Barat
+```
+
+Berarti koin di:
+
+```txt
+1 sampai 127
+```
+
+---
+
+# Langkah 2
+
+Range:
+```txt
+1 sampai 127
+```
+
+Tengah:
+
+```txt
+64
+```
+
+Jawaban:
+```txt
+Barat
+```
+
+Berarti:
+
+```txt
+1 sampai 63
+```
+
+---
+
+# Langkah 3
+
+Range:
+```txt
+1 sampai 63
+```
+
+Tengah:
+
+```txt
+32
+```
+
+Jawaban:
+```txt
+Timur
+```
+
+Berarti:
+
+```txt
+33 sampai 63
+```
+
+---
+
+# Langkah 4
+
+Range:
+```txt
+33 sampai 63
+```
+
+Tengah:
+
+```txt
+48
+```
+
+Jawaban:
+```txt
+Barat
+```
+
+Berarti:
+
+```txt
+33 sampai 47
+```
+
+---
+
+# Langkah 5
+
+Range:
+```txt
+33 sampai 47
+```
+
+Tengah:
+
+```txt
+40
+```
+
+Jawaban:
+```txt
+Timur
+```
+
+Berarti:
+
+```txt
+41 sampai 47
+```
+
+---
+
+# Langkah 6
+
+Range:
+```txt
+41 sampai 47
+```
+
+Tengah:
+
+```txt
+44
+```
+
+Pada langkah ke-6:
+```txt
+koin ditemukan
+```
+
+Maka:
+
+```txt
+44
+```
+
+---
+
+# Jawaban
+
+44
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- binary search
+- interval narrowing
+- simulasi algoritma
+
+Konsep penting:
+
+```txt
+Tengah interval:
+(left + right) / 2
+```
+
+Setiap jawaban:
+- membuang separuh kemungkinan.

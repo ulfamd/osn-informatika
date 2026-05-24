@@ -1,0 +1,187 @@
+# Soal 38 — Fungsi Pendek
+
+## Soal
+
+Perhatikan fungsi berikut:
+
+```cpp
+int pndk(int N, int K) {
+
+    if (N == 1)
+        return 1;
+
+    else
+        return (pndk(N - 1, K) + K - 1) % N + 1;
+}
+```
+
+Pertanyaannya:
+
+> Berapakah hasil dari:
+
+```cpp
+pndk(7, 7)
+```
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Fungsi ini adalah:
+
+### Josephus Problem
+
+Konsepnya:
+- orang berdiri melingkar
+- setiap hitungan ke-K dieliminasi
+- cari posisi pemenang terakhir
+
+---
+
+## Rumus Rekursif
+
+```cpp
+pndk(N,K)
+=
+(pndk(N-1,K)+K-1)%N + 1
+```
+
+Basis:
+```cpp
+pndk(1,K)=1
+```
+
+---
+
+# Hitung Bertahap
+
+Kita hitung dari bawah.
+
+---
+
+## N = 1
+
+```txt
+pndk(1,7)=1
+```
+
+---
+
+## N = 2
+
+```txt
+(1+7-1)%2 +1
+= 7%2 +1
+= 1+1
+= 2
+```
+
+```txt
+pndk(2,7)=2
+```
+
+---
+
+## N = 3
+
+```txt
+(2+7-1)%3 +1
+= 8%3 +1
+= 2+1
+= 3
+```
+
+```txt
+pndk(3,7)=3
+```
+
+---
+
+## N = 4
+
+```txt
+(3+7-1)%4 +1
+= 9%4 +1
+= 1+1
+= 2
+```
+
+```txt
+pndk(4,7)=2
+```
+
+---
+
+## N = 5
+
+```txt
+(2+7-1)%5 +1
+= 8%5 +1
+= 3+1
+= 4
+```
+
+```txt
+pndk(5,7)=4
+```
+
+---
+
+## N = 6
+
+```txt
+(4+7-1)%6 +1
+= 10%6 +1
+= 4+1
+= 5
+```
+
+```txt
+pndk(6,7)=5
+```
+
+---
+
+## N = 7
+
+```txt
+(5+7-1)%7 +1
+= 11%7 +1
+= 4+1
+= 5
+```
+
+---
+
+# Jawaban
+
+5
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- rekursi
+- modulo
+- Josephus problem
+
+Konsep penting:
+
+```txt
+Josephus:
+eliminasi melingkar
+```
+
+Rumus rekursif:
+
+```txt
+f(N,K)
+=
+(f(N-1,K)+K-1)%N +1
+```
+
+Teknik cepat:
+- hitung bertahap dari N kecil ke besar.

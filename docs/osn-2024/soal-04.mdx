@@ -1,0 +1,208 @@
+# Soal 4 — Bebek dan Lampu
+
+## Soal
+
+Terdapat 8 buah lampu berjajar dari kiri ke kanan:
+- A
+- B
+- C
+- D
+- E
+- F
+- G
+- H
+
+Awalnya semua lampu dalam keadaan mati.
+
+Terdapat 10 bebek.
+Setiap bebek memiliki beberapa lampu favorit.
+
+Jika sebuah bebek dipilih, maka seluruh lampu favoritnya akan berubah status:
+- mati → menyala
+- menyala → mati
+
+Pak Dengklek memilih 9 dari 10 bebek.
+
+Diketahui kondisi akhir lampu:
+- hanya lampu A dan G yang menyala
+- lampu lainnya mati
+
+Pertanyaannya:
+
+> Bebek nomor berapakah yang tidak dipilih?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Konsep penting:
+
+# Toggle XOR / Genap-Ganjil
+
+Lampu akan:
+- mati jika ditekan GENAP kali
+- menyala jika ditekan GANJIL kali
+
+Karena hanya:
+- A dan G menyala
+
+maka:
+- A dan G harus ditekan ganjil kali
+- lampu lain ditekan genap kali
+
+---
+
+## Strategi Cepat
+
+Daripada mencoba seluruh kombinasi 9 bebek,
+lebih cepat:
+
+# Anggap semua 10 bebek dipilih dulu
+
+Lalu lihat kondisi akhirnya.
+
+Jika hasilnya belum sesuai,
+maka bebek yang tidak dipilih adalah “pengubah” kondisi tersebut.
+
+---
+
+## Hitung Semua Bebek
+
+Kita hitung frekuensi tiap lampu ditekan.
+
+### Lampu A
+Dipilih oleh:
+1,3,5,7,8,10  
+→ 6 kali (genap) → mati
+
+### Lampu B
+2,4,7,8,9  
+→ 5 kali (ganjil) → menyala
+
+### Lampu C
+1,2,5,6,10  
+→ 5 kali → menyala
+
+### Lampu D
+1,3,4,6,7,9  
+→ 6 kali → mati
+
+### Lampu E
+2,5,7,8,9  
+→ 5 kali → menyala
+
+### Lampu F
+1,3,4,5,6,10  
+→ 6 kali → mati
+
+### Lampu G
+2,6,7,10  
+→ 4 kali → mati
+
+### Lampu H
+1,2,3,6,7  
+→ 5 kali → menyala
+
+---
+
+## Kondisi Jika Semua Dipilih
+
+Yang menyala:
+- B
+- C
+- E
+- H
+
+Namun target soal:
+- A
+- G
+
+Artinya kita harus membalik kondisi:
+- A dan G
+- sekaligus mematikan B,C,E,H
+
+---
+
+## Cari Bebek yang Tepat
+
+Kita cari bebek yang menekan tepat:
+- A
+- B
+- C
+- E
+- G
+- H
+
+Karena semua lampu itu perlu dibalik.
+
+Dari tabel,
+bebek nomor:
+
+# 7
+
+menekan:
+- A
+- B
+- D
+- E
+- G
+- H
+
+Oops, belum cocok karena tidak ada C.
+
+Coba bebek lain.
+
+---
+
+## Bebek 6
+
+Menekan:
+- C
+- D
+- F
+- G
+- H
+
+Masih tidak cocok.
+
+---
+
+## Bebek 2
+
+Menekan:
+- B
+- C
+- E
+- G
+- H
+
+Nah!
+
+Jika bebek 2 tidak dipilih:
+- B,C,E,H berubah jadi mati
+- G berubah jadi menyala
+
+dan A tetap menyala sesuai kondisi akhir.
+
+---
+
+# Jawaban
+
+2
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- parity (ganjil/genap)
+- XOR logic
+- simulasi toggle
+
+Teknik penting:
+- “anggap semua aktif dulu”
+- lalu cari elemen yang perlu dibuang
+
+Ini jauh lebih cepat dibanding brute force mencoba semua kombinasi.

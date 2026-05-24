@@ -1,0 +1,227 @@
+# Soal 26 — Cek dan Ricek
+
+## Soal
+
+Perhatikan fungsi berikut:
+
+```cpp
+bool cek(string S) {
+    int n = S.length();
+
+    for (int i = 0; i < n-1; i++) {
+        if (S[i] > S[i+1]) return false;
+    }
+
+    return true;
+}
+```
+
+Dari pilihan berikut, manakah yang menghasilkan:
+
+```txt
+TRUE
+```
+
+### Pilihan
+
+A. `cek("BEGINI")`
+
+B. `cek("BEGITU")`
+
+C. `cek("BERAPA")`
+
+D. `cek("BERUPA")`
+
+E. `cek("BETAPA")`
+
+---
+
+## Cara Berpikir
+
+Fungsi `cek()` memeriksa apakah:
+
+```txt
+huruf-huruf pada string selalu
+tidak menurun
+```
+
+Artinya:
+
+```txt
+S[i] <= S[i+1]
+```
+
+untuk semua posisi.
+
+Jika ada:
+```txt
+S[i] > S[i+1]
+```
+
+langsung:
+```txt
+false
+```
+
+---
+
+## Artinya Apa?
+
+String harus urut alfabet naik atau tetap.
+
+Contoh valid:
+```txt
+AABCD
+```
+
+Contoh tidak valid:
+```txt
+BAC
+```
+
+karena:
+```txt
+B > A
+```
+
+---
+
+# Cek Satu per Satu
+
+---
+
+## A. BEGINI
+
+Urutan:
+
+```txt
+B E G I N I
+```
+
+Cek:
+
+```txt
+N > I
+```
+
+Turun.
+
+Hasil:
+```txt
+FALSE
+```
+
+---
+
+## B. BEGITU
+
+Urutan:
+
+```txt
+B E G I T U
+```
+
+Semua naik.
+
+Hasil:
+```txt
+TRUE
+```
+
+---
+
+## C. BERAPA
+
+Urutan:
+
+```txt
+B E R A P A
+```
+
+Cek:
+
+```txt
+R > A
+```
+
+Turun.
+
+Hasil:
+```txt
+FALSE
+```
+
+---
+
+## D. BERUPA
+
+Urutan:
+
+```txt
+B E R U P A
+```
+
+Cek:
+
+```txt
+U > P
+```
+
+Turun.
+
+Hasil:
+```txt
+FALSE
+```
+
+---
+
+## E. BETAPA
+
+Urutan:
+
+```txt
+B E T A P A
+```
+
+Cek:
+
+```txt
+T > A
+```
+
+Turun.
+
+Hasil:
+```txt
+FALSE
+```
+
+---
+
+# Jawaban
+
+B
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- string processing
+- iterasi array/string
+- pengecekan monotonic sequence
+
+Konsep penting:
+
+```txt
+Jika ada satu pasangan turun,
+langsung gagal.
+```
+
+Kompleksitas:
+```txt
+O(n)
+```
+
+karena hanya memeriksa sekali dari kiri ke kanan.

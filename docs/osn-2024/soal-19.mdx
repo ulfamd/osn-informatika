@@ -1,0 +1,233 @@
+# Soal 19 — Mencicipi Biskuit
+
+## Soal
+
+Pak Dengklek membuat 3 tipe biskuit:
+
+- tipe 1 terdiri dari A butir
+- tipe 2 terdiri dari B butir
+- tipe 3 terdiri dari C butir
+
+Diketahui:
+
+```txt
+A + B + C = 25
+```
+
+Pak Dengklek ingin:
+- semua tipe biskuit pernah dicicipi minimal 1 ekor bebek
+
+Setiap bebek:
+- mengambil tepat 1 biskuit
+
+Diketahui pula bahwa:
+- minimal bebek yang perlu diundang adalah 20
+
+Pertanyaannya:
+
+> Berapa banyak triplet berbeda yang mungkin?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Kita gunakan konsep:
+
+### Worst Case
+
+Agar semua tipe pasti tercicipi,
+kasus terburuk adalah:
+- para bebek terus mengambil dari tipe yang jumlahnya besar
+- dan menghindari tipe paling sedikit selama mungkin
+
+---
+
+## Rumus Penting
+
+Jika:
+```txt
+total biskuit = T
+```
+
+dan:
+```txt
+tipe terkecil = x
+```
+
+maka minimum bebek agar semua tipe pasti tercicipi adalah:
+
+```txt
+T - x + 1
+```
+
+---
+
+## Masukkan Nilai Soal
+
+Diketahui:
+
+```txt
+T = 25
+```
+
+dan:
+
+```txt
+minimum bebek = 20
+```
+
+Maka:
+
+```txt
+25 - x + 1 = 20
+```
+
+---
+
+## Cari Nilai x
+
+```txt
+26 - x = 20
+```
+
+Sehingga:
+
+```txt
+x = 6
+```
+
+Artinya:
+- nilai terkecil dari A, B, atau C adalah 6
+
+---
+
+## Cari Banyak Triplet
+
+Sekarang kita hitung banyak triplet positif:
+
+```txt
+A + B + C = 25
+```
+
+dengan syarat:
+- nilai terkecil tepat 6
+
+---
+
+## Kasus 1
+
+Tepat satu angka bernilai 6.
+
+Misal:
+
+```txt
+A = 6
+```
+
+Maka:
+
+```txt
+B + C = 19
+```
+
+Karena nilai minimum harus tetap 6:
+
+```txt
+B >= 6
+C >= 6
+```
+
+Pasangan yang mungkin:
+
+```txt
+6 dan 13
+7 dan 12
+8 dan 11
+9 dan 10
+10 dan 9
+11 dan 8
+12 dan 7
+13 dan 6
+```
+
+Jumlah:
+```txt
+8 pasangan
+```
+
+Karena angka 6 bisa berada di:
+- A
+- B
+- C
+
+Maka total:
+
+```txt
+8 × 3 = 24
+```
+
+---
+
+## Kasus 2
+
+Dua angka bernilai 6.
+
+Contoh:
+
+```txt
+6, 6, 13
+```
+
+Karena posisi bisa berbeda:
+
+```txt
+3 kemungkinan
+```
+
+---
+
+## Kasus 3
+
+Tiga angka sama-sama 6.
+
+Tidak mungkin karena:
+
+```txt
+6 + 6 + 6 ≠ 25
+```
+
+---
+
+## Total Seluruh Kemungkinan
+
+```txt
+24 + 3 = 27
+```
+
+---
+
+# Jawaban
+
+27
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- counting
+- worst-case analysis
+- pigeonhole principle
+
+Konsep penting:
+
+```txt
+minimum agar semua kategori tercapai
+=
+total - kategori terkecil + 1
+```
+
+Karena:
+- kategori terkecil bisa "dihindari" paling lama.

@@ -1,0 +1,226 @@
+# Soal 31 — Start dan Finish?
+
+## Soal
+
+Perhatikan fungsi berikut:
+
+```cpp
+int go(int N) {
+    int s = 0;
+    int f = 1;
+
+    for (int i = 2; i <= N; i++) {
+
+        if (N % i == 0) {
+
+            if (i - f > s) {
+                s = i - f;
+            }
+
+            f = i;
+        }
+    }
+
+    return s;
+}
+```
+
+Pertanyaannya:
+
+> BENAR atau SALAH:
+>
+> Jika N adalah bilangan bulat positif lebih dari 1,
+> maka:
+>
+> ```txt
+> go(N) >= N / 2
+> ```
+
+Tuliskan jawaban dalam bentuk BENAR atau SALAH.
+
+---
+
+## Cara Berpikir
+
+Dari soal sebelumnya:
+
+```txt
+go(N)
+=
+selisih terbesar antar faktor berurutan
+```
+
+---
+
+## Cari Counter Example
+
+Untuk membuktikan SALAH,
+cukup cari satu contoh yang gagal.
+
+---
+
+# Coba N = 6
+
+Faktor 6:
+
+```txt
+1, 2, 3, 6
+```
+
+Selisih antar faktor:
+
+```txt
+2 - 1 = 1
+3 - 2 = 1
+6 - 3 = 3
+```
+
+Maka:
+
+```txt
+go(6) = 3
+```
+
+Sekarang hitung:
+
+```txt
+N / 2 = 6 / 2 = 3
+```
+
+Masih memenuhi.
+
+---
+
+# Coba N = 12
+
+Faktor:
+
+```txt
+1, 2, 3, 4, 6, 12
+```
+
+Selisih:
+
+```txt
+1
+1
+1
+2
+6
+```
+
+Maka:
+
+```txt
+go(12) = 6
+```
+
+Dan:
+
+```txt
+12 / 2 = 6
+```
+
+Masih memenuhi.
+
+---
+
+# Cari Bilangan yang Gagal
+
+Coba:
+
+```txt
+N = 16
+```
+
+Faktor:
+
+```txt
+1, 2, 4, 8, 16
+```
+
+Selisih:
+
+```txt
+1
+2
+4
+8
+```
+
+Maka:
+
+```txt
+go(16) = 8
+```
+
+Dan:
+
+```txt
+16 / 2 = 8
+```
+
+Masih sama.
+
+---
+
+# Observasi Penting
+
+Untuk semua bilangan:
+- faktor terbesar sebelum N
+- selalu paling besar maksimal N/2
+
+Karena:
+- faktor selain N tidak mungkin lebih dari N/2
+
+Maka selalu ada gap:
+
+```txt
+N - faktor_terbesar_sebelum_N
+```
+
+yang nilainya:
+
+```txt
+>= N/2
+```
+
+---
+
+# Kesimpulan
+
+Pernyataan:
+
+```txt
+go(N) >= N/2
+```
+
+selalu benar.
+
+---
+
+# Jawaban
+
+BENAR
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- observasi faktor
+- pembuktian matematika
+- analisis kode
+
+Konsep penting:
+
+Faktor terbesar sebelum N:
+- tidak pernah melebihi N/2
+
+Sehingga:
+
+```txt
+N - faktor_terbesar >= N/2
+```
+
+dan itu pasti menjadi salah satu kandidat gap pada fungsi `go()`.

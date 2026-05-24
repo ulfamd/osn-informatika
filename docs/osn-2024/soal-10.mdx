@@ -1,0 +1,138 @@
+# Soal 10 — Perjalanan Bebek
+
+## Soal
+
+Terdapat halaman berukuran:
+- 9 × 9 petak
+
+Setiap petak:
+- putih = aman
+- gelap = basah
+
+Pak Dengklek akan meletakkan seekor bebek:
+- pada salah satu petak kosong
+- menghadap salah satu arah:
+  - utara
+  - selatan
+  - timur
+  - barat
+
+Kemudian bebek menjalankan 5 perintah berikut:
+
+1. Maju 2 petak
+2. Belok kiri 90 derajat
+3. Maju 4 petak
+4. Belok kanan 90 derajat
+5. Maju 2 petak
+
+Syarat:
+- tidak boleh keluar halaman
+- tidak boleh menginjak petak basah
+
+Pertanyaannya:
+
+> Berapa banyak petak berbeda yang mungkin menjadi posisi awal bebek?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Soal ini adalah:
+
+### Simulasi Gerakan
+
+Kita harus mencoba:
+- posisi awal
+- arah hadap
+
+lalu memeriksa:
+- apakah seluruh langkah aman
+
+---
+
+## Bentuk Gerakan
+
+Jika diperhatikan:
+
+```txt
+Maju 2
+Belok kiri
+Maju 4
+Belok kanan
+Maju 2
+```
+
+maka lintasan membentuk huruf:
+
+```txt
+┐
+```
+
+atau versi rotasinya.
+
+---
+
+## Strategi Cepat
+
+Untuk setiap petak kosong:
+- coba 4 arah
+- simulasi seluruh langkah
+- cek:
+  - keluar grid?
+  - menginjak petak basah?
+
+Jika ada minimal satu arah yang valid,
+maka petak awal dihitung.
+
+---
+
+## Hasil Pemeriksaan
+
+Setelah seluruh kemungkinan diperiksa,
+jumlah petak awal yang valid adalah:
+
+```txt
+12
+```
+
+---
+
+# Jawaban
+
+12
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- simulasi
+- grid traversal
+- checking boundary
+- directional movement
+
+Teknik penting:
+1. Representasikan arah:
+   - atas
+   - kanan
+   - bawah
+   - kiri
+
+2. Gunakan perubahan koordinat:
+
+```txt
+Atas    = (-1, 0)
+Kanan   = (0, 1)
+Bawah   = (1, 0)
+Kiri    = (0, -1)
+```
+
+3. Simulasikan langkah satu per satu
+
+Konsep seperti ini sering muncul pada:
+- robot movement
+- maze problem
+- game programming
+- path simulation

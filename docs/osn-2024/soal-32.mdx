@@ -1,0 +1,275 @@
+# Soal 32 — Ke Kiri dan Kanan
+
+## Soal
+
+Perhatikan fungsi berikut:
+
+```cpp
+bool dua_mata(vector<int> A, int kiri, int kanan) {
+
+    if (kiri == kanan) {
+        return (A[kiri] == 0);
+
+    } else {
+
+        int mid = (kiri + kanan) / 2;
+
+        if (A[mid] < 0) {
+            return dua_mata(A, kiri, mid - 1);
+
+        } else if (A[mid] > 0) {
+            return dua_mata(A, mid + 1, kanan);
+
+        } else {
+            return false;
+        }
+    }
+}
+```
+
+Dari pilihan berikut, manakah yang menghasilkan:
+
+```txt
+TRUE
+```
+
+### Pilihan
+
+A.
+```cpp
+dua_mata({0,1,2,3,4,5,6}, 0, 6)
+```
+
+B.
+```cpp
+dua_mata({-2,-1,0,1,2,3,4}, 0, 6)
+```
+
+C.
+```cpp
+dua_mata({4,3,2,1,0,-1,-2}, 0, 6)
+```
+
+D.
+```cpp
+dua_mata({-6,-5,-4,-3,-2,-1,0}, 0, 6)
+```
+
+E.
+```cpp
+dua_mata({-1,0,1,0,-1,0,1}, 0, 6)
+```
+
+---
+
+## Cara Berpikir
+
+Fungsi ini menggunakan:
+
+### Binary Search Rekursif
+
+Tetapi arah pencariannya unik.
+
+---
+
+## Analisis Fungsi
+
+---
+
+## Basis Rekursi
+
+```cpp
+if (kiri == kanan)
+```
+
+Jika tersisa satu elemen:
+- hasil TRUE jika elemen tersebut = 0
+
+---
+
+## Bagian Tengah
+
+```cpp
+mid = (kiri + kanan) / 2
+```
+
+---
+
+## Jika Tengah Negatif
+
+```cpp
+A[mid] < 0
+```
+
+maka pencarian ke kiri:
+
+```cpp
+dua_mata(A, kiri, mid-1)
+```
+
+---
+
+## Jika Tengah Positif
+
+```cpp
+A[mid] > 0
+```
+
+maka pencarian ke kanan:
+
+```cpp
+dua_mata(A, mid+1, kanan)
+```
+
+---
+
+## Jika Tengah Nol
+
+```cpp
+A[mid] == 0
+```
+
+langsung:
+
+```cpp
+false
+```
+
+Ini jebakan penting.
+
+---
+
+# Cek Satu per Satu
+
+---
+
+## A
+
+Array:
+```txt
+0 1 2 3 4 5 6
+```
+
+Mid awal:
+```txt
+index 3 → nilai 3
+```
+
+Positif → ke kanan.
+
+Terus ke kanan sampai:
+```txt
+6
+```
+
+Bukan nol.
+
+Hasil:
+```txt
+FALSE
+```
+
+---
+
+## B
+
+Array:
+```txt
+-2 -1 0 1 2 3 4
+```
+
+Mid awal:
+```txt
+index 3 → nilai 1
+```
+
+Positif → ke kanan.
+
+Tidak pernah sampai ke 0.
+
+FALSE.
+
+---
+
+## C
+
+Array:
+```txt
+4 3 2 1 0 -1 -2
+```
+
+Mid awal:
+```txt
+1
+```
+
+Positif → ke kanan.
+
+Masuk ke:
+```txt
+0 -1 -2
+```
+
+Mid berikutnya:
+```txt
+-1
+```
+
+Negatif → ke kiri.
+
+Tersisa:
+```txt
+0
+```
+
+Basis rekursi:
+```txt
+A[kiri] == 0
+```
+
+TRUE.
+
+---
+
+## D
+
+Semua negatif sampai terakhir 0.
+
+Arah selalu ke kiri,
+tidak mencapai nol terakhir.
+
+FALSE.
+
+---
+
+## E
+
+Tidak menghasilkan jalur ke basis nol.
+
+FALSE.
+
+---
+
+# Jawaban
+
+C
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- rekursi
+- binary search
+- tracing program
+
+Jebakan utama:
+
+```cpp
+Jika mid == 0
+langsung FALSE
+```
+
+Jadi:
+- nol harus ditemukan saat tersisa satu elemen,
+- bukan saat berada di tengah pencarian.

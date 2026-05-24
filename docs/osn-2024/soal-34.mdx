@@ -1,0 +1,303 @@
+# Soal 34 — Ke Kiri dan Kanan
+
+## Soal
+
+Perhatikan fungsi berikut:
+
+```cpp
+bool dua_mata(vector<int> A, int kiri, int kanan) {
+
+    if (kiri == kanan) {
+        return (A[kiri] == 0);
+
+    } else {
+
+        int mid = (kiri + kanan) / 2;
+
+        if (A[mid] < 0) {
+            return dua_mata(A, kiri, mid - 1);
+
+        } else if (A[mid] > 0) {
+            return dua_mata(A, mid + 1, kanan);
+
+        } else {
+            return false;
+        }
+    }
+}
+```
+
+Jika:
+- panjang vector A = 7
+- setiap elemen hanya boleh:
+  - `-1`
+  - `0`
+  - `1`
+
+Pertanyaannya:
+
+> Berapa banyak vector A berbeda sehingga:
+
+```cpp
+dua_mata(A, 0, 6)
+```
+
+menghasilkan:
+
+```txt
+TRUE
+```
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Agar hasil TRUE,
+fungsi harus mencapai:
+
+```cpp
+kiri == kanan
+```
+
+dan:
+
+```cpp
+A[kiri] == 0
+```
+
+---
+
+## Jebakan Penting
+
+Jika:
+
+```cpp
+A[mid] == 0
+```
+
+saat proses rekursi,
+fungsi langsung:
+
+```cpp
+return false;
+```
+
+Jadi:
+- nilai 0 tidak boleh muncul di posisi mid selama proses
+- nol hanya boleh muncul di elemen terakhir yang tersisa
+
+---
+
+# Langkah Rekursi
+
+Awal:
+
+```txt
+kiri = 0
+kanan = 6
+mid = 3
+```
+
+---
+
+## Syarat Pertama
+
+Agar tidak false:
+- `A[3]` tidak boleh 0
+
+Ada dua kemungkinan:
+
+---
+
+## Kasus 1
+
+```txt
+A[3] = -1
+```
+
+Maka pencarian ke kiri:
+
+```txt
+0..2
+```
+
+Mid berikutnya:
+
+```txt
+1
+```
+
+Agar lanjut:
+- `A[1]` tidak boleh 0
+
+---
+
+### Subkasus 1A
+
+```txt
+A[1] = -1
+```
+
+Masuk ke:
+```txt
+0..0
+```
+
+Agar TRUE:
+```txt
+A[0] = 0
+```
+
+---
+
+### Subkasus 1B
+
+```txt
+A[1] = 1
+```
+
+Masuk ke:
+```txt
+2..2
+```
+
+Agar TRUE:
+```txt
+A[2] = 0
+```
+
+---
+
+## Kasus 2
+
+```txt
+A[3] = 1
+```
+
+Masuk ke:
+```txt
+4..6
+```
+
+Mid berikutnya:
+
+```txt
+5
+```
+
+Agar lanjut:
+- `A[5]` tidak boleh 0
+
+---
+
+### Subkasus 2A
+
+```txt
+A[5] = -1
+```
+
+Masuk ke:
+```txt
+4..4
+```
+
+Agar TRUE:
+```txt
+A[4] = 0
+```
+
+---
+
+### Subkasus 2B
+
+```txt
+A[5] = 1
+```
+
+Masuk ke:
+```txt
+6..6
+```
+
+Agar TRUE:
+```txt
+A[6] = 0
+```
+
+---
+
+# Hitung Banyak Kemungkinan
+
+Pada setiap jalur:
+- beberapa posisi sudah dipaksa nilainya
+- posisi lain bebas berisi:
+  - `-1`
+  - `0`
+  - `1`
+
+---
+
+## Posisi Bebas
+
+Setelah syarat jalur dipenuhi,
+tersisa:
+```txt
+4 posisi bebas
+```
+
+Setiap posisi:
+```txt
+3 pilihan
+```
+
+Maka:
+
+```txt
+3^4 = 81
+```
+
+---
+
+## Jumlah Jalur TRUE
+
+Ada:
+```txt
+4 jalur TRUE
+```
+
+Maka total:
+
+```txt
+4 × 81 = 324
+```
+
+---
+
+# Jawaban
+
+324
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- rekursi
+- binary search
+- decision tree
+- counting
+
+Teknik penting:
+1. Telusuri jalur rekursi
+2. Tentukan syarat agar tidak gagal
+3. Hitung posisi bebas
+
+Konsep utama:
+
+```txt
+TRUE hanya terjadi jika:
+- tidak pernah menemukan mid = 0
+- dan elemen terakhir = 0
+```

@@ -1,0 +1,94 @@
+# Soal 1 — Mencari OSN
+
+## Soal
+
+Pak Dengklek bermain sebuah puzzle klasik di mana ia harus menemukan 3 petak garis lurus berurutan yang memuat tulisan **“OSN”**.
+
+Ketiga petak ini bisa berurutan secara:
+- horizontal
+- vertikal
+- diagonal
+
+dan boleh dibaca ke 8 arah:
+- atas
+- bawah
+- kiri
+- kanan
+- kanan-atas
+- kanan-bawah
+- kiri-atas
+- kiri-bawah
+
+Diketahui bahwa hanya terdapat satu lokasi tulisan “OSN” pada puzzle tersebut.
+
+Pak Dengklek meminta bantuan kepadamu:
+
+> Di kolom ke berapakah petak huruf ‘O’ yang memuat tulisan “OSN” tersebut?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Karena pola yang dicari adalah:
+
+O → S → N
+
+maka huruf yang paling mudah dicari terlebih dahulu adalah huruf **S** karena jumlahnya sedikit.
+
+Setelah menemukan huruf S, kita cukup mengecek:
+- apakah sebelum S ada huruf O
+- apakah sesudah S ada huruf N
+- dalam satu garis lurus
+
+---
+
+## Pembahasan
+
+Dari tabel, huruf S muncul di beberapa posisi.
+
+Kita cek satu per satu seluruh arah di sekitar huruf S:
+- horizontal
+- vertikal
+- diagonal
+
+Setelah diperiksa, hanya ada satu pola yang membentuk:
+
+O → S → N
+
+Pola tersebut ditemukan secara diagonal.
+
+Huruf:
+- O berada di kolom 7
+- S di tengah
+- N di ujung diagonal
+
+Karena soal menanyakan:
+
+> kolom huruf O
+
+maka jawabannya adalah:
+
+---
+
+# Jawaban
+
+7
+
+---
+
+## Catatan Penting OSN
+
+Teknik penting pada soal ini adalah:
+
+### Cari bagian paling unik terlebih dahulu
+
+Daripada mencari seluruh pola “OSN”, lebih cepat mencari huruf “S” karena jumlahnya sedikit.
+
+Teknik ini disebut:
+- narrowing search
+- filtering
+- pengurangan ruang pencarian
+
+dan sangat sering digunakan dalam OSN Informatika.

@@ -1,0 +1,159 @@
+# Soal 15 — Pertemanan Ayam
+
+## Soal
+
+Pak Blangkon memiliki 15 ekor ayam:
+- A sampai O
+
+Diketahui hubungan pertemanan berikut:
+
+```txt
+P(A,B)
+P(C,M)
+P(E,G)
+P(A,M)
+
+P(D,J)
+P(O,N)
+P(B,O)
+P(K,L)
+
+P(D,I)
+P(B,N)
+P(L,D)
+P(H,F)
+```
+
+Aturan:
+- jika ayam X berteman dengan Y
+- dan Y berteman dengan Z
+
+maka:
+> mereka berada dalam lingkaran pertemanan yang sama.
+
+Pak Blangkon ingin mengajak ayam bermain dengan aturan:
+
+```txt
+Untuk setiap lingkaran pertemanan,
+harus ada minimal satu ayam yang diajak.
+```
+
+Pertanyaannya:
+
+> Ada berapa banyak cara memilih ayam?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Dari soal sebelumnya,
+terdapat 4 lingkaran pertemanan.
+
+Kita cukup:
+- memilih minimal 1 ayam dari tiap grup
+- lalu mengalikan jumlah kemungkinan tiap grup
+
+---
+
+## Lingkaran Pertemanan
+
+### Grup 1
+
+```txt
+A, B, C, M, O, N
+```
+
+Jumlah ayam:
+```txt
+6
+```
+
+---
+
+### Grup 2
+
+```txt
+D, I, J, K, L
+```
+
+Jumlah ayam:
+```txt
+5
+```
+
+---
+
+### Grup 3
+
+```txt
+E, G
+```
+
+Jumlah ayam:
+```txt
+2
+```
+
+---
+
+### Grup 4
+
+```txt
+F, H
+```
+
+Jumlah ayam:
+```txt
+2
+```
+
+---
+
+## Banyak Cara Memilih
+
+Karena:
+- harus memilih tepat satu perwakilan dari setiap grup
+
+maka:
+
+```txt
+6 × 5 × 2 × 2
+```
+
+Hitung:
+
+```txt
+6 × 5 = 30
+30 × 2 = 60
+60 × 2 = 120
+```
+
+---
+
+# Jawaban
+
+120
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- connected component
+- counting
+- rule of product
+
+Konsep penting:
+
+```txt
+Jika pilihan independen,
+gunakan perkalian.
+```
+
+Karena:
+- pilihan grup 1 bebas
+- tidak mempengaruhi grup lain
+
+maka semua kemungkinan dikalikan.

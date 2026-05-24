@@ -1,0 +1,185 @@
+# Soal 14 — Pertemanan Ayam
+
+## Soal
+
+Pak Blangkon memiliki 15 ekor ayam:
+- A
+- B
+- C
+- D
+- E
+- F
+- G
+- H
+- I
+- J
+- K
+- L
+- M
+- N
+- O
+
+Diketahui hubungan pertemanan berikut:
+
+```txt
+P(A,B)
+P(C,M)
+P(E,G)
+P(A,M)
+
+P(D,J)
+P(O,N)
+P(B,O)
+P(K,L)
+
+P(D,I)
+P(B,N)
+P(L,D)
+P(H,F)
+```
+
+Aturan:
+- jika X berteman dengan Y
+- dan Y berteman dengan Z
+
+maka:
+> X dan Z berada dalam lingkaran pertemanan yang sama.
+
+Pertanyaannya:
+
+> Ada berapa banyak lingkaran pertemanan ayam?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Ini adalah konsep:
+
+### Connected Component
+
+Artinya:
+- ayam yang saling terhubung
+- langsung maupun tidak langsung
+- berada pada grup yang sama
+
+---
+
+## Langkah 1 — Gabungkan Pertemanan
+
+---
+
+## Grup 1
+
+```txt
+A berteman B
+A berteman M
+B berteman O
+B berteman N
+C berteman M
+O berteman N
+```
+
+Semua terhubung menjadi:
+
+```txt
+A, B, C, M, O, N
+```
+
+---
+
+## Grup 2
+
+```txt
+D berteman J
+D berteman I
+L berteman D
+K berteman L
+```
+
+Menjadi:
+
+```txt
+D, I, J, K, L
+```
+
+---
+
+## Grup 3
+
+```txt
+E berteman G
+```
+
+Menjadi:
+
+```txt
+E, G
+```
+
+---
+
+## Grup 4
+
+```txt
+H berteman F
+```
+
+Menjadi:
+
+```txt
+F, H
+```
+
+---
+
+## Sisa Ayam
+
+Ayam yang belum masuk grup:
+
+```txt
+Tidak ada
+```
+
+---
+
+## Jumlah Lingkaran Pertemanan
+
+Terdapat:
+1. A,B,C,M,O,N
+2. D,I,J,K,L
+3. E,G
+4. F,H
+
+Total:
+
+```txt
+4
+```
+
+---
+
+# Jawaban
+
+4
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih konsep:
+- graph theory
+- connected component
+- union-find / disjoint set
+
+Teknik cepat:
+1. Gabungkan node yang terhubung
+2. Cari kelompok yang terbentuk
+3. Hitung jumlah kelompok
+
+Konsep ini sering digunakan pada:
+- social network
+- grouping
+- clustering
+- connectivity problem

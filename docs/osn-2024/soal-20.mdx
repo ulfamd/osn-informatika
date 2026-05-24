@@ -1,0 +1,143 @@
+# Soal 20 — Menggelindingkan Meja
+
+## Soal
+
+Terdapat:
+- sebuah meja hitam berbentuk segi-11
+- sebuah meja putih berbentuk segi-8
+
+Kedua meja memiliki panjang sisi yang sama.
+
+Awalnya:
+- meja putih berada tepat di sebelah Utara meja hitam
+- tanda panah pada meja putih menunjuk ke arah Utara
+
+Kemudian meja putih digelindingkan:
+- searah jarum jam
+- mengelilingi meja hitam
+- sebanyak 1 putaran penuh
+
+Pertanyaannya:
+
+> Setelah 1 putaran, ke arah manakah tanda panah pada meja putih menunjuk?
+
+Tuliskan jawaban dalam bentuk dua huruf kapital arah mata angin.
+
+---
+
+## Cara Berpikir
+
+Ketika poligon digelindingkan,
+setiap perpindahan sisi menyebabkan rotasi.
+
+Konsep penting:
+
+### Setiap perpindahan sisi
+mengubah arah sebesar:
+
+```txt
+360° / jumlah sisi meja putih
+```
+
+Karena meja putih berbentuk:
+```txt
+segi-8
+```
+
+maka tiap langkah memutar:
+
+```txt
+360° / 8 = 45°
+```
+
+---
+
+## Berapa Banyak Langkah?
+
+Meja hitam berbentuk:
+```txt
+segi-11
+```
+
+Artinya untuk 1 putaran penuh,
+meja putih berpindah:
+
+```txt
+11 sisi
+```
+
+Maka total rotasi:
+
+```txt
+11 × 45°
+```
+
+Hitung:
+
+```txt
+11 × 45 = 495°
+```
+
+---
+
+## Sederhanakan Rotasi
+
+Karena:
+```txt
+360° = 1 putaran penuh
+```
+
+maka:
+
+```txt
+495° - 360° = 135°
+```
+
+Jadi arah akhir:
+```txt
+135°
+```
+
+---
+
+## Konversi ke Mata Angin
+
+Arah:
+- 0° = Utara
+- 45° = Timur Laut
+- 90° = Timur
+- 135° = Tenggara
+
+Maka hasil akhirnya:
+
+```txt
+TG
+```
+
+---
+
+# Jawaban
+
+TG
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- simulasi rotasi
+- modular arithmetic
+- geometri diskrit
+
+Rumus penting:
+
+```txt
+total rotasi =
+(jumlah sisi meja hitam)
+×
+(360 / sisi meja putih)
+```
+
+Lalu:
+- mod 360°
+- ubah menjadi arah mata angin.

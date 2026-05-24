@@ -1,0 +1,209 @@
+# Soal 2 — Keluar-Masuk Kandang
+
+## Soal
+
+Pak Dengklek memiliki kandang dengan 5 pintu:
+```txt
+A, B, C, D, E
+```
+
+Setiap pintu memiliki sensor:
+- menghitung bebek masuk
+- menghitung bebek keluar
+
+Aturan:
+1. Awalnya semua bebek berada di dalam kandang
+2. Setelah beberapa waktu,
+   semua bebek kembali masuk kandang
+3. Sensor pintu E rusak
+
+Data sensor:
+
+| Pintu | Masuk | Keluar |
+| --- | --- | --- |
+| A | 10 | 23 |
+| B | 15 | 15 |
+| C | 47 | 38 |
+| D | 6 | 19 |
+| E | ? | ? |
+
+Pertanyaannya:
+
+> Data manakah yang mungkin muncul pada pintu E?
+
+### Pilihan
+
+A.
+```txt
+Masuk 18
+Keluar 35
+```
+
+B.
+```txt
+Masuk 17
+Keluar 17
+```
+
+C.
+```txt
+Masuk 0
+Keluar 24
+```
+
+D.
+```txt
+Masuk 49
+Keluar 32
+```
+
+E.
+```txt
+Masuk 36
+Keluar 5
+```
+
+---
+
+## Cara Berpikir
+
+Karena:
+- awalnya semua bebek di dalam
+- akhirnya semua bebek kembali di dalam
+
+maka:
+
+```txt
+total masuk = total keluar
+```
+
+---
+
+# Hitung Total Pintu A-D
+
+## Total Masuk
+
+```txt
+10 + 15 + 47 + 6
+=
+78
+```
+
+---
+
+## Total Keluar
+
+```txt
+23 + 15 + 38 + 19
+=
+95
+```
+
+---
+
+# Selisih
+
+Saat ini:
+
+```txt
+keluar lebih banyak 17
+```
+
+Agar seimbang:
+- pintu E harus memiliki:
+```txt
+masuk lebih banyak 17
+```
+
+Artinya:
+
+```txt
+Masuk - Keluar = 17
+```
+
+---
+
+# Cek Pilihan
+
+---
+
+## A
+
+```txt
+18 - 35 = -17
+```
+
+Salah.
+
+---
+
+## B
+
+```txt
+17 - 17 = 0
+```
+
+Salah.
+
+---
+
+## C
+
+```txt
+0 - 24 = -24
+```
+
+Salah.
+
+---
+
+## D
+
+```txt
+49 - 32 = 17
+```
+
+Benar.
+
+---
+
+## E
+
+```txt
+36 - 5 = 31
+```
+
+Salah.
+
+---
+
+# Jawaban
+
+D
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- conservation principle
+- counting
+- invariant
+
+Konsep penting:
+
+Karena:
+```txt
+awal dan akhir sama
+```
+
+maka:
+```txt
+jumlah masuk total
+=
+jumlah keluar total
+```
+
+Teknik cepat:
+- cari selisih total
+- cocokkan dengan pilihan jawaban.

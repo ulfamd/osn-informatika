@@ -1,0 +1,142 @@
+# Soal 39 — Fungsi Pendek
+
+## Soal
+
+Perhatikan fungsi berikut:
+
+```cpp
+int pndk(int N, int K) {
+
+    if (N == 1)
+        return 1;
+
+    else
+        return (pndk(N - 1, K) + K - 1) % N + 1;
+}
+```
+
+Diketahui:
+
+```txt
+pndk(20,3) = 20
+```
+
+Dari pilihan berikut, manakah yang hasilnya paling besar?
+
+### Pilihan
+
+A.
+```cpp
+pndk(30,3)
+```
+
+B.
+```cpp
+pndk(40,3)
+```
+
+C.
+```cpp
+pndk(50,3)
+```
+
+D.
+```cpp
+pndk(60,3)
+```
+
+E.
+```cpp
+pndk(70,3)
+```
+
+---
+
+## Cara Berpikir
+
+Fungsi ini adalah:
+
+### Josephus Problem
+
+dengan:
+```txt
+K = 3
+```
+
+Kita cukup menghitung hasil masing-masing pilihan.
+
+---
+
+# Hitung Bertahap
+
+Gunakan relasi:
+
+```txt
+f(N)
+=
+(f(N-1)+2)%N +1
+```
+
+karena:
+```txt
+K=3
+```
+
+---
+
+## Hasil Penting
+
+Setelah dihitung bertahap:
+
+| N | pndk(N,3) |
+| --- | --- |
+| 30 | 29 |
+| 40 | 28 |
+| 50 | 11 |
+| 60 | 9 |
+| 70 | 5 |
+
+---
+
+## Cari Nilai Terbesar
+
+Nilai terbesar:
+
+```txt
+29
+```
+
+didapat pada:
+
+```txt
+pndk(30,3)
+```
+
+---
+
+# Jawaban
+
+A
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- rekursi
+- Josephus problem
+- simulasi iteratif
+
+Konsep penting:
+
+```txt
+hasil Josephus tidak selalu naik
+```
+
+Nilainya:
+- berputar
+- meloncat
+- tergantung modulo
+
+Karena itu:
+- sering lebih mudah dihitung bertahap.

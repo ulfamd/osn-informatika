@@ -1,0 +1,109 @@
+# Soal 2 — Mengurutkan Rutinitas
+
+## Soal
+
+Pak Dengklek ingin membuat sebuah rutinitas malam.  
+Ada 9 kegiatan yang perlu ia rancang, namun terdapat beberapa syarat urutan kegiatan.
+
+Jika ada panah dari kegiatan A menuju kegiatan B, maka:
+> kegiatan B hanya bisa dilakukan setelah kegiatan A dilakukan terlebih dahulu.
+
+Pak Dengklek ingin kegiatan:
+
+> “Minum teh”
+
+dilakukan seawal mungkin.
+
+Pertanyaannya:
+
+> Pada urutan ke berapakah paling awal kegiatan “Minum teh” bisa dilakukan?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Ini adalah soal:
+
+# Topological Sorting / Dependency Order
+
+Prinsipnya:
+- suatu kegiatan baru bisa dilakukan jika semua prasyaratnya sudah selesai.
+
+Agar “Minum teh” terjadi secepat mungkin:
+- kita harus menyelesaikan seluruh syarat menuju “Minum teh” secepat mungkin juga.
+
+---
+
+## Analisis Diagram
+
+Dari diagram:
+
+### Minum teh membutuhkan:
+- Membuat teh selesai terlebih dahulu
+
+Karena ada panah:
+- Membuat teh → Minum teh
+
+---
+
+### Membuat teh membutuhkan:
+- Memasak air
+
+Karena ada panah:
+- Memasak air → Membuat teh
+
+---
+
+Jadi rantai wajibnya adalah:
+
+Memasak air → Membuat teh → Minum teh
+
+Artinya ada minimal 3 langkah berurutan.
+
+---
+
+## Apakah Ada Syarat Lain?
+
+Tidak ada syarat tambahan langsung menuju:
+- Membuat teh
+- Minum teh
+
+Jadi kita bisa mempercepat dengan langsung mengerjakan jalur tersebut terlebih dahulu.
+
+---
+
+## Urutan Paling Cepat
+
+1. Memasak air
+2. Membuat teh
+3. Minum teh
+
+Maka posisi paling awal “Minum teh” adalah:
+
+# urutan ke-3
+
+---
+
+# Jawaban
+
+3
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih konsep:
+
+- dependency graph
+- DAG (Directed Acyclic Graph)
+- topological ordering
+
+Teknik cepat:
+1. Cari target akhir
+2. Telusuri semua prasyaratnya
+3. Hitung panjang rantai minimum
+
+Semakin sedikit dependency sebelum target,
+semakin cepat target bisa dilakukan.

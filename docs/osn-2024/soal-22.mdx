@@ -1,0 +1,166 @@
+# Soal 22 — Menggelindingkan Meja
+
+## Soal
+
+Terdapat:
+- meja putih berbentuk segi-123
+- meja hitam berbentuk segi-456
+
+Kedua meja memiliki panjang sisi sama.
+
+Meja putih digelindingkan:
+- searah jarum jam
+- mengelilingi meja hitam
+
+Pertanyaannya:
+
+> Berapakah bilangan positif terkecil X sehingga setelah X putaran,
+> tanda panah kembali tepat menghadap Utara?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Kita ingin:
+- total rotasi akhir = kelipatan 360°
+
+---
+
+## Langkah 1 — Rotasi per Langkah
+
+Meja putih:
+```txt
+segi-123
+```
+
+Maka setiap perpindahan sisi memutar:
+
+```txt
+360° / 123
+```
+
+---
+
+## Langkah 2 — Rotasi Satu Putaran
+
+Meja hitam:
+```txt
+segi-456
+```
+
+Artinya dalam satu putaran:
+- ada 456 perpindahan sisi
+
+Total rotasi satu putaran:
+
+```txt
+456 × (360 / 123)
+```
+
+Sederhanakan:
+
+```txt
+= (456/123) × 360
+```
+
+Pecahan:
+
+```txt
+456/123 = 152/41
+```
+
+Jadi rotasi per putaran:
+
+```txt
+(152/41) × 360°
+```
+
+---
+
+## Langkah 3 — Cari X Terkecil
+
+Setelah X putaran:
+
+```txt
+X × (152/41) × 360°
+```
+
+Agar kembali ke Utara,
+rotasi harus merupakan kelipatan 360°.
+
+Artinya:
+
+```txt
+X × 152/41
+```
+
+harus bilangan bulat.
+
+---
+
+## Langkah 4 — Analisis Pecahan
+
+Karena:
+
+```txt
+152 dan 41 relatif prima
+```
+
+maka agar:
+
+```txt
+X × 152/41
+```
+
+menjadi bulat,
+X harus kelipatan:
+
+```txt
+41
+```
+
+Nilai positif terkecil:
+
+```txt
+41
+```
+
+---
+
+# Jawaban
+
+41
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- pecahan
+- KPK
+- modular rotation
+- number theory
+
+Konsep penting:
+
+Arah kembali ke awal jika:
+
+```txt
+total rotasi = kelipatan 360°
+```
+
+Jika rotasi per putaran berbentuk:
+
+```txt
+p/q × 360°
+```
+
+maka jumlah putaran minimum adalah:
+
+```txt
+q
+```
+
+setelah pecahan disederhanakan.

@@ -1,0 +1,151 @@
+# Soal 35 — Panas Dingin
+
+## Soal
+
+Perhatikan fungsi berikut:
+
+```cpp
+int panas(int X) {
+
+    if (X == 0) return 0;
+
+    else return (X % 10) + panas(X / 10);
+}
+```
+
+```cpp
+int dingin(int X, int Y) {
+
+    int air = 0;
+
+    while (panas(air) != X)
+        air = air + Y;
+
+    return air;
+}
+```
+
+Pertanyaannya:
+
+> Berapakah hasil dari:
+
+```cpp
+dingin(10, 7)
+```
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+---
+
+## Fungsi panas(X)
+
+Fungsi:
+
+```cpp
+panas(X)
+```
+
+menghitung:
+
+### jumlah digit dari X
+
+Contoh:
+
+```txt
+panas(123)
+=
+1 + 2 + 3
+=
+6
+```
+
+---
+
+## Fungsi dingin(X,Y)
+
+Fungsi:
+- mulai dari `air = 0`
+- terus menambah `Y`
+- sampai:
+
+```txt
+panas(air) == X
+```
+
+---
+
+# Simulasi
+
+Kita cari:
+
+```cpp
+dingin(10,7)
+```
+
+Artinya:
+- mulai dari 0
+- tambah 7 terus
+- cari kelipatan 7 pertama
+- yang jumlah digitnya = 10
+
+---
+
+## Daftar Kelipatan 7
+
+| air | jumlah digit |
+| --- | --- |
+| 0 | 0 |
+| 7 | 7 |
+| 14 | 5 |
+| 21 | 3 |
+| 28 | 10 |
+
+---
+
+## Ketemu
+
+```txt
+28
+```
+
+karena:
+
+```txt
+2 + 8 = 10
+```
+
+---
+
+# Jawaban
+
+28
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- rekursi
+- simulasi
+- digit sum
+
+Konsep penting:
+
+```txt
+panas(X)
+=
+jumlah digit X
+```
+
+dan:
+
+```txt
+dingin(X,Y)
+=
+kelipatan Y pertama
+dengan jumlah digit = X
+```

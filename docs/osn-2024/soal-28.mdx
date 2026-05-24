@@ -1,0 +1,217 @@
+# Soal 28 — Cek dan Ricek
+
+## Soal
+
+Perhatikan dua fungsi berikut:
+
+```cpp
+bool cek(string S) {
+    int n = S.length();
+
+    for (int i = 0; i < n-1; i++) {
+        if (S[i] > S[i+1]) return false;
+    }
+
+    return true;
+}
+```
+
+```cpp
+bool ricek(string S) {
+    int n = S.length();
+
+    for (int i = 0; i < n-1; i++) {
+        if (S[i] <= S[i+1]) return true;
+    }
+
+    return false;
+}
+```
+
+Pertanyaannya:
+
+> BENAR atau SALAH:
+> Untuk semua string S, dijamin bahwa:
+
+```txt
+cek(S) = ricek(S)
+```
+
+Tuliskan jawaban dalam bentuk BENAR atau SALAH.
+
+---
+
+## Cara Berpikir
+
+Kita harus memahami perbedaan kedua fungsi.
+
+---
+
+# Fungsi cek
+
+Fungsi:
+
+```cpp
+cek(S)
+```
+
+menghasilkan TRUE jika:
+
+```txt
+SEMUA pasangan huruf memenuhi:
+
+S[i] <= S[i+1]
+```
+
+Artinya:
+- string harus seluruhnya tidak menurun
+
+---
+
+## Contoh TRUE
+
+```txt
+ABC
+AAB
+XYZ
+```
+
+---
+
+## Fungsi ricek
+
+Fungsi:
+
+```cpp
+ricek(S)
+```
+
+menghasilkan TRUE jika:
+
+```txt
+ADA minimal satu pasangan huruf memenuhi:
+
+S[i] <= S[i+1]
+```
+
+---
+
+## Contoh TRUE
+
+```txt
+BAC
+```
+
+karena:
+```txt
+A <= C
+```
+
+meskipun:
+```txt
+B > A
+```
+
+---
+
+# Perbedaan Penting
+
+```txt
+cek  → semua pasangan harus benar
+ricek → cukup satu pasangan benar
+```
+
+---
+
+# Cari Counter Example
+
+Kita cari string yang:
+- ricek = TRUE
+- cek = FALSE
+
+Contoh:
+
+```txt
+BAC
+```
+
+---
+
+## Cek fungsi cek
+
+Urutan:
+
+```txt
+B > A
+```
+
+langsung:
+```txt
+FALSE
+```
+
+---
+
+## Cek fungsi ricek
+
+Pasangan:
+```txt
+A <= C
+```
+
+maka:
+```txt
+TRUE
+```
+
+---
+
+## Hasil
+
+```txt
+cek(BAC) = FALSE
+ricek(BAC) = TRUE
+```
+
+Artinya:
+
+```txt
+cek(S) ≠ ricek(S)
+```
+
+untuk beberapa string.
+
+---
+
+# Jawaban
+
+SALAH
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- analisis kode
+- logika kuantifier
+- counter example
+
+Konsep penting:
+
+```txt
+cek:
+SEMUA kondisi harus benar
+
+ricek:
+CUKUP SATU kondisi benar
+```
+
+Dalam logika:
+
+```txt
+forall  ≠  exists
+```
+
+Teknik cepat:
+- cari contoh pembanding
+- tidak perlu membuktikan semua kasus.

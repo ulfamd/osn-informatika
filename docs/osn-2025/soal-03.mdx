@@ -1,0 +1,215 @@
+# Soal 3 — Komando Bebek
+
+## Soal
+
+Kwak berada di pekarangan berukuran:
+
+```txt
+6 × 6
+```
+
+Pada awalnya:
+- Kwak memilih satu petak sebagai posisi awal
+- menghadap ke Utara (U)
+
+Kemudian Kwik memberi komando berikut:
+
+1. Maju satu petak
+2. Putar kiri
+3. Maju satu petak
+4. Putar kanan
+5. Maju satu petak
+
+Seluruh komando tersebut dilakukan:
+
+```txt
+2 kali berturut-turut
+```
+
+Pertanyaannya:
+
+> Berapa banyak kemungkinan posisi awal
+> sehingga Kwak tidak pernah keluar pekarangan?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Kita simulasi gerakan.
+
+---
+
+# Satu Kali Komando
+
+Awalnya menghadap:
+
+```txt
+Utara
+```
+
+---
+
+## Langkah 1
+
+Maju:
+```txt
+naik 1
+```
+
+---
+
+## Langkah 2
+
+Putar kiri:
+```txt
+hadap Barat
+```
+
+---
+
+## Langkah 3
+
+Maju:
+```txt
+geser kiri 1
+```
+
+---
+
+## Langkah 4
+
+Putar kanan:
+```txt
+hadap Utara lagi
+```
+
+---
+
+## Langkah 5
+
+Maju:
+```txt
+naik 1
+```
+
+---
+
+# Total Satu Siklus
+
+Perubahan posisi:
+
+```txt
+atas 2
+kiri 1
+```
+
+---
+
+# Dua Kali Siklus
+
+Kalikan dua:
+
+```txt
+atas 4
+kiri 2
+```
+
+---
+
+# Cari Posisi Awal Aman
+
+Ukuran grid:
+```txt
+6 × 6
+```
+
+Misalkan:
+- baris dari 1 sampai 6
+- kolom dari 1 sampai 6
+
+---
+
+## Syarat Horizontal
+
+Karena bergerak:
+```txt
+kiri 2
+```
+
+maka posisi awal kolom minimal:
+
+```txt
+3
+```
+
+Kolom valid:
+```txt
+3,4,5,6
+```
+
+Jumlah:
+```txt
+4
+```
+
+---
+
+## Syarat Vertikal
+
+Karena bergerak:
+```txt
+atas 4
+```
+
+maka posisi awal baris minimal:
+
+```txt
+5
+```
+
+Baris valid:
+```txt
+5,6
+```
+
+Jumlah:
+```txt
+2
+```
+
+---
+
+# Total Posisi Awal
+
+```txt
+4 × 2 = 8
+```
+
+---
+
+# Jawaban
+
+8
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- simulasi gerakan
+- koordinat grid
+- analisis batas area
+
+Teknik cepat:
+1. Cari total perpindahan
+2. Tentukan batas aman
+3. Hitung posisi valid
+
+Konsep penting:
+
+```txt
+Tidak perlu simulasi semua petak.
+Cukup cari total displacement.
+```

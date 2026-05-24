@@ -1,0 +1,215 @@
+# Soal 24 — Permainan Kursi di Kelas
+
+## Soal
+
+Terdapat 31 kursi di dalam kelas yang disusun melingkar dan diberi nomor:
+```txt
+1 sampai 31
+```
+
+Aturan permainan:
+
+1. Siswa masuk satu per satu
+2. Siswa menuju kursi sesuai tanggal lahirnya
+3. Jika kursi sudah terisi,
+   maka ia berjalan searah jarum jam hingga menemukan kursi kosong
+
+Diketahui hasil akhir:
+
+| Nama | Tanggal Lahir | Duduk di |
+| --- | --- | --- |
+| Andi | 11 Mei | 13 |
+| Benny | 12 Februari | 12 |
+| Chacha | 14 September | 14 |
+| David | 11 Agustus | 11 |
+| Ela | 13 April | 15 |
+| Fatima | 12 Juli | 16 |
+
+Dari pilihan berikut, manakah yang:
+
+> tidak akan pernah mungkin benar?
+
+### Pilihan
+
+A. Chacha adalah orang pertama masuk
+
+B. Fatima adalah orang terakhir masuk
+
+C. Andi masuk sebelum Fatima
+
+D. Ela masuk sebelum Benny
+
+E. Benny masuk sebelum David
+
+---
+
+## Cara Berpikir
+
+Kita gunakan aturan kursi:
+
+```txt
+Jika kursi tujuan penuh,
+maju searah jarum jam hingga kosong.
+```
+
+Tanggal kursi:
+- Andi → 11
+- Benny → 12
+- Chacha → 14
+- David → 11
+- Ela → 13
+- Fatima → 12
+
+---
+
+## Analisis Posisi Akhir
+
+Hasil akhir:
+```txt
+11 → David
+12 → Benny
+13 → Andi
+14 → Chacha
+15 → Ela
+16 → Fatima
+```
+
+---
+
+## Fakta Penting
+
+### Andi lahir tanggal 11
+tetapi duduk di 13.
+
+Artinya:
+- kursi 11 sudah penuh
+- kursi 12 juga penuh
+- baru dapat 13
+
+Maka:
+- David dan Benny harus masuk sebelum Andi.
+
+---
+
+## Ela lahir tanggal 13
+tetapi duduk di 15.
+
+Artinya:
+- kursi 13 sudah penuh
+- kursi 14 sudah penuh
+
+Maka:
+- Andi dan Chacha masuk sebelum Ela.
+
+---
+
+## Fatima lahir tanggal 12
+tetapi duduk di 16.
+
+Artinya:
+- kursi 12,13,14,15 sudah penuh
+
+Maka:
+- Benny, Andi, Chacha, Ela masuk sebelum Fatima.
+
+---
+
+# Cek Pilihan
+
+---
+
+## A. Chacha pertama masuk
+
+Bisa saja.
+Tidak masalah.
+
+---
+
+## B. Fatima terakhir masuk
+
+Benar,
+bahkan memang harus sangat akhir.
+
+Masih mungkin.
+
+---
+
+## C. Andi sebelum Fatima
+
+Benar,
+karena Fatima membutuhkan kursi 13 sudah terisi.
+
+Masih mungkin.
+
+---
+
+## D. Ela sebelum Benny
+
+Mari cek.
+
+Ela lahir tanggal:
+```txt
+13
+```
+
+Agar Ela duduk di 15:
+- kursi 13 harus penuh
+- kursi 14 harus penuh
+
+Kursi 13 ditempati Andi.
+
+Andi hanya bisa duduk di 13 jika:
+- kursi 11 penuh
+- kursi 12 penuh
+
+Kursi 12 ditempati Benny.
+
+Artinya:
+```txt
+Benny harus masuk sebelum Andi
+Andi sebelum Ela
+```
+
+Maka:
+```txt
+Benny sebelum Ela
+```
+
+Jadi:
+```txt
+Ela sebelum Benny
+```
+
+mustahil.
+
+---
+
+## E. Benny sebelum David
+
+Masih mungkin.
+
+---
+
+# Jawaban
+
+D
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- simulasi
+- dependency reasoning
+- collision order analysis
+
+Teknik penting:
+- lihat posisi "geser"
+- tentukan siapa yang harus datang lebih dulu
+
+Karena:
+```txt
+kursi bergeser → ada kursi sebelumnya yang sudah penuh
+```
+
+maka muncul hubungan urutan kedatangan.

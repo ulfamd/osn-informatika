@@ -1,0 +1,101 @@
+# Soal 18 — Mencicipi Biskuit
+
+## Soal
+
+Pak Dengklek membuat:
+- 100 tipe biskuit berbeda
+
+Jumlah biskuit tiap tipe:
+- tipe 1 = 10 butir
+- tipe 2 = 20 butir
+- tipe 3 = 30 butir
+- ...
+- tipe 100 = 1000 butir
+
+Pak Dengklek ingin:
+> setiap tipe biskuit pernah dicicipi oleh minimal 5 ekor bebek.
+
+Setiap bebek:
+- hanya mengambil 1 biskuit
+
+Pertanyaannya:
+
+> Berapa minimal bebek yang harus diundang?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Kita ingin:
+- setiap tipe dicicipi minimal 5 kali
+
+Jumlah tipe:
+```txt
+100
+```
+
+Untuk tiap tipe:
+```txt
+minimal 5 bebek
+```
+
+Karena:
+- satu bebek hanya mengambil satu biskuit
+
+maka:
+- kebutuhan tiap tipe terpisah
+
+---
+
+## Hitung Total Minimum
+
+Untuk:
+```txt
+100 tipe
+```
+
+masing-masing perlu:
+```txt
+5 pencicip
+```
+
+maka total:
+
+```txt
+100 × 5
+```
+
+Hasil:
+
+```txt
+500
+```
+
+---
+
+# Jawaban
+
+500
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- counting
+- minimum coverage
+- perkalian sederhana
+
+Konsep penting:
+
+```txt
+Jika setiap kategori membutuhkan k representasi,
+maka:
+
+minimum = jumlah kategori × k
+```
+
+Jumlah banyaknya biskuit tidak terlalu penting,
+selama jumlahnya masih cukup untuk dicicipi.

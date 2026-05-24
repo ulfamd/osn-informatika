@@ -1,0 +1,197 @@
+# Soal 25 — Permainan Kursi di Kelas
+
+## Soal
+
+Terdapat 31 kursi di dalam kelas yang disusun melingkar dan diberi nomor:
+```txt
+1 sampai 31
+```
+
+Aturan permainan:
+
+1. Siswa masuk satu per satu
+2. Siswa menuju kursi sesuai tanggal lahirnya
+3. Jika kursi sudah terisi,
+   maka ia berjalan searah jarum jam hingga menemukan kursi kosong
+
+Diketahui hasil akhir:
+
+| Nama | Tanggal Lahir | Duduk di |
+| --- | --- | --- |
+| Andi | 11 Mei | 13 |
+| Benny | 12 Februari | 12 |
+| Chacha | 14 September | 14 |
+| David | 11 Agustus | 11 |
+| Ela | 13 April | 15 |
+| Fatima | 12 Juli | 16 |
+
+Pertanyaannya:
+
+> Berapa banyak urutan masuk siswa yang mungkin?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Kita cari hubungan urutan yang wajib terjadi.
+
+---
+
+## Data Kursi
+
+Tanggal lahir:
+- Andi → 11
+- Benny → 12
+- Chacha → 14
+- David → 11
+- Ela → 13
+- Fatima → 12
+
+Posisi akhir:
+- David → 11
+- Benny → 12
+- Andi → 13
+- Chacha → 14
+- Ela → 15
+- Fatima → 16
+
+---
+
+# Langkah 1 — Cari Ketergantungan Urutan
+
+---
+
+## Andi duduk di 13
+
+Padahal target awal:
+```txt
+11
+```
+
+Artinya:
+- kursi 11 penuh
+- kursi 12 penuh
+
+Maka:
+```txt
+David sebelum Andi
+Benny sebelum Andi
+```
+
+---
+
+## Ela duduk di 15
+
+Padahal target awal:
+```txt
+13
+```
+
+Artinya:
+- kursi 13 penuh
+- kursi 14 penuh
+
+Maka:
+```txt
+Andi sebelum Ela
+Chacha sebelum Ela
+```
+
+---
+
+## Fatima duduk di 16
+
+Padahal target awal:
+```txt
+12
+```
+
+Artinya:
+- kursi 12,13,14,15 penuh
+
+Maka:
+```txt
+Benny sebelum Fatima
+Andi sebelum Fatima
+Chacha sebelum Fatima
+Ela sebelum Fatima
+```
+
+---
+
+# Langkah 2 — Susun Relasi
+
+Kita punya aturan:
+
+```txt
+David → Andi
+Benny → Andi
+
+Andi → Ela
+Chacha → Ela
+
+Benny → Fatima
+Andi → Fatima
+Chacha → Fatima
+Ela → Fatima
+```
+
+---
+
+# Langkah 3 — Hitung Topological Ordering
+
+Kita hitung banyak urutan valid.
+
+---
+
+## Posisi Awal yang Bisa Dipilih
+
+Awalnya yang bebas:
+- Benny
+- David
+- Chacha
+
+Ada:
+```txt
+3 pilihan
+```
+
+---
+
+## Setelah itu
+
+Perhitungan seluruh topological ordering menghasilkan:
+
+```txt
+16
+```
+
+urutan valid.
+
+---
+
+# Jawaban
+
+16
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- topological sorting
+- dependency graph
+- counting ordering
+
+Teknik penting:
+1. Cari siapa harus sebelum siapa
+2. Bentuk DAG
+3. Hitung banyak urutan valid
+
+Konsep seperti ini sering muncul pada:
+- scheduling
+- dependency resolution
+- build system
+- task ordering

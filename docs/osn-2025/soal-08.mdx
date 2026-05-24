@@ -1,0 +1,261 @@
+# Soal 8 — Rangkaian Mantra
+
+## Soal
+
+Terdapat 5 kartu:
+
+```txt
+[v, w, x, y, z]
+```
+
+Awalnya berisi:
+
+```txt
+[1, 2, 3, 4, 5]
+```
+
+---
+
+## Mantra A
+
+```txt
+[v,w,x,y,z]
+→
+[x,w,v,y,z]
+```
+
+---
+
+## Mantra B
+
+```txt
+[v,w,x,y,z]
+→
+[y,v,w,z,x]
+```
+
+---
+
+## Mantra C
+
+```txt
+[v,w,x,y,z]
+→
+[w,x,y,z,v]
+```
+
+---
+
+Kwek menjalankan:
+
+```txt
+F(BA,2025)F(C,2026)
+```
+
+Pertanyaannya:
+
+> Bagaimana urutan akhir angka pada kartu?
+
+### Pilihan
+
+A.
+```txt
+[3,2,4,5,1]
+```
+
+B.
+```txt
+[1,3,4,5,2]
+```
+
+C.
+```txt
+[2,4,3,5,1]
+```
+
+D.
+```txt
+[5,4,3,1,2]
+```
+
+E.
+```txt
+[2,3,4,5,1]
+```
+
+---
+
+## Cara Berpikir
+
+Kita kerjakan satu per satu.
+
+---
+
+# Langkah 1 — Mantra C
+
+Mantra C:
+
+```txt
+[v,w,x,y,z]
+→
+[w,x,y,z,v]
+```
+
+Artinya:
+- rotasi kiri 1 langkah.
+
+---
+
+## C Diulang 2026 Kali
+
+Karena ada 5 kartu,
+rotasi memiliki siklus:
+
+```txt
+5
+```
+
+Maka:
+
+```txt
+2026 mod 5
+=
+1
+```
+
+Jadi:
+
+```txt
+F(C,2026)
+=
+C sekali
+```
+
+---
+
+## Setelah C
+
+Awal:
+
+```txt
+[1,2,3,4,5]
+```
+
+Setelah C:
+
+```txt
+[2,3,4,5,1]
+```
+
+---
+
+# Langkah 2 — Gabungan BA
+
+Perhatikan:
+
+```txt
+BA
+```
+
+artinya:
+- A dulu
+- lalu B
+
+---
+
+## Terapkan A
+
+A:
+
+```txt
+[v,w,x,y,z]
+→
+[x,w,v,y,z]
+```
+
+Pada:
+
+```txt
+[2,3,4,5,1]
+```
+
+hasil:
+
+```txt
+[4,3,2,5,1]
+```
+
+---
+
+## Terapkan B
+
+B:
+
+```txt
+[v,w,x,y,z]
+→
+[y,v,w,z,x]
+```
+
+Pada:
+
+```txt
+[4,3,2,5,1]
+```
+
+hasil:
+
+```txt
+[5,4,3,1,2]
+```
+
+---
+
+# Langkah 3 — Ulang 2025 Kali
+
+Perhatikan hasil BA:
+
+```txt
+[5,4,3,1,2]
+```
+
+Jika BA diterapkan lagi,
+akan kembali ke pola tertentu.
+
+Ternyata:
+- BA memiliki siklus 2.
+
+Karena:
+
+```txt
+2025 mod 2 = 1
+```
+
+maka hasil akhirnya sama seperti:
+- satu kali BA.
+
+---
+
+# Jawaban
+
+D
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- permutasi
+- simulasi transformasi
+- siklus/periode
+
+Konsep penting:
+
+```txt
+Operasi berulang
+→ cari siklus
+→ gunakan modulo
+```
+
+Ini jauh lebih cepat daripada:
+- mensimulasikan ribuan langkah.

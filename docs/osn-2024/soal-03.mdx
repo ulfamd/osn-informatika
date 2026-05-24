@@ -1,0 +1,139 @@
+# Soal 3 — Berebut Pizza
+
+## Soal
+
+Kwak dan Kwik suka sekali pizza.  
+Pak Dengklek memesan 4 loyang pizza:
+
+- pizza tuna
+- pizza keju
+- pizza jagung
+- pizza sayur
+
+Jumlah potongan masing-masing pizza:
+- Tuna = 6 potong
+- Keju = 4 potong
+- Jagung = 3 potong
+- Sayur = 8 potong
+
+Diketahui:
+- Kwak tidak suka pizza keju
+- Kwik tidak suka pizza tuna
+
+Mereka bergantian mengambil satu potong pizza yang mereka sukai.
+Jika tidak ada pizza yang disukai tersisa, maka pemain berhenti.
+
+Kwak bermain lebih dulu.
+
+Pertanyaannya:
+
+> Berapa potong pizza paling banyak yang bisa dimakan Kwak?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Kita fokus pada:
+- pizza apa saja yang bisa dimakan masing-masing
+- siapa yang lebih dulu mengambil
+
+---
+
+## Pizza yang Bisa Dimakan
+
+### Kwak suka:
+- Tuna (6)
+- Jagung (3)
+- Sayur (8)
+
+Total yang bisa dimakan Kwak:
+6 + 3 + 8 = 17
+
+---
+
+### Kwik suka:
+- Keju (4)
+- Jagung (3)
+- Sayur (8)
+
+Total yang bisa dimakan Kwik:
+4 + 3 + 8 = 15
+
+---
+
+## Pizza Rebutan
+
+Pizza yang diperebutkan bersama:
+- Jagung = 3
+- Sayur = 8
+
+Total rebutan:
+11 potong
+
+---
+
+## Pizza Eksklusif
+
+### Hanya Kwak:
+- Tuna = 6
+
+### Hanya Kwik:
+- Keju = 4
+
+Pizza eksklusif pasti akan dimakan masing-masing.
+
+---
+
+## Strategi Maksimum Kwak
+
+Karena Kwak bermain duluan,
+maka pada pizza rebutan ia bisa mengambil lebih banyak atau minimal sama banyak.
+
+Jumlah pizza rebutan:
+11 potong
+
+Karena dimainkan bergantian:
+- Kwak mendapat 6
+- Kwik mendapat 5
+
+---
+
+## Total Pizza Kwak
+
+Dari:
+- Tuna eksklusif = 6
+- Rebutan = 6
+
+Total:
+
+6 + 6 = 12
+
+---
+
+# Jawaban
+
+12
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- simulasi permainan
+- strategi greedy
+- pembagian giliran
+
+Teknik cepat:
+1. Pisahkan objek:
+   - eksklusif
+   - rebutan
+2. Hitung siapa mulai dulu
+3. Pada rebutan:
+   - pemain pertama biasanya mendapat ceil(total/2)
+
+Pada soal ini:
+\[
+\left\lceil \frac{11}{2} \right\rceil = 6
+\]

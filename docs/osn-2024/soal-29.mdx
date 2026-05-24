@@ -1,0 +1,110 @@
+# Soal 29 — Start dan Finish?
+
+## Soal
+
+Perhatikan fungsi berikut:
+
+```cpp
+int go(int N) {
+    int s = 0;
+    int f = 1;
+
+    for (int i = 2; i <= N; i++) {
+        if (N % i == 0) {
+
+            if (i - f > s) {
+                s = i - f;
+            }
+
+            f = i;
+        }
+    }
+
+    return s;
+}
+```
+
+Pertanyaannya:
+
+> Berapakah nilai dari:
+
+```cpp
+go(30)
+```
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Fungsi ini:
+- mencari semua faktor dari N
+- menghitung selisih antar faktor berurutan
+- menyimpan selisih terbesar
+
+Variabel:
+- `f` = faktor sebelumnya
+- `s` = selisih terbesar sementara
+
+---
+
+# Langkah 1 — Cari Faktor 30
+
+Faktor-faktor 30:
+
+```txt
+1, 2, 3, 5, 6, 10, 15, 30
+```
+
+---
+
+# Langkah 2 — Hitung Selisih Berurutan
+
+| Faktor Sebelumnya | Faktor Sekarang | Selisih |
+| --- | --- | --- |
+| 1 | 2 | 1 |
+| 2 | 3 | 1 |
+| 3 | 5 | 2 |
+| 5 | 6 | 1 |
+| 6 | 10 | 4 |
+| 10 | 15 | 5 |
+| 15 | 30 | 15 |
+
+---
+
+# Langkah 3 — Cari Selisih Terbesar
+
+Selisih terbesar:
+
+```txt
+15
+```
+
+---
+
+# Jawaban
+
+15
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- simulasi kode
+- faktor bilangan
+- tracking maksimum
+
+Konsep fungsi:
+
+```txt
+go(N)
+=
+selisih terbesar antar faktor berurutan N
+```
+
+Teknik cepat:
+1. Cari semua faktor
+2. Urutkan
+3. Cari gap terbesar

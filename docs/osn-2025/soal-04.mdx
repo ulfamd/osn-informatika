@@ -1,0 +1,167 @@
+# Soal 4 — Dari Aceh Sampai Bakauheni
+
+## Soal
+
+Pak Dengklek ingin pergi dari:
+
+```txt
+Aceh → Bakauheni
+```
+
+menggunakan mobil.
+
+Aturan:
+- tangki penuh dapat menempuh:
+```txt
+500 km
+```
+- titik hitam adalah pom bensin
+- setiap berhenti, tangki kembali penuh
+
+Pertanyaannya:
+
+> Berapa kali paling sedikit Pak Dengklek harus mengisi bahan bakar
+> agar sampai ke Bakauheni tanpa kehabisan bensin?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Strategi optimal:
+
+```txt
+selalu isi bensin di titik terjauh
+yang masih bisa dicapai
+```
+
+Ini adalah konsep:
+
+```txt
+Greedy
+```
+
+---
+
+# Hitung Jarak Bertahap
+
+Dari gambar:
+
+## Jalur Awal
+
+```txt
+Aceh → titik 1 = 100 km
+titik 1 → titik 2 = 50 km
+titik 2 → titik 3 = 100 km
+```
+
+Total:
+```txt
+250 km
+```
+
+---
+
+## Lanjut
+
+```txt
+titik 3 → titik 4 = 350 km
+```
+
+Total dari Aceh:
+```txt
+600 km
+```
+
+Tidak bisa langsung.
+
+Berarti:
+- harus isi sebelum titik 4.
+
+---
+
+# Strategi Optimal
+
+---
+
+## Isi Pertama
+
+Berhenti di:
+```txt
+titik 3
+```
+
+karena paling jauh yang masih aman.
+
+---
+
+## Dari Titik 3
+
+Sisa jalur:
+
+```txt
+350 + 150 = 500 km
+```
+
+bisa tepat mencapai titik berikutnya.
+
+Berarti:
+- isi kedua di sana.
+
+---
+
+## Lanjut Akhir
+
+Dari sana ke Bakauheni:
+
+```txt
+100 + 300 + 150 + 100
+=
+650 km
+```
+
+Tidak cukup.
+
+Perlu isi lagi.
+
+---
+
+## Isi Ketiga
+
+Ambil pom terakhir yang masih aman.
+
+---
+
+# Total Minimum Pengisian
+
+```txt
+3 kali
+```
+
+---
+
+# Jawaban
+
+3
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- greedy algorithm
+- shortest decision strategy
+- simulasi jalur
+
+Konsep penting:
+
+```txt
+Untuk meminimalkan jumlah pengisian:
+selalu melaju sejauh mungkin
+sebelum isi ulang.
+```
+
+Ini adalah pola klasik:
+- minimum refueling stops
+- greedy traversal.

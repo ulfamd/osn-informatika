@@ -1,0 +1,155 @@
+# Soal 27 — Cek dan Ricek
+
+## Soal
+
+Perhatikan fungsi berikut:
+
+```cpp
+bool cek(string S) {
+    int n = S.length();
+
+    for (int i = 0; i < n-1; i++) {
+        if (S[i] > S[i+1]) return false;
+    }
+
+    return true;
+}
+```
+
+Jika:
+- panjang string S adalah 3
+- hanya terdiri dari huruf kapital A sampai Z
+
+Pertanyaannya:
+
+> Berapa banyak kemungkinan string S sehingga `cek(S)` mengembalikan TRUE?
+
+Tuliskan jawaban dalam bentuk ANGKA.
+
+---
+
+## Cara Berpikir
+
+Fungsi `cek(S)` akan menghasilkan TRUE jika:
+
+```txt
+huruf pada string tidak menurun
+```
+
+Artinya:
+
+```txt
+S[0] <= S[1] <= S[2]
+```
+
+---
+
+## Contoh Valid
+
+```txt
+AAA
+AAB
+ACC
+XYZ
+```
+
+---
+
+## Contoh Tidak Valid
+
+```txt
+CBA
+BAC
+ZAA
+```
+
+karena ada huruf yang turun.
+
+---
+
+## Konsep Penting
+
+Kita ingin menghitung:
+- banyak string panjang 3
+- dengan urutan tidak menurun
+- dari 26 huruf
+
+Ini adalah kombinasi dengan pengulangan.
+
+---
+
+## Rumus Kombinasi Pengulangan
+
+Jumlah cara memilih:
+- 3 huruf
+- dari 26 jenis huruf
+- boleh berulang
+- urutan non-menurun
+
+adalah:
+
+```txt
+C(n + r - 1, r)
+```
+
+dengan:
+- n = 26
+- r = 3
+
+---
+
+## Hitung
+
+```txt
+C(26 + 3 - 1, 3)
+=
+C(28, 3)
+```
+
+---
+
+## Kombinasi
+
+```txt
+28 × 27 × 26
+--------------
+3 × 2 × 1
+```
+
+Hitung:
+
+```txt
+19656 / 6 = 3276
+```
+
+---
+
+# Jawaban
+
+3276
+
+---
+
+## Catatan Penting OSN
+
+Soal ini melatih:
+- kombinatorika
+- kombinasi dengan pengulangan
+- counting string
+
+Konsep penting:
+
+String non-menurun setara dengan:
+- memilih huruf
+- lalu otomatis diurutkan
+
+Rumus:
+
+```txt
+C(n+r-1, r)
+```
+
+digunakan ketika:
+- memilih r objek
+- dari n jenis
+- boleh berulang.
