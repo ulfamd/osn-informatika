@@ -1,8 +1,8 @@
-# Soal 38 — Merah Putih Nusantara
+# Soal 38 — Merah-Putih Nusantara
 
 ## Soal
 
-Diberikan fungsi berikut:
+Diberikan potongan kode berikut:
 
 ```cpp
 int MERAH(int A, int B) {
@@ -28,8 +28,8 @@ int NUSANTARA(int A, int B) {
 }
 ```
 
-Dari 5 pilihan berikut,
-manakah yang hasil kembaliannya paling besar?
+Dari pilihan berikut,
+manakah yang menghasilkan nilai terbesar?
 
 ```txt
 A. MERAH(24, 4)
@@ -39,11 +39,9 @@ D. MERAH(24, 18)
 E. MERAH(24, 34)
 ```
 
-:contentReference[oaicite:0]{index=0}
-
 ---
 
-## Cara Cepat
+# Cara Cepat
 
 Fungsi:
 
@@ -54,13 +52,19 @@ MERAH(A,B)
 adalah algoritma:
 
 ```txt
-Euclidean Algorithm
+FPB / GCD
 ```
 
-untuk mencari:
+karena:
+
+```cpp
+MERAH(B, A % B)
+```
+
+adalah bentuk klasik:
 
 ```txt
-FPB / GCD
+Euclidean Algorithm
 ```
 
 ---
@@ -71,35 +75,45 @@ FPB / GCD
 
 ## A. MERAH(24,4)
 
-:contentReference[oaicite:1]{index=1}
+```txt
+FPB(24,4)=4
+```
 
 ---
 
 ## B. MERAH(24,9)
 
-:contentReference[oaicite:2]{index=2}
+```txt
+FPB(24,9)=3
+```
 
 ---
 
 ## C. MERAH(24,17)
 
-:contentReference[oaicite:3]{index=3}
+```txt
+FPB(24,17)=1
+```
 
 ---
 
 ## D. MERAH(24,18)
 
-:contentReference[oaicite:4]{index=4}
+```txt
+FPB(24,18)=6
+```
 
 ---
 
 ## E. MERAH(24,34)
 
-:contentReference[oaicite:5]{index=5}
+```txt
+FPB(24,34)=2
+```
 
 ---
 
-# Bandingkan Semua
+# Bandingkan
 
 | Pilihan | Nilai |
 |---|---|
@@ -115,12 +129,6 @@ Nilai terbesar:
 6
 ```
 
-yaitu:
-
-```txt
-D
-```
-
 ---
 
 # Jawaban
@@ -131,25 +139,23 @@ D
 
 ---
 
-## Catatan Penting OSN
+# Catatan Penting OSN
 
 Soal ini melatih:
 - rekursi
+- FPB / GCD
 - Euclidean Algorithm
-- gcd/fpb
 
 Konsep penting:
 
-Algoritma:
-
-:contentReference[oaicite:6]{index=6}
-
-akan terus:
 ```txt
-mengurangi masalah
+FPB(a,b)
+=
+FPB(b, a mod b)
 ```
 
-hingga:
+Proses terus dilakukan hingga:
+
 ```txt
 b = 0
 ```

@@ -1,8 +1,8 @@
-# Soal 39 — Merah Putih Nusantara
+# Soal 39 — Merah-Putih Nusantara
 
 ## Soal
 
-Diberikan fungsi berikut:
+Diberikan potongan kode berikut:
 
 ```cpp
 int MERAH(int A, int B) {
@@ -36,11 +36,11 @@ NUSANTARA(12, 3)
 
 Tuliskan jawaban dalam bentuk ANGKA.
 
-:contentReference[oaicite:0]{index=0}
-
 ---
 
-## Cara Cepat
+# Cara Cepat
+
+## Langkah 1 — Pahami Fungsi MERAH
 
 Fungsi:
 
@@ -48,33 +48,57 @@ Fungsi:
 MERAH(A,B)
 ```
 
-adalah:
+menghasilkan:
 
 ```txt
-FPB / GCD
+FPB(A,B)
 ```
 
 ---
 
-# Apa yang Dilakukan PUTIH?
+## Langkah 2 — Pahami Fungsi PUTIH
+
+Bagian:
 
 ```cpp
-PUTIH(A,B,C)
+if (MERAH(A, C) == B)
 ```
 
-menghitung:
+berarti:
+- menghitung banyak bilangan:
+  
 ```txt
-berapa banyak bilangan
-1 sampai C
+C
 ```
 
 yang memenuhi:
 
-:contentReference[oaicite:1]{index=1}
+```txt
+FPB(A,C)=B
+```
+
+Karena:
+
+```cpp
+PUTIH(A,B,C-1)
+```
+
+dipanggil terus sampai:
+```txt
+C=0
+```
+
+maka fungsi menghitung:
+```txt
+berapa banyak bilangan
+1 sampai A
+```
+
+yang memiliki FPB terhadap A sebesar B.
 
 ---
 
-# Maka
+# Jadi
 
 ```cpp
 NUSANTARA(12,3)
@@ -89,13 +113,15 @@ dari 1 sampai 12
 
 yang memenuhi:
 
-:contentReference[oaicite:2]{index=2}
+```txt
+FPB(12,x)=3
+```
 
 ---
 
 # Cek Satu per Satu
 
-| x | gcd(12,x) |
+| x | FPB(12,x) |
 |---|---|
 | 1 | 1 |
 | 2 | 2 |
@@ -126,14 +152,16 @@ Jumlah:
 
 # Jawaban
 
+```txt
 2
+```
 
 ---
 
-## Catatan Penting OSN
+# Catatan Penting OSN
 
 Soal ini melatih:
-- gcd
+- FPB / GCD
 - rekursi
 - counting number theory
 
@@ -145,11 +173,14 @@ NUSANTARA(A,B)
 
 menghitung:
 
-:contentReference[oaicite:3]{index=3}
-
-yaitu:
 ```txt
-banyak bilangan
-yang FPB-nya terhadap A
-sama dengan B.
+banyak bilangan x
+dengan:
+FPB(A,x)=B
+```
+
+untuk:
+
+```txt
+1 ≤ x ≤ A
 ```

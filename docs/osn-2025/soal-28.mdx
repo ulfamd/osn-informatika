@@ -18,23 +18,19 @@ int TIGA(int N) {
 }
 ```
 
-Pertanyaannya:
+Berapakah hasil dari:
 
-> Berapakah hasil dari:
->
-> ```txt
-> TIGA(1) + TIGA(2) + ... + TIGA(100)
-> ```
+```txt
+TIGA(1) + TIGA(2) + TIGA(3) + ... + TIGA(100)
+```
 
 Tuliskan jawaban dalam bentuk ANGKA.
 
-:contentReference[oaicite:0]{index=0}
-
 ---
 
-## Cara Berpikir
+# Cara Cepat
 
-Kita cari pola nilai:
+Perhatikan pola nilai:
 
 ```txt
 TIGA(N)
@@ -42,135 +38,71 @@ TIGA(N)
 
 ---
 
-# Hitung Nilai Awal
+# Jika N Tidak Habis Dibagi 3
 
----
-
-## TIGA(1)
+Dari soal sebelumnya:
 
 ```txt
-= 1
+TIGA(N) = 1
+```
+
+untuk:
+
+```txt
+N % 3 ≠ 0
 ```
 
 ---
 
-## TIGA(2)
+# Jika N Habis Dibagi 3
 
-```txt
-= TIGA(-1)
-= 1
-```
-
----
-
-## TIGA(3)
-
-```txt
-= TIGA(2) + TIGA(0)
-= 1 + 1
-= 2
-```
-
----
-
-## TIGA(4)
-
-```txt
-= TIGA(2)
-= 1
-```
-
----
-
-## TIGA(5)
-
-```txt
-= TIGA(2)
-= 1
-```
-
----
-
-## TIGA(6)
-
-```txt
-= TIGA(5) + TIGA(3)
-= 1 + 2
-= 3
-```
-
----
-
-## TIGA(9)
-
-```txt
-= TIGA(8) + TIGA(6)
-= 1 + 3
-= 4
-```
-
-Mulai terlihat pola:
+Coba hitung beberapa nilai:
 
 | N | TIGA(N) |
 |---|---|
 | 3 | 2 |
 | 6 | 3 |
 | 9 | 4 |
+| 12 | 5 |
 
-Maka:
-
-Jika:
-```txt
-N = 3k
-```
-
-maka:
+Terlihat pola:
 
 ```txt
-TIGA(N) = k + 1
-```
-
-Sedangkan:
-```txt
-N tidak habis dibagi 3
-```
-
-selalu:
-
-```txt
-TIGA(N) = 1
+TIGA(3k) = k + 1
 ```
 
 ---
 
-# Pisahkan Perhitungan
+# Langkah 1 — Hitung Bilangan yang Bukan Kelipatan 3
 
 Dari:
+
 ```txt
 1 sampai 100
 ```
 
----
-
-## Bilangan Tidak Habis Dibagi 3
-
 Jumlah kelipatan 3:
 
-:contentReference[oaicite:1]{index=1}
+```txt
+⌊100/3⌋ = 33
+```
 
 Maka:
 - bukan kelipatan 3:
 
 ```txt
-100 - 33 = 67
+100 - 33
+=
+67
 ```
 
-Masing-masing bernilai:
+Karena masing-masing bernilai:
+
 ```txt
 1
 ```
 
-Total:
+maka total:
 
 ```txt
 67
@@ -178,22 +110,23 @@ Total:
 
 ---
 
-## Bilangan Kelipatan 3
+# Langkah 2 — Jumlahkan Kelipatan 3
 
 Kelipatan 3:
 
 ```txt
-3,6,9,...,99
+3, 6, 9, ..., 99
 ```
 
 Ada:
+
 ```txt
 33 bilangan
 ```
 
 Nilainya:
 
-| N | Nilai |
+| Bilangan | Nilai |
 |---|---|
 | 3 | 2 |
 | 6 | 3 |
@@ -201,7 +134,7 @@ Nilainya:
 | ... | ... |
 | 99 | 34 |
 
-Jumlah:
+Jadi jumlahnya:
 
 ```txt
 2 + 3 + 4 + ... + 34
@@ -209,11 +142,10 @@ Jumlah:
 
 Gunakan rumus deret:
 
-Jumlah:
 ```txt
 1 + 2 + ... + 34
 =
-34×35/2
+34 × 35 / 2
 =
 595
 ```
@@ -228,7 +160,7 @@ Kurangi 1:
 
 ---
 
-# Total Akhir
+# Langkah 3 — Total Akhir
 
 ```txt
 67 + 594
@@ -240,11 +172,13 @@ Kurangi 1:
 
 # Jawaban
 
+```txt
 661
+```
 
 ---
 
-## Catatan Penting OSN
+# Catatan Penting OSN
 
 Soal ini melatih:
 - rekursi
@@ -254,20 +188,21 @@ Soal ini melatih:
 Konsep penting:
 
 Untuk:
+
 ```txt
-N kelipatan 3
+N = 3k
 ```
 
 berlaku pola:
 
-:contentReference[oaicite:2]{index=2}
-
-Sedangkan:
 ```txt
-N bukan kelipatan 3
+TIGA(3k)=k+1
 ```
 
-selalu:
+Sedangkan:
+- selain kelipatan 3,
+- nilainya selalu:
+
 ```txt
 1
 ```

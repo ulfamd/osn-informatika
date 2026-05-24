@@ -2,7 +2,7 @@
 
 ## Soal
 
-Diberikan potongan program berikut:
+Diberikan potongan kode berikut:
 
 ```cpp
 int GSI(vector<int> B, int x, int y) {
@@ -31,42 +31,45 @@ int FUN(vector<int> A) {
 }
 ```
 
-Apabila:
+Jika:
 
 ```txt
 A = {1, 2, 3, 4, 5}
 ```
 
-maka dari 5 pilihan berikut,
-manakah isi vector `B`?
+maka manakah isi vector:
 
 ```txt
-A. {1, 3, 6, 10, 15}
-B. {0, 1, 3, 6, 10, 15}
-C. {0, 1, 2, 3, 4, 5}
-D. {0, 2, 4, 6, 8, 10}
-E. {15, 15, 15, 15, 15}
+B
 ```
-
-:contentReference[oaicite:0]{index=0}
 
 ---
 
-## Cara Berpikir
+# Cara Cepat
 
-Vector `B` dibentuk menggunakan:
+Perhatikan bagian:
 
 ```cpp
 B.push_back(B[i] + A[i]);
 ```
 
 Artinya:
-- setiap elemen `B`
-  menyimpan jumlah prefix.
+- setiap elemen baru pada `B`
+  adalah:
+  
+```txt
+jumlah sebelumnya + A[i]
+```
+
+Ini disebut:
+
+```txt
+prefix sum
+```
 
 ---
 
-# Langkah Perhitungan
+# Hitung Satu per Satu
 
 Awalnya:
 
@@ -79,14 +82,8 @@ B = {0}
 ## i = 0
 
 ```txt
-B[0] + A[0]
-=
-0 + 1
-=
-1
+0 + 1 = 1
 ```
-
-Maka:
 
 ```txt
 B = {0,1}
@@ -97,14 +94,8 @@ B = {0,1}
 ## i = 1
 
 ```txt
-B[1] + A[1]
-=
-1 + 2
-=
-3
+1 + 2 = 3
 ```
-
-Maka:
 
 ```txt
 B = {0,1,3}
@@ -164,21 +155,31 @@ B
 
 ---
 
-## Catatan Penting OSN
+# Catatan Penting OSN
 
 Soal ini melatih:
 - prefix sum
 - simulasi array
-- pemahaman kode program
+- observasi kode program
 
 Konsep penting:
 
-Vector `B` adalah:
+Vector:
 
 ```txt
-prefix sum array
+B
 ```
 
-dengan:
+menyimpan:
 
-:contentReference[oaicite:1]{index=1}
+```txt
+jumlah prefix
+```
+
+dengan rumus:
+
+```txt
+B[i]
+=
+A[0] + A[1] + ... + A[i-1]
+```

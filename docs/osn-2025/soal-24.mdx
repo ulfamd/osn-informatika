@@ -3,72 +3,78 @@
 ## Soal
 
 Pak Dengklek memiliki:
-- `N = 1000` bebek
+- N = 1000 bebek
 - dua gayung berukuran:
-  - `X = 9 liter`
-  - `Y = 21 liter`
+  
+```txt
+X = 9 liter
+Y = 21 liter
+```
 
-Bebek ke-`P`:
-- ingin mandi dengan tepat `P liter`.
+Bebek ke-P hanya bisa mandi jika Pak Dengklek dapat mengambil air tepat:
 
-Pak Dengklek boleh:
-- menggunakan kedua gayung berkali-kali,
-- dan setiap pengambilan air langsung digunakan.
+```txt
+P liter
+```
+
+dengan menggunakan kombinasi gayung 9 liter dan 21 liter.
 
 Pertanyaannya:
 
-> Berapa banyak bebek
-> yang tidak bisa dimandikan?
+> Berapa banyak bebek yang tidak bisa dimandikan?
 
 Tuliskan jawaban dalam bentuk ANGKA.
 
-:contentReference[oaicite:0]{index=0}
-
 ---
 
-## Cara Berpikir
+# Cara Berpikir
 
 Jumlah air yang bisa dibuat berbentuk:
 
-:contentReference[oaicite:1]{index=1}
+```txt
+9a + 21b
+```
 
 dengan:
-- `a ≥ 0`
-- `b ≥ 0`
+- a ≥ 0
+- b ≥ 0
 
 ---
 
 # Langkah 1 — Cari FPB
 
-Hitung:
+Karena:
 
-:contentReference[oaicite:2]{index=2}
+```txt
+FPB(9,21) = 3
+```
+
+maka semua jumlah yang bisa dibuat:
+```txt
+selalu kelipatan 3
+```
 
 Artinya:
-- semua jumlah yang bisa dibuat
-  harus kelipatan 3.
-
-Jadi:
-```txt
-semua bilangan bukan kelipatan 3
-pasti tidak bisa dibuat.
-```
+- bilangan yang bukan kelipatan 3
+  pasti tidak bisa dibuat.
 
 ---
 
-# Langkah 2 — Banyak Bilangan Bukan Kelipatan 3
+# Langkah 2 — Hitung Bilangan Bukan Kelipatan 3
 
 Dari:
+
 ```txt
 1 sampai 1000
 ```
 
 Jumlah kelipatan 3:
 
-:contentReference[oaicite:3]{index=3}
+```txt
+⌊1000/3⌋ = 333
+```
 
-Maka:
-- bukan kelipatan 3:
+Maka yang bukan kelipatan 3:
 
 ```txt
 1000 - 333
@@ -76,135 +82,110 @@ Maka:
 667
 ```
 
+Semua ini:
+```txt
+tidak bisa dibuat
+```
+
 ---
 
-# Langkah 3 — Apakah Semua Kelipatan 3 Bisa Dibuat?
+# Langkah 3 — Apakah Semua Kelipatan 3 Bisa?
 
-Tidak.
+Tidak selalu.
 
 Karena:
+
 ```txt
 9a + 21b
 =
 3(3a + 7b)
 ```
 
-Kita perlu cek:
+maka kita cukup melihat:
+
 ```txt
 3a + 7b
 ```
 
-Bilangan kecil tertentu
-masih tidak bisa dibuat.
-
 ---
 
-# Gunakan Teorema Frobenius
+# Cari Kelipatan 3 yang Tidak Bisa Dibuat
+
+Bilangan kecil:
+
+| Bilangan | Bisa? |
+|---|---|
+| 3 | Ya |
+| 6 | Ya |
+| 9 | Ya |
+| 12 | Ya |
+| 15 | Ya |
+| 18 | Ya |
 
 Karena:
 ```txt
-gcd(3,7)=1
+3 saja sudah cukup
 ```
 
-bilangan terbesar yang tidak bisa dibuat:
-
-:contentReference[oaicite:4]{index=4}
-
-Artinya:
-- semua bilangan di atas 11
-  dapat dibuat dari:
+maka:
 ```txt
-3a+7b
-```
-
-Kalikan 3:
-
-Bilangan terbesar kelipatan 3
-yang tidak bisa dibuat:
-
-```txt
-33
+semua kelipatan 3 ≥ 3
+bisa dibuat
 ```
 
 ---
 
-# Kelipatan 3 yang Tidak Bisa Dibuat
+# Jadi
 
-Cek:
-
+Yang tidak bisa dimandikan hanyalah:
 ```txt
-3   ✗
-6   ✗
-9   ✓
-12  ✗
-15  ✗
-18  ✓
-21  ✓
-24  ✓
-27  ✓
-30  ✓
-33  ✗
+bilangan yang bukan kelipatan 3
 ```
 
-Yang tidak bisa:
+Jumlahnya:
 
-```txt
-3, 6, 12, 15, 33
-```
-
-Jumlah:
-```txt
-5
-```
-
----
-
-# Total Bebek Tidak Bisa Dimandikan
-
-- bukan kelipatan 3:
 ```txt
 667
-```
-
-- kelipatan 3 tetapi tetap tidak bisa:
-```txt
-5
-```
-
-Total:
-
-```txt
-667 + 5
-=
-672
 ```
 
 ---
 
 # Jawaban
 
-672
+```txt
+667
+```
 
 ---
 
-## Catatan Penting OSN
+# Catatan Penting OSN
 
 Soal ini melatih:
-- gcd
-- linear combination
-- Frobenius Coin Problem
+- kombinasi linear
+- FPB
+- representasi bilangan
 
 Konsep penting:
 
-Bilangan yang dapat dibuat harus berbentuk:
-
-:contentReference[oaicite:5]{index=5}
-
 Jika:
+
 ```txt
-gcd(x,y)=d
+ax + by
+```
+
+maka semua hasil:
+```txt
+kelipatan FPB(a,b)
+```
+
+Karena:
+
+```txt
+FPB(9,21)=3
 ```
 
 maka:
-- hanya kelipatan `d`
-  yang mungkin dibuat.
+```txt
+hanya kelipatan 3
+yang mungkin dibuat.
+```

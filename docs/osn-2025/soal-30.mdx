@@ -2,7 +2,7 @@
 
 ## Soal
 
-Diberikan potongan program berikut:
+Diberikan potongan kode berikut:
 
 ```cpp
 int GSI(vector<int> B, int x, int y) {
@@ -31,14 +31,14 @@ int FUN(vector<int> A) {
 }
 ```
 
-Apabila:
+Jika:
 
 ```txt
 A = {1, 2, 3, 4, 5}
 ```
 
-maka dari 5 pilihan berikut,
-manakah yang hasil kembaliannya paling besar?
+manakah pemanggilan berikut
+yang menghasilkan nilai terbesar?
 
 ```txt
 A. GSI(B, 1, 4)
@@ -48,14 +48,11 @@ D. GSI(B, 5, 5)
 E. GSI(B, 3, 4)
 ```
 
-:contentReference[oaicite:0]{index=0}
-
 ---
 
-## Cara Berpikir
+# Cara Cepat
 
-Dari soal sebelumnya,
-vector prefix sum:
+Dari soal sebelumnya:
 
 ```txt
 B = {0,1,3,6,10,15}
@@ -63,9 +60,9 @@ B = {0,1,3,6,10,15}
 
 ---
 
-# Rumus Fungsi GSI
+# Fungsi GSI
 
-Fungsi:
+Perhatikan:
 
 ```cpp
 GSI(B,x,y)
@@ -73,16 +70,15 @@ GSI(B,x,y)
 B[y] - B[x-1]
 ```
 
-digunakan untuk menghitung:
-
+Artinya:
 ```txt
-jumlah subarray
+jumlah elemen array
 dari indeks x sampai y
 ```
 
 ---
 
-# Hitung Satu per Satu
+# Hitung Cepat
 
 ---
 
@@ -136,10 +132,10 @@ dari indeks x sampai y
 
 ---
 
-# Bandingkan Semua
+# Bandingkan
 
 | Pilihan | Nilai |
-| --- | --- |
+|---|---|
 | A | 10 |
 | B | 9 |
 | C | 9 |
@@ -152,12 +148,6 @@ Nilai terbesar:
 10
 ```
 
-yaitu:
-
-```txt
-A
-```
-
 ---
 
 # Jawaban
@@ -168,20 +158,24 @@ A
 
 ---
 
-## Catatan Penting OSN
+# Catatan Penting OSN
 
 Soal ini melatih:
 - prefix sum
 - range sum query
-- simulasi kode
+- observasi kode
 
 Konsep penting:
 
 Dengan prefix sum:
 
-:contentReference[oaicite:1]{index=1}
+```txt
+sum(l,r)
+=
+prefix[r] - prefix[l-1]
+```
 
-kita dapat menghitung:
+kita bisa menghitung:
 ```txt
 jumlah subarray
 dalam O(1).

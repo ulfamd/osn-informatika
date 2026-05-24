@@ -1,8 +1,8 @@
-# Soal 40 — Merah Putih Nusantara
+# Soal 40 — Merah-Putih Nusantara
 
 ## Soal
 
-Diberikan fungsi berikut:
+Diberikan potongan kode berikut:
 
 ```cpp
 int MERAH(int A, int B) {
@@ -36,13 +36,25 @@ NUSANTARA(2025, 135)
 
 Tuliskan jawaban dalam bentuk ANGKA.
 
-:contentReference[oaicite:0]{index=0}
-
 ---
 
-## Cara Cepat
+# Cara Cepat
+
+## Langkah 1 — Pahami Fungsi
 
 Fungsi:
+
+```cpp
+MERAH(A,B)
+```
+
+menghasilkan:
+
+```txt
+FPB(A,B)
+```
+
+Sedangkan:
 
 ```cpp
 NUSANTARA(A,B)
@@ -50,80 +62,121 @@ NUSANTARA(A,B)
 
 menghitung banyak bilangan:
 
-:contentReference[oaicite:1]{index=1}
-
----
-
-# Langkah 1 — Faktorkan Bilangan
-
-Faktorkan:
-
 ```txt
-2025
+x
 ```
 
-:contentReference[oaicite:2]{index=2}
-
-Dan:
+dengan:
 
 ```txt
-135
+1 ≤ x ≤ A
 ```
 
-:contentReference[oaicite:3]{index=3}
+yang memenuhi:
+
+```txt
+FPB(A,x)=B
+```
 
 ---
 
-# Langkah 2 — Gunakan Sifat GCD
+# Jadi
 
-Jika:
+```cpp
+NUSANTARA(2025,135)
+```
 
-:contentReference[oaicite:4]{index=4}
+berarti:
 
-maka:
+```txt
+menghitung banyak x
+```
 
-:contentReference[oaicite:5]{index=5}
+dengan:
 
-Substitusi:
-
-:contentReference[oaicite:6]{index=6}
-
-Bagi 135:
-
-:contentReference[oaicite:7]{index=7}
+```txt
+FPB(2025,x)=135
+```
 
 ---
 
-# Langkah 3 — Cari Banyak k
+# Langkah 2 — Faktorkan
 
 Karena:
 
-:contentReference[oaicite:8]{index=8}
-
-dan:
-
-:contentReference[oaicite:9]{index=9}
+```txt
+2025 = 135 × 15
+```
 
 maka:
 
-:contentReference[oaicite:10]{index=10}
+```txt
+x harus kelipatan 135
+```
 
-Jadi:
+Misalkan:
+
+```txt
+x = 135k
+```
+
+Substitusi:
+
+```txt
+FPB(2025,135k)=135
+```
+
+Bagi 135:
+
+```txt
+FPB(15,k)=1
+```
+
+Artinya:
 - kita mencari banyak bilangan:
+  
+```txt
+k
+```
+
+yang:
+```txt
+relatif prima dengan 15
+```
+
+---
+
+# Langkah 3 — Batas k
+
+Karena:
+
+```txt
+x ≤ 2025
+```
+
+dan:
+
+```txt
+x = 135k
+```
+
+maka:
+
+```txt
+k ≤ 15
+```
+
+Jadi kita cukup cek:
+
 ```txt
 1 sampai 15
 ```
 
-yang relatif prima dengan:
-```txt
-15
-```
-
 ---
 
-# Langkah 4 — Hitung Euler Totient
+# Langkah 4 — Cari yang Coprime dengan 15
 
-Bilangan yang coprime dengan 15:
+Bilangan yang relatif prima dengan 15:
 
 ```txt
 1, 2, 4, 7, 8, 11, 13, 14
@@ -135,35 +188,45 @@ Jumlah:
 8
 ```
 
-Atau gunakan:
-
-:contentReference[oaicite:11]{index=11}
-
 ---
 
 # Jawaban
 
+```txt
 8
+```
 
 ---
 
-## Catatan Penting OSN
+# Catatan Penting OSN
 
 Soal ini melatih:
-- gcd
-- faktorisasi prima
+- FPB / GCD
+- teori bilangan
 - Euler Totient
 
 Konsep penting:
 
-Banyak solusi:
+Jika:
 
-:contentReference[oaicite:12]{index=12}
+```txt
+FPB(A,x)=B
+```
 
-dapat diubah menjadi:
+maka:
 
-:contentReference[oaicite:13]{index=13}
+```txt
+x = Bk
+```
 
-dan jumlah solusinya adalah:
+dan berubah menjadi:
 
-:contentReference[oaicite:14]{index=14}
+```txt
+FPB(A/B,k)=1
+```
+
+yang berarti:
+```txt
+k harus coprime
+dengan A/B.
+```

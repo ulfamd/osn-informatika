@@ -10,16 +10,14 @@ BENAR atau SALAH:
 > N = 1000000000000000000
 > ```
 >
-> bebek,
->
-> hanya dengan dua gayung:
+> serta dua gayung:
 >
 > ```txt
-> 3 liter dan 100 liter
+> X = 3 liter
+> Y = 100 liter
 > ```
 >
-> banyak bebek yang tidak bisa dimandikan
-> ternyata kurang dari:
+> banyak bebek yang tidak bisa dimandikan ternyata kurang dari:
 >
 > ```txt
 > 100 ekor
@@ -37,71 +35,90 @@ atau
 SALAH
 ```
 
-:contentReference[oaicite:0]{index=0}
-
 ---
 
-## Cara Berpikir
+# Cara Berpikir
 
 Jumlah air yang bisa dibuat berbentuk:
 
-:contentReference[oaicite:1]{index=1}
-
-dengan:
-- `a ≥ 0`
-- `b ≥ 0`
-
----
-
-# Langkah 1 — Cari FPB
-
-Hitung:
-
-:contentReference[oaicite:2]{index=2}
-
-Karena FPB = 1:
-- semua bilangan yang cukup besar
-  pasti bisa dibentuk.
-
----
-
-# Langkah 2 — Gunakan Frobenius Coin Problem
-
-Untuk dua bilangan relatif prima:
-
-Bilangan terbesar yang tidak bisa dibuat:
-
-:contentReference[oaicite:3]{index=3}
-
-Dengan:
 ```txt
-a = 3
-b = 100
+3a + 100b
 ```
 
-Maka:
+dengan:
+- a ≥ 0
+- b ≥ 0
+
+---
+
+# Langkah 1 — Cek FPB
+
+Karena:
 
 ```txt
-3×100 - 3 - 100
+FPB(3,100)=1
+```
+
+maka:
+```txt
+semua bilangan cukup besar
+pasti bisa dibuat.
+```
+
+---
+
+# Langkah 2 — Gunakan Rumus Frobenius
+
+Untuk dua bilangan coprime:
+
+```txt
+a dan b
+```
+
+bilangan terbesar yang tidak bisa dibuat adalah:
+
+```txt
+ab - a - b
+```
+
+---
+
+Substitusi:
+
+```txt
+3 × 100 - 3 - 100
+=
+300 - 103
 =
 197
 ```
 
+Artinya:
+- semua bilangan:
+  
+```txt
+≥ 198
+```
+
+pasti bisa dibuat.
+
 ---
 
-# Langkah 3 — Banyak Bilangan yang Tidak Bisa Dibuat
+# Langkah 3 — Hitung Banyak Bilangan yang Tidak Bisa Dibuat
 
-Rumus jumlah bilangan positif
-yang tidak bisa dibentuk:
+Jumlah bilangan positif
+yang tidak bisa dibuat untuk dua bilangan coprime adalah:
 
-:contentReference[oaicite:4]{index=4}
+```txt
+(a-1)(b-1)/2
+```
 
 Substitusi:
 
 ```txt
 (3-1)(100-1)/2
 =
-2×99/2
+2 × 99 / 2
 =
 99
 ```
@@ -116,12 +133,13 @@ Jumlah bebek yang tidak bisa dimandikan:
 99
 ```
 
-Karena:
+dan:
+
 ```txt
 99 < 100
 ```
 
-maka pernyataan pada soal:
+maka pernyataan soal:
 
 ```txt
 BENAR
@@ -137,24 +155,37 @@ BENAR
 
 ---
 
-## Catatan Penting OSN
+# Catatan Penting OSN
 
 Soal ini melatih:
-- gcd
+- teori bilangan
+- linear combination
 - Frobenius Coin Problem
-- number theory
 
 Konsep penting:
 
-Jika:
+Untuk:
+
 ```txt
-gcd(a,b)=1
+ax + by
+```
+
+dengan:
+
+```txt
+FPB(a,b)=1
 ```
 
 maka:
-- hanya ada finitely many
-  bilangan yang tidak bisa dibentuk.
+- bilangan terbesar yang tidak bisa dibuat:
 
-Jumlahnya:
+```txt
+ab-a-b
+```
 
-:contentReference[oaicite:5]{index=5}
+- jumlah seluruh bilangan positif
+  yang tidak bisa dibuat:
+
+```txt
+(a-1)(b-1)/2
+```

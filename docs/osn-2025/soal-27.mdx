@@ -1,4 +1,3 @@
-````md id="osn2025-soal27"
 # Soal 27 — Modulo Tiga
 
 ## Soal
@@ -35,41 +34,19 @@ Pertanyaannya:
 
 Tuliskan jawaban dalam bentuk ANGKA.
 
-:contentReference[oaicite:0]{index=0}
-
 ---
 
-## Cara Berpikir
+# Cara Cepat
 
-Kita cari pola nilai:
+Perhatikan pola berdasarkan:
 
 ```txt
-TIGA(N)
+N % 3
 ```
 
 ---
 
-# Basis
-
-Jika:
-
-```txt
-N <= 1
-```
-
-maka:
-
-```txt
-TIGA(N) = 1
-```
-
----
-
-# Analisis Berdasarkan Modulo 3
-
----
-
-## Kasus 1
+# Kasus 1
 
 Jika:
 
@@ -79,27 +56,24 @@ N % 3 = 1
 
 maka:
 
-```txt
-TIGA(N)
-=
-TIGA(N-2)
+```cpp
+TIGA(N) = TIGA(N-2)
 ```
 
-Nilai akan terus mundur
-hingga mencapai:
-
+Nilai akan terus turun sampai:
 ```txt
-1 atau negatif
+≤ 1
 ```
 
-Maka:
+Sehingga hasil akhirnya:
+
 ```txt
-selalu bernilai 1
+1
 ```
 
 ---
 
-## Kasus 2
+# Kasus 2
 
 Jika:
 
@@ -109,27 +83,26 @@ N % 3 = 2
 
 maka:
 
-```txt
-TIGA(N)
-=
-TIGA(N-3)
+```cpp
+TIGA(N) = TIGA(N-3)
 ```
 
-Nilai terus berkurang 3,
-dan akhirnya mencapai:
+Terus berkurang 3,
+hingga akhirnya:
 
 ```txt
-2 → -1
+≤ 1
 ```
 
-Maka:
+Maka hasilnya:
+
 ```txt
-selalu bernilai 1
+1
 ```
 
 ---
 
-## Kasus 3
+# Kasus 3
 
 Jika:
 
@@ -139,15 +112,15 @@ N % 3 = 0
 
 maka:
 
-```txt
+```cpp
 TIGA(N)
 =
 TIGA(N-1) + TIGA(N-3)
 ```
 
 Karena:
-- kedua bagian positif,
-- nilainya minimal:
+- kedua nilai minimal 1,
+- maka hasil minimal:
 
 ```txt
 2
@@ -155,7 +128,7 @@ Karena:
 
 Jadi:
 ```txt
-tidak pernah bernilai 1
+tidak mungkin bernilai 1
 ```
 
 ---
@@ -166,7 +139,7 @@ tidak pernah bernilai 1
 TIGA(N) = 1
 ```
 
-terjadi untuk:
+terjadi ketika:
 
 ```txt
 N tidak habis dibagi 3
@@ -177,21 +150,17 @@ N tidak habis dibagi 3
 # Hitung Banyaknya
 
 Dari:
+
 ```txt
 1 sampai 2025
 ```
 
-Jumlah bilangan habis dibagi 3:
+Jumlah kelipatan 3:
 
-:contentReference[oaicite:1]{index=1}
+:contentReference[oaicite:0]{index=0}
 
-Total bilangan:
-
-```txt
-2025
-```
-
-Maka yang TIDAK habis dibagi 3:
+Maka:
+- yang bukan kelipatan 3:
 
 ```txt
 2025 - 675
@@ -203,20 +172,23 @@ Maka yang TIDAK habis dibagi 3:
 
 # Jawaban
 
+```txt
 1350
+```
 
 ---
 
-## Catatan Penting OSN
+# Catatan Penting OSN
 
 Soal ini melatih:
 - rekursi
 - pola modulo
-- observasi matematis
+- observasi fungsi
 
 Konsep penting:
 
 Untuk:
+
 ```txt
 N % 3 ≠ 0
 ```
@@ -226,10 +198,10 @@ fungsi hanya:
 mengurangi N
 ```
 
-hingga basis,
-tanpa penjumlahan.
+hingga basis.
 
 Sedangkan:
+
 ```txt
 N % 3 = 0
 ```
@@ -239,5 +211,4 @@ menghasilkan:
 penjumlahan dua nilai
 ```
 
-sehingga hasilnya lebih besar dari 1.
-````
+sehingga hasilnya selalu lebih dari 1.
