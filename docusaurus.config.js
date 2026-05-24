@@ -10,8 +10,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Ulfa Mardatillah',
-  tagline: 'Pendidikan Profesi Guru',
+  title: 'Pendidikan Profesi Guru',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -83,9 +82,9 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'Ulfa Mardatillah',
+        title: 'Ulfa',
         logo: {
-          alt: 'Ulfa Mardatillah Logo',
+          alt: 'Ulfa Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -146,7 +145,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Ulfa Mardatillah, Duakode Studio.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Pendidikan Profesi Guru, Duakode Studio.`,
       },
       prism: {
         theme: prismThemes.github,
