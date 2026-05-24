@@ -145,7 +145,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Pendidikan Profesi Guru, Duakode Studio.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Pendidikan Profesi Guru, Ulfa-Duakode Studio.`,
       },
       prism: {
         theme: prismThemes.github,
